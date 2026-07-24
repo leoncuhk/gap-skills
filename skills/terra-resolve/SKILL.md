@@ -5,7 +5,7 @@ description: Close the ledger's open gaps — facts by lookup, decisions by budg
 
 # Terra Resolve
 
-Facts belong to the territory, decisions to the user, taste to the eye. Re-triage every open item first; strike the facts yourself via `→ lookup` — never ask what code or docs can answer.
+Facts belong to the territory, decisions to the user, taste to the eye. Re-triage every open item first; strike the facts yourself via `→ lookup` — never ask what code or docs can answer. A reference the user points at ("like this") is territory too: read it as the spec — semantics summary first (behaviors, guarantees, deliberate vs incidental), user confirms it, then reimplement semantics, never syntax, and never code whose license forbids copying.
 
 ## Decisions — ask
 
@@ -21,7 +21,9 @@ Silence means the user's next message doesn't address the question, or they tell
 - **Budget:** hard cap of 5 blocking questions.
 - **Fatigue valve:** one "just pick"-class reply fires it; the question that drew it counts as unanswered.
 - User asks for everything at once → present the whole remaining frontier as one numbered round, recommendations attached.
-- Exit either way: remaining items convert to `[A]`, presented as one batch for veto — never interleaved with blocking questions.
+- Every few questions, checkpoint: restate the decisions so far in one tight list — drift dies early. An answer that contradicts an earlier decision is flagged immediately, never silently overwritten by recency.
+- Stop early when the remaining unknowns are cheaper to discover during build than to ask about now — say so.
+- Exit any way: remaining items convert to `[A]`, presented as one batch for veto — never interleaved with blocking questions.
 
 ## Taste — show
 

@@ -10,7 +10,7 @@ A plan's job is to put the expensive-to-change decisions in front of the user wh
 
 Open gaps block the plan: run their listed resolvers first. Only low-risk residue converts to a labeled `[A]`. The plan cites only `Resolved` and `Assumed` items.
 
-Order by volatility:
+Open with three lines: what is being built, the approach chosen, the single riskiest assumption. Then order by volatility:
 
 1. **Decisions you may want to tweak** — data model, interfaces, user-facing behavior. Each: the choice, one alternative considered (or "no real alternative" for territory findings), what changing it later costs. (From `Resolved`.)
 2. **Assumptions standing** — the `[A]` batch: one line each, veto window, and the pivot signal — what observation during build forces revisiting it.
