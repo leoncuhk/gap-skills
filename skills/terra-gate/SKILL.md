@@ -14,7 +14,7 @@ Run the project's verify commands (the same ones the hooks enforce). Red → bac
 
 ## Gate 2 — understanding
 
-First **reconcile ledger against diff**: scan the changes for anything no plan step, resolved item, or deviation accounts for. Unaccounted changes are unlogged deviations — the highest-risk items in the room. Each is dispositioned before any question is asked: the user owns it (→ `Resolved` with a why), or it is reverted or split into its own change.
+First **reconcile ledger against diff**: scan the changes for anything no plan step, resolved item, or deviation accounts for. Changes to the verifier itself — tests, fixtures, CI config, hook commands — are the highest-severity kind: an agent must never grade its own homework, so these pass only if a plan step or logged deviation explicitly owns them. Unaccounted changes are unlogged deviations — the highest-risk items in the room. Each is dispositioned before any question is asked: the user owns it (→ `Resolved` with a why), or it is reverted or split into its own change.
 
 Then a report, grouped by intent: what changed, how it interacts with existing code paths, and the 2–3 mental-model updates the user should walk away with.
 
