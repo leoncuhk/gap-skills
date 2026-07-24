@@ -2,6 +2,8 @@
 
 **One ledger, six moves: a complete environment system that keeps the map true to the territory — and the territory safe under the map.**
 
+Terra is a working, installable implementation of **environment engineering** — the emerging discipline (harness engineering, agent environment engineering, AX) of designing everything around a fixed-capability model that determines how much of that capability you actually get.
+
 Your prompt, plan, and config are a map. The codebase, APIs, real constraints, and your own taste are the territory. Every mismatch between them is a **gap**, and with strong models, output quality is bottlenecked by gaps, not capability: goal gaps (the request is wrong), harness gaps (nothing enforces what must hold), understanding gaps (shipped ≠ understood), environment gaps (the same failure keeps repeating). Terra tracks all four kinds in one ledger with one grammar, closes each with its cheapest resolver, and evolves the environment from its own traces.
 
 ## The primitive
