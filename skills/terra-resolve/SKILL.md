@@ -25,7 +25,7 @@ Silence means the user's next message doesn't address the question, or they tell
 
 ## Taste — show
 
-Never ask taste to be verbalized — "what does modern mean to you?" produces noise. Show, and read the reaction.
+Never ask taste to be verbalized — "what does modern mean to you?" produces noise. But do ask for a reference first: "is there an existing thing that feels right?" — a borrowed example is cheaper than a round of probes, and pointing is not verbalizing. Then show, and read the reaction.
 
 One axis per round, everything else held constant. 3–5 throwaway artifacts, **wildly different, not shades** — contrast is the signal, similarity is noise; if no plausible user would react differently to two of them, replace one. The belief each bets on goes in the filename or your notes, never inside the artifact.
 
