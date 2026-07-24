@@ -37,7 +37,11 @@ Terra is the **process tier**. The physics tier — hooks, permissions, CI, sand
 
 ## Install
 
-Copy `skills/*` into `~/.claude/skills/` (or your harness's skill directory). Then in any project, start any task — `terra-survey` opens it.
+```bash
+npx skills add leoncuhk/terra
+```
+
+Or copy any `skills/<name>` folder into `~/.claude/skills/` (Claude Code), or anywhere your agent reads the SKILL.md format. Then in any project, start any task — `terra-survey` opens it.
 
 ## Lineage
 
