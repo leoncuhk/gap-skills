@@ -31,4 +31,4 @@ Read-only — record, never repair. Ranked by how much each would change the pla
 
 Write findings to the ledger (`terra` skill): territory facts → `Resolved` with why; defaults → `Assumed`; open questions → `Gaps` with resolvers; remaining harness gaps → `[H]`. Confirmed-safe areas are dropped unless a later step would act differently knowing them.
 
-End by rewriting the task request as the territory shows it should read — it becomes the ledger's `# TERRA:` title. Announce burn-down. "No significant gaps here" is a valid, valuable report.
+End with the survey manifest: what was wired, what was skipped and why, the top remaining `[H]` gap — then rewrite the task request as the territory shows it should read; it becomes the ledger's `# TERRA:` title. Announce burn-down. Done when every "must" found lives in a hook or permission (or stands as a recorded `[H]` gap) and the manifest is announced. "No significant gaps here" is a valid, valuable report.
