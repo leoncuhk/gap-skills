@@ -33,7 +33,7 @@ One axis per round, everything else held constant. 3–5 throwaway artifacts, **
 
 Cheap and disposable: visual → one self-contained HTML file, fake data, no wiring; approaches → a one-screen sketch each (the idea, what it optimizes for, its sharpest tradeoff).
 
-The deliverable is a criterion sentence — "you consistently rejected X, so the real requirement is Y" — written to `Resolved`; the probes are deleted. Reactions that reveal new gaps become open items with resolvers. Nothing lands → the axis was framed wrong; derive the real axis from the rejection reasons and rerun.
+The deliverable is a criterion sentence — "you consistently rejected X, so the real requirement is Y" — written to `Resolved`; the probes are deleted. Where no test can check the criterion, it becomes a gate question (`terra-gate`) — untestable quality still gets a verification gate. Reactions that reveal new gaps become open items with resolvers. Nothing lands → the axis was framed wrong; derive the real axis from the rejection reasons and rerun.
 
 ## Bookkeeping
 

@@ -21,4 +21,4 @@ End with two things:
 - The **2–4 yes/no items** needed before starting.
 - The **stop condition** — the checkable state that means done: tests X green, artifact Y exists, criterion Z met. This line is what `/goal` or any loop mounts; a stop condition that isn't mechanically checkable goes back to the ledger as a gap.
 
-Write `PLAN.md` beside the ledger (`PLAN-<task-slug>.md` if slugged). Under ~400 words — a plan too long to read gets skimmed. `TERRA.md` + `PLAN.md` are the launch packet.
+Write `PLAN.md` beside the ledger (`PLAN-<task-slug>.md` if slugged). Under ~400 words — a plan too long to read gets skimmed. Leave room for implementation judgment: an over-specified plan fails exactly where the territory disagrees with the map — that's what deviations are for. `TERRA.md` + `PLAN.md` are the launch packet.

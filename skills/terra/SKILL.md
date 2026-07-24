@@ -60,6 +60,7 @@ A rule lives at the level its **failure cost** demands, not the level its topic 
 - **Triggers bind only to observable events** — a gate passing, the user declaring done. Never to states the agent can't perceive (session end, a merge happening elsewhere).
 - **Verdicts are external.** Environment feedback, tests, or the user decide; self-assessment is a signal, never the gate.
 - **Resolved keeps its why** — a finding shaped the plan only if a later step would act differently knowing it; the rest is dropped.
+- **Terra stands down for trivial work.** A task that is mechanical, has unambiguous acceptance criteria, or whose open questions one tool call can answer needs no ledger — ceremony must never exceed the fog it manages.
 
 ## Lifecycle
 

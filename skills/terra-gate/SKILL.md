@@ -20,7 +20,7 @@ Then a report, grouped by intent: what changed, how it interacts with existing c
 
 Then the quiz, scaled to the risk it guards: no unlogged deviations and fewer than ~4 ledger entries → one round of 2–3 questions; otherwise 5–8, asked and graded one at a time, mixing recall ("what happens to in-flight jobs during deploy now?") with prediction ("someone calls X with a stale token — what do they see?"), weighted toward what would bite an unaware maintainer.
 
-Grade honestly. A miss is either a gap in the user's model or a change too clever — say which. Never pass out of politeness. After a failed round: walk the missed entries, then a second round of variant questions on the missed ground — never reuse questions verbatim. Two failed rounds → recommend splitting or simplifying the change, not a third quiz.
+Every question must be answerable from the report itself — the quiz tests understanding of what was presented, never trivia the report omitted. Grade honestly. A miss is either a gap in the user's model or a change too clever — say which. Never pass out of politeness. After a failed round: walk the missed entries, then a second round of variant questions on the missed ground — never reuse questions verbatim. Two failed rounds → recommend splitting or simplifying the change, not a third quiz.
 
 ## Death rite
 
