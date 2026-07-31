@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 — 2026-07-31
+
+Line-by-line review pass: legacy vocabulary purged (fog, rig), skill headings unified, LICENSE holder corrected, knowns/unknowns quadrant table added to README, GitHub About + topics set. Fixed a real installability bug: templates now live inside the skills that reference them (`gap-survey/templates/`, `gap-gate/templates/`) — root-level `templates/` never reached `npx skills add` installs.
+
 ## 0.2.0 — 2026-07-31
 
 Renamed: terra → **gap-skills**. The primitive is the name: repo, skill prefix (`gap-*`), and ledger (`GAP.md`) now all say the same word. GitHub redirects the old URLs.
