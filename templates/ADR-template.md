@@ -2,7 +2,7 @@
 
 - **Status**: accepted
 - **Date**: <date>
-- **Source**: graduated from TERRA.md (<task>)
+- **Source**: graduated from GAP.md (<task>)
 
 ## Decision
 

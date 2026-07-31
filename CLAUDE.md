@@ -1,4 +1,4 @@
-# Project: terra
+# Project: gap-skills
 
 ## Stack
 Markdown agent skills (SKILL.md format) + a Python validator. No build step.
@@ -17,5 +17,5 @@ Markdown agent skills (SKILL.md format) + a Python validator. No build step.
 - Ceremony must never exceed the fog it manages — when in doubt, cut.
 
 ## State
-- Task working memory: TERRA.md ledgers, deleted after merge.
+- Task working memory: GAP.md ledgers, deleted after merge.
 - Durable decisions: CHANGELOG.md (what changed) + NOTICE.md (where ideas came from).

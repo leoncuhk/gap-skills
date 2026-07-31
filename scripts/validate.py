@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate terra skill files: frontmatter, naming, cross-references, template JSON."""
+"""Validate gap skill files: frontmatter, naming, cross-references, template JSON."""
 import json
 import os
 import re
@@ -33,16 +33,16 @@ for name in sorted(skill_names):
     if len(fm.get("description", "")) < 20:
         errors.append(f"{path}: description too short")
     body = m.group(2)
-    # every referenced terra-* skill must exist
-    for ref in set(re.findall(r"`(terra[a-z-]*)`", body)):
+    # every referenced gap-* skill must exist
+    for ref in set(re.findall(r"`(gap[a-z-]*)`", body)):
         if ref not in skill_names:
             errors.append(f"{path}: references unknown skill '{ref}'")
 
 # core spec must define every tag the other skills use
-core = open(os.path.join(SKILLS, "terra", "SKILL.md")).read()
+core = open(os.path.join(SKILLS, "gap", "SKILL.md")).read()
 for tag in ["KU", "UK", "UU?", "[H]", "[A]"]:
     if tag not in core:
-        errors.append(f"terra/SKILL.md: tag {tag} not defined in core spec")
+        errors.append(f"gap/SKILL.md: tag {tag} not defined in core spec")
 
 # templates must be valid
 json.load(open(os.path.join(ROOT, "templates", "settings-template.json")))

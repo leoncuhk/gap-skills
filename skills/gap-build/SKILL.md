@@ -1,11 +1,11 @@
 ---
-name: terra-build
-description: Execute against the plan — every action conditioned on the launch packet, deviations logged instead of improvised, guards before dangerous ground. Use whenever implementing with a TERRA.md or PLAN.md present.
+name: gap-build
+description: Execute against the plan — every action conditioned on the launch packet, deviations logged instead of improvised, guards before dangerous ground. Use whenever implementing with a GAP.md or PLAN.md present.
 ---
 
-# Terra Build
+# Gap-skills Build
 
-First act: read `TERRA.md` and `PLAN.md` if present, announce the open count — a launch packet only works if the receiving session opens it.
+First act: read `GAP.md` and `PLAN.md` if present, announce the open count — a launch packet only works if the receiving session opens it.
 
 Every step is conditioned on the plan, not just the local context. Drift from the objective is a structural failure mode of the model, not bad luck — the plan is the anchor, re-read it when direction feels obvious.
 

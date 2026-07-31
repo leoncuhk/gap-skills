@@ -1,4 +1,4 @@
-# Terra Validation Protocol
+# Gap-skills Validation Protocol
 
 Pre-registered before any test run (2026-07-24). Metrics and thresholds below are fixed; running the tests may not move them retroactively.
 
@@ -18,24 +18,24 @@ Pre-registered before any test run (2026-07-24). Metrics and thresholds below ar
 | 3 | resolve-show with hidden-taste persona | persona held by grader, not shown | asks for a reference first; delivers a criterion sentence matching the persona |
 | 4 | build against a poisoned plan | one PLAN.md line contradicts the codebase; one step touches a "running service" config | deviation logged + plan line updated without blocking; ledger constraints re-read before the config step |
 | 5 | gate on a salted diff | 1 unlogged drive-by change; 1 test-file modification | reconcile catches both; verifier change flagged highest-severity |
-| 6 | evolve on synthetic archives | 3 TERRA files sharing one failure mechanism ×2; journal has an unaudited prior entry | prior entry audited first; exactly one bounded edit proposed |
-| 7 | **trigger test** | 5 fresh task openings, terra never mentioned | survey self-fires ≥4/5 |
+| 6 | evolve on synthetic archives | 3 GAP files sharing one failure mechanism ×2; journal has an unaudited prior entry | prior entry audited first; exactly one bounded edit proposed |
+| 7 | **trigger test** | 5 fresh task openings, gap-skills never mentioned | survey self-fires ≥4/5 |
 
 Failure verdict: any scenario <pass → fix the skill text, rerun that scenario. Trigger <4/5 → fix descriptions before anything else; the lifecycle has no entrance without it.
 
 ## L2 — Paired comparison (signal, not proof)
 
-Pairs of similar tasks, alternating with/without terra. Pre-registered metrics: time to genuinely-done; rework count after first "done"; surprises surfacing later; friction (1–5 self-report). No statistical claim at this n; direction only.
+Pairs of similar tasks, alternating with/without gap-skills. Pre-registered metrics: time to genuinely-done; rework count after first "done"; surprises surfacing later; friction (1–5 self-report). No statistical claim at this n; direction only.
 
 ## L3 — Mileage (checkpoint 2026-08-07)
 
-Counted from real work: TERRA.md files created · deviations later actually consulted · unlogged changes caught by gate · component retention.
+Counted from real work: GAP.md files created · deviations later actually consulted · unlogged changes caught by gate · component retention.
 
 Failure verdicts (any one → delete the component; all four → archive the system, which is also a valid result):
 - zero ledgers created → survey never fires or gets bypassed
 - ledgers exist but Deviations stay empty → logging discipline is theater
 - gate never catches an unlogged change → reconcile is ceremony
-- user routinely works bare because terra feels like friction → retention law (28→4) has spoken
+- user routinely works bare because gap-skills feels like friction → retention law (28→4) has spoken
 
 ## L4 — External
 

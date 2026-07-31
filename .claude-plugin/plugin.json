@@ -1,8 +1,8 @@
 {
-  "name": "terra",
+  "name": "gap-skills",
   "description": "One ledger, six moves: environment engineering for AI agents — gap-driven, physics-enforced, self-evolving.",
   "version": "0.1.1",
   "author": { "name": "leoncuhk" },
-  "homepage": "https://github.com/leoncuhk/terra",
+  "homepage": "https://github.com/leoncuhk/gap-skills",
   "license": "MIT"
 }

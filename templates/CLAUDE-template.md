@@ -18,5 +18,5 @@ Any rule that MUST hold belongs in a hook, not here.>
 - State assumptions before implementing; if interpretations diverge, present them — don't pick silently.
 
 ## State
-- Task working memory: TERRA.md ledgers (terra), deleted after merge.
+- Task working memory: GAP.md ledgers (gap-skills), deleted after merge.
 - Durable decisions: docs/adr/ — graduate hard-to-reverse whys there.

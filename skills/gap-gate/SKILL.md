@@ -1,10 +1,10 @@
 ---
-name: terra-gate
+name: gap-gate
 description: The dual merge gate — machine verification green, then an understanding quiz reconciled against the diff. Use before merge, delivery, or sign-off.
 disable-model-invocation: true
 ---
 
-# Terra Gate
+# Gap-skills Gate
 
 Two gates, both required. Machine green means the code passed; it doesn't mean anyone understands what shipped — and for a solo developer there is no reviewer behind you.
 
@@ -24,4 +24,4 @@ Every question must be answerable from the report itself — the quiz tests unde
 
 ## Death rite
 
-Both gates pass → graduate the whys that are hard to reverse or surprising without context into `docs/adr/` or the commit message, then delete `TERRA.md` and `PLAN.md`. Working memory, not documentation.
+Both gates pass → graduate the whys that are hard to reverse or surprising without context into `docs/adr/` or the commit message, then delete `GAP.md` and `PLAN.md`. Working memory, not documentation.

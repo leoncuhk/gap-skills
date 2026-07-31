@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 — 2026-07-31
+
+Renamed: terra → **gap-skills**. The primitive is the name: repo, skill prefix (`gap-*`), and ledger (`GAP.md`) now all say the same word. GitHub redirects the old URLs.
+
 ## 0.1.1 — 2026-07-24
 
 Lineage deep-audit round: mechanisms recovered or adopted from source-by-source comparison.

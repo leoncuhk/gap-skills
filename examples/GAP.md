@@ -1,4 +1,4 @@
-# TERRA: add rate limiting to public API
+# GAP: add rate limiting to public API
 
 A worked example of a ledger mid-task — after a survey pass and two interview questions, before planning.
 

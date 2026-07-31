@@ -1,9 +1,9 @@
 ---
-name: terra-survey
+name: gap-survey
 description: Open a task by surveying both the harness (missing verification, hooks, conventions) and the territory (unknown unknowns, landmines, constraints). Use at task start, when entering unfamiliar ground, or when a ledger item is tagged → survey.
 ---
 
-# Terra Survey
+# Gap-skills Survey
 
 Two sweeps, one report, one seeded ledger. A new project is a survey with empty findings — same procedure as a mature one.
 
@@ -31,6 +31,6 @@ Read-only — record, never repair. Ranked by how much each would change the pla
 
 ## Output
 
-Write findings to the ledger (`terra` skill): territory facts → `Resolved` with why; defaults → `Assumed`; open questions → `Gaps` with resolvers; remaining harness gaps → `[H]`. Confirmed-safe areas are dropped unless a later step would act differently knowing them.
+Write findings to the ledger (`gap` skill): territory facts → `Resolved` with why; defaults → `Assumed`; open questions → `Gaps` with resolvers; remaining harness gaps → `[H]`. Confirmed-safe areas are dropped unless a later step would act differently knowing them.
 
-End with the survey manifest: what was wired, what was skipped and why, the top remaining `[H]` gap — then rewrite the task request as the territory shows it should read; it becomes the ledger's `# TERRA:` title. Announce burn-down. Done when every "must" found lives in a hook or permission (or stands as a recorded `[H]` gap) and the manifest is announced. "No significant gaps here" is a valid, valuable report.
+End with the survey manifest: what was wired, what was skipped and why, the top remaining `[H]` gap — then rewrite the task request as the territory shows it should read; it becomes the ledger's `# GAP:` title. Announce burn-down. Done when every "must" found lives in a hook or permission (or stands as a recorded `[H]` gap) and the manifest is announced. "No significant gaps here" is a valid, valuable report.
