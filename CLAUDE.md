@@ -14,7 +14,7 @@ Markdown agent skills (SKILL.md format) + a Python validator. No build step.
 ## Boundaries
 - Surgical changes: every changed line traces to the request.
 - Domain is cognition + environment assembly only. Engineering discipline (TDD, code review, debugging) stays out — reference it, never absorb it.
-- Ceremony must never exceed the fog it manages — when in doubt, cut.
+- Ceremony must never exceed the gaps it manages — when in doubt, cut.
 
 ## State
 - Task working memory: GAP.md ledgers, deleted after merge.

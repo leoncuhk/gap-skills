@@ -4,7 +4,7 @@ description: Compile a burned-down ledger into PLAN.md ordered by decision volat
 disable-model-invocation: true
 ---
 
-# Gap-skills Plan
+# Gap Plan
 
 A plan's job is to put the expensive-to-change decisions in front of the user while changing them is still free — and to compile the goal into a stop condition something else can verify.
 

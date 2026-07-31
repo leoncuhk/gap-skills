@@ -10,7 +10,19 @@ Your prompt, plan, and config are a map. The codebase, APIs, real constraints, a
 
 ## The primitive
 
-One entry type — the gap, tagged and carrying its resolver. One file per task: `GAP.md`. Cognitive gaps (`KU`/`UK`/`UU?`) and harness gaps (`[H]`) live in the same ledger because they are the same thing: a difference between the current state and the ready state.
+One entry type — the gap, tagged and carrying its cheapest resolver. The tags follow the classic knowns/unknowns quadrants, extended by one:
+
+| Tag | Quadrant | What it is | Cheapest resolver |
+|---|---|---|---|
+| — | Known known | Already stated or proven | straight into the plan |
+| `KU` | Known unknown — fact | The codebase or docs can answer it | `→ lookup`: never ask a human what the territory can answer |
+| `KU` | Known unknown — decision | Only the user can choose | `→ ask`: budgeted, evidence-priced interview |
+| `UK` | Unknown known | Taste the user recognizes on sight but can't verbalize | `→ show`: contrasting throwaway artifacts |
+| `UU?` | Unknown unknown — suspected | A constraint nobody has checked yet | `→ survey`: blindspot sweep of the territory |
+| `[H]` | Harness gap | The environment lacks a verification, guard, or convention | `→ wire`: hooks and permissions |
+| `[A]` | Assumption | Low-risk residue | most reversible default, labeled, veto-able |
+
+One file per task: `GAP.md`. Cognitive gaps (`KU`/`UK`/`UU?`) and harness gaps (`[H]`) live in the same ledger because they are the same thing: a difference between the current state and the ready state.
 
 ## The skills
 

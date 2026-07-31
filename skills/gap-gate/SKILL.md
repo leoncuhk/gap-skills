@@ -4,7 +4,7 @@ description: The dual merge gate — machine verification green, then an underst
 disable-model-invocation: true
 ---
 
-# Gap-skills Gate
+# Gap Gate
 
 Two gates, both required. Machine green means the code passed; it doesn't mean anyone understands what shipped — and for a solo developer there is no reviewer behind you.
 

@@ -3,7 +3,7 @@ name: gap-resolve
 description: Close the ledger's open gaps — facts by lookup, decisions by budgeted evidence-priced interview, taste by contrasting throwaway artifacts. Use when GAP.md has open KU or UK items.
 ---
 
-# Gap-skills Resolve
+# Gap Resolve
 
 Facts belong to the territory, decisions to the user, taste to the eye. Re-triage every open item first; strike the facts yourself via `→ lookup` — never ask what code or docs can answer. A reference the user points at ("like this") is territory too: read it as the spec — semantics summary first (behaviors, guarantees, deliberate vs incidental), user confirms it, then reimplement semantics, never syntax, and never code whose license forbids copying.
 

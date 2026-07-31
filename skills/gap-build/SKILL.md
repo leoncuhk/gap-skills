@@ -3,7 +3,7 @@ name: gap-build
 description: Execute against the plan — every action conditioned on the launch packet, deviations logged instead of improvised, guards before dangerous ground. Use whenever implementing with a GAP.md or PLAN.md present.
 ---
 
-# Gap-skills Build
+# Gap Build
 
 First act: read `GAP.md` and `PLAN.md` if present, announce the open count — a launch packet only works if the receiving session opens it.
 

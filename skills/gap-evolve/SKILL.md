@@ -4,7 +4,7 @@ description: Mine deviation traces across tasks for repeated failure mechanisms 
 disable-model-invocation: true
 ---
 
-# Gap-skills Evolve
+# Gap Evolve
 
 The environment is not static config; it evolves from its own traces. Run periodically, or after a task that hurt.
 

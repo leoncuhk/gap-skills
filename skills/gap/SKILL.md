@@ -50,7 +50,7 @@ One per task: `GAP.md`, next to the work. Second task in a directory: rename the
 A rule lives at the level its **failure cost** demands, not the level its topic suggests:
 
 1. **Physics** — hooks, permissions, CI. What MUST happen. The agent cannot bypass it.
-2. **Structure** — gap-skills skills: budgets, gates, checkable completion criteria.
+2. **Structure** — the gap-* skills: budgets, gates, checkable completion criteria.
 3. **Prose** — CLAUDE.md, ≤30 lines, judgment calls only. A "must" found in prose is a misplaced `[H]` gap.
 
 ## Rules
@@ -60,7 +60,7 @@ A rule lives at the level its **failure cost** demands, not the level its topic 
 - **Triggers bind only to observable events** — a gate passing, the user declaring done. Never to states the agent can't perceive (session end, a merge happening elsewhere).
 - **Verdicts are external.** Environment feedback, tests, or the user decide; self-assessment is a signal, never the gate.
 - **Resolved keeps its why** — a finding shaped the plan only if a later step would act differently knowing it; the rest is dropped.
-- **Gap-skills stands down for trivial work.** A task that is mechanical, has unambiguous acceptance criteria, or whose open questions one tool call can answer needs no ledger — ceremony must never exceed the fog it manages.
+- **Gap-skills stands down for trivial work.** A task that is mechanical, has unambiguous acceptance criteria, or whose open questions one tool call can answer needs no ledger — ceremony must never exceed the gaps it manages.
 
 ## Lifecycle
 
