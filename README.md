@@ -1,5 +1,7 @@
 # terra
 
+[![skills.sh](https://skills.sh/b/leoncuhk/terra)](https://skills.sh/leoncuhk/terra) [![validate](https://github.com/leoncuhk/terra/actions/workflows/validate.yml/badge.svg)](https://github.com/leoncuhk/terra/actions/workflows/validate.yml)
+
 **One ledger, six moves: a complete environment system that keeps the map true to the territory — and the territory safe under the map.**
 
 Terra is a working, installable implementation of **environment engineering** — the emerging discipline (harness engineering, agent environment engineering, AX) of designing everything around a fixed-capability model that determines how much of that capability you actually get.
@@ -43,7 +45,21 @@ Terra is the **process tier**. The physics tier — hooks, permissions, CI, sand
 npx skills add leoncuhk/terra
 ```
 
-Or copy any `skills/<name>` folder into `~/.claude/skills/` (Claude Code), or anywhere your agent reads the SKILL.md format. Then in any project, start any task — `terra-survey` opens it.
+Or copy any `skills/<name>` folder into `~/.claude/skills/` (Claude Code), or anywhere your agent reads the SKILL.md format.
+
+## Use
+
+You do three things; everything else fires on its own:
+
+1. **State your task normally.** `terra-survey` opens it — audits the harness, scouts the territory, seeds `TERRA.md`, and hands back your request rewritten by what it found. Trivial tasks: terra stands down, no ceremony.
+2. **`/terra-plan` when gaps are burned down** — a one-page plan, volatile decisions first, ending in a checkable stop condition. Answer the 2–4 yes/no items and let it build. Deviations get logged, not asked about.
+3. **`/terra-gate` before merge** — tests must be green, the diff must reconcile against the ledger, and you pass a short quiz on what actually shipped. Then the ledger dies and its whys graduate to `docs/adr/`.
+
+Every two weeks: `/terra-evolve` — it mines your deviation history and proposes one bounded improvement to your hooks or CLAUDE.md; nothing lands without your approval.
+
+Fresh session mid-task? Say "continue — read TERRA.md and PLAN.md". Nothing is lost.
+
+A complete worked pass: [EXAMPLES.md](EXAMPLES.md). Validation methodology: [tests/PROTOCOL.md](tests/PROTOCOL.md). History: [CHANGELOG.md](CHANGELOG.md).
 
 ## Lineage
 
