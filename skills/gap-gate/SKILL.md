@@ -24,4 +24,4 @@ Every question must be answerable from the report itself — the quiz tests unde
 
 ## Death rite
 
-Both gates pass → graduate the whys that are hard to reverse or surprising without context into `docs/adr/` or the commit message, then delete `GAP.md` and `PLAN.md`. Working memory, not documentation.
+Both gates pass → graduate the whys that are hard to reverse or surprising without context into `docs/adr/` (format: `templates/ADR-template.md`, bundled with this skill) or the commit message, then delete `GAP.md` and `PLAN.md`. Working memory, not documentation.

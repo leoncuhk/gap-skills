@@ -45,7 +45,7 @@ for tag in ["KU", "UK", "UU?", "[H]", "[A]"]:
         errors.append(f"gap/SKILL.md: tag {tag} not defined in core spec")
 
 # templates must be valid
-json.load(open(os.path.join(ROOT, "templates", "settings-template.json")))
+json.load(open(os.path.join(SKILLS, "gap-survey", "templates", "settings-template.json")))
 
 if errors:
     print("\n".join(errors))

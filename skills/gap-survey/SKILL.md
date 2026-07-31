@@ -13,7 +13,7 @@ Detect, don't assume: git state; real verify commands (read package.json / pypro
 
 Close the mechanical `[H]` gaps immediately:
 
-- Wire PostToolUse verification to the project's **own** commands (start from `templates/settings-template.json`). Never invent a test framework for an existing project — no verify command means the top `[H]` gap is recorded, not fabricated.
+- Wire PostToolUse verification to the project's **own** commands (start from `templates/settings-template.json` (bundled with this skill)). Never invent a test framework for an existing project — no verify command means the top `[H]` gap is recorded, not fabricated.
 - Deny-list irreversible commands.
 - Shared or public repo → install to `.claude/settings.local.json` (committed hooks apply to every clone); solo project → `settings.json`.
 - CLAUDE.md: missing → ≤30 lines from `templates/CLAUDE-template.md`; present → edit surgically: add missing sections, move misplaced "musts" down into hooks, change nothing else.
