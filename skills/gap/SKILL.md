@@ -1,6 +1,6 @@
 ---
 name: gap
-description: Core spec for the gap-skills environment system — the gap ledger, strength hierarchy, and task lifecycle. Use when a task has unresolved gaps or unverified constraints, when the user mentions the gap-skills ledger, or when another gap-skills-* skill needs the shared rules.
+description: Core spec for the gap-skills environment system — the gap ledger, strength hierarchy, and task lifecycle. Use when a task has unresolved gaps or unverified constraints, when the user mentions the gap-skills ledger, or when another gap-* skill needs the shared rules.
 ---
 
 # Gap
@@ -66,6 +66,6 @@ A rule lives at the level its **failure cost** demands, not the level its topic 
 
 `SURVEY → RESOLVE → PLAN → BUILD → GATE`, with `EVOLVE` running across tasks.
 
-- **Birth:** any gap-skills-* skill that would write to a missing ledger (or section) creates it first.
+- **Birth:** any gap-* skill that would write to a missing ledger (or section) creates it first.
 - **Handoff:** `GAP.md` + `PLAN.md` are the launch packet — any fresh session resumes from them at zero loss. Sessions are cattle, not pets.
 - **Death:** when `gap-gate` passes or the user declares the task done — graduate the whys that are hard to reverse or surprising without context into `docs/adr/` or the commit message, then delete the ledger. Working memory, not documentation.
