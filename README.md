@@ -1,81 +1,83 @@
 # gap-skills
 
-[![skills.sh](https://skills.sh/b/leoncuhk/gap-skills)](https://skills.sh/leoncuhk/gap-skills) [![validate](https://github.com/leoncuhk/gap-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/leoncuhk/gap-skills/actions/workflows/validate.yml)
+[![validate](https://github.com/leoncuhk/gap-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/leoncuhk/gap-skills/actions/workflows/validate.yml)
 
-**One ledger, six moves: a complete environment system that keeps the map true to the territory — and the territory safe under the map.**
+**One skill, one adaptive path from intent to verified delivery.**
 
-Gap-skills is a working, installable implementation of **environment engineering** — the emerging discipline (harness engineering, agent environment engineering, AX) of designing everything around a fixed-capability model that determines how much of that capability you actually get.
+`gap` combines the useful mechanisms behind unknown discovery, structured interviewing, specification, work slicing, plan-conditioned implementation, evidence-backed review, human approval gates, incident feedback, and agent-environment retrospectives. Developers install and invoke one skill; the skill loads only the branch the current task needs.
 
-Your prompt, plan, and config are a map. The codebase, APIs, real constraints, and your own taste are the territory. Every mismatch between them is a **gap**, and with strong models, output quality is bottlenecked by gaps, not capability: goal gaps (the request is wrong), harness gaps (nothing enforces what must hold), understanding gaps (shipped ≠ understood), environment gaps (the same failure keeps repeating). Gap-skills tracks all four kinds in one ledger with one grammar, closes each with its cheapest resolver, and evolves the environment from its own traces.
+It does not force every task through a full lifecycle. It routes work by ambiguity, scale, and risk:
 
-## The primitive
-
-One entry type — the gap, tagged and carrying its cheapest resolver. The tags follow the classic knowns/unknowns quadrants, extended by one:
-
-| Tag | Quadrant | What it is | Cheapest resolver |
-|---|---|---|---|
-| — | Known known | Already stated or proven | straight into the plan |
-| `KU` | Known unknown — fact | The codebase or docs can answer it | `→ lookup`: never ask a human what the territory can answer |
-| `KU` | Known unknown — decision | Only the user can choose | `→ ask`: budgeted, evidence-priced interview |
-| `UK` | Unknown known | Taste the user recognizes on sight but can't verbalize | `→ show`: contrasting throwaway artifacts |
-| `UU?` | Unknown unknown — suspected | A constraint nobody has checked yet | `→ survey`: blindspot sweep of the territory |
-| `[H]` | Harness gap | The environment lacks a verification, guard, or convention | `→ wire`: hooks and permissions |
-| `[A]` | Assumption | Low-risk residue | most reversible default, labeled, veto-able |
-
-One file per task: `GAP.md`. Cognitive gaps (`KU`/`UK`/`UU?`) and harness gaps (`[H]`) live in the same ledger because they are the same thing: a difference between the current state and the ready state.
-
-## The skills
-
-| Skill | Phase | One move |
+| Path | Typical work | Process cost |
 |---|---|---|
-| [`gap`](skills/gap/SKILL.md) | always | The spec: ledger format, gap types, strength hierarchy, lifecycle |
-| [`gap-survey`](skills/gap-survey/SKILL.md) | open | Sweep harness and territory in one pass; wire what's mechanical; seed the ledger; rewrite the request |
-| [`gap-resolve`](skills/gap-resolve/SKILL.md) | before | Facts by lookup, decisions by budgeted evidence-priced interview, taste by contrasting artifacts |
-| [`gap-plan`](skills/gap-plan/SKILL.md) | gate | Volatility-ordered PLAN.md ending in a mechanically checkable stop condition |
-| [`gap-build`](skills/gap-build/SKILL.md) | during | Every action conditioned on the launch packet; deviations logged, never improvised; guards before dangerous ground |
-| [`gap-gate`](skills/gap-gate/SKILL.md) | close | Dual gate: machine green + understanding quiz reconciled against the diff; then the death rite |
-| [`gap-evolve`](skills/gap-evolve/SKILL.md) | across tasks | Mine repeated failure mechanisms; promote one bounded, gated, revertible fix per run |
+| **Quick** | Clear, local, reversible edit | Inspect → implement → verify. No process files. |
+| **Standard** | Ambiguous, multi-part, or multi-session change | Clarify → plan → build → verify → two-axis review. |
+| **Governed** | Production, migration, sensitive, regulated, or externally consequential work | Durable intent → spec → plan → evidence → independent review → named approval → release/incident loop. |
 
-Lifecycle: `SURVEY → RESOLVE → PLAN → BUILD → GATE`, with `EVOLVE` across tasks.
+## What the single skill covers
 
-## What gap-skills deliberately does NOT build
+- **Discover intent:** facts from the repository, decisions from the user, contrasting prototypes for tacit taste, blind-spot inspection, references read as behavioral specifications.
+- **Plan at the right depth:** no artifact for trivial work, a concise plan for ordinary changes, durable intent/spec/plan and tracer-bullet tickets for large or governed changes.
+- **Deliver against the plan:** verifiable slices, tight feedback, explicit deviations, and special scrutiny when tests or evaluators change.
+- **Solve hard engineering problems:** red-first debugging loops, evidence-based issue triage, deep-module architecture, domain-language repair, safe context handoffs, and intent-aware merge resolution.
+- **Review on two independent axes:** whether the change solves the requested problem and whether it is sound engineering.
+- **Communicate complex work:** concise Markdown by default, with self-contained HTML only when comparison, spatial layout, diagrams, or interaction materially improve understanding.
+- **Govern consequential actions:** one source of truth, rule-to-enforcement mapping, named approvals, protected production boundaries, and incident-to-intent feedback.
+- **Improve the environment:** turn repeated observed failures into one tested, reversible change to guidance, checks, tools, or protected controls.
 
-Gap-skills is the **process tier**. The physics tier — hooks, permissions, CI, sandboxes — already exists in your harness; gap-survey wires to it, never replaces it. On Claude Code that means `.claude/settings[.local].json`; the same ledger and lifecycle run unchanged on any harness that reads SKILL.md (pi included) — only the physics wiring is harness-specific. Loops (`/goal`, schedulers) are also native: gap-plan's stop condition is what you mount on them, and only after the chain has run clean by hand.
+## Why one skill
 
-## Design rules
-
-- **Musts are physics.** Anything that must happen lives in a hook or permission. A "must" in prose is a recorded `[H]` gap.
-- **Verdicts are external.** Tests, environment feedback, or the user decide; self-assessment is a signal, never the gate.
-- **Triggers bind to observable events only** — never to states the agent can't perceive.
-- **Brownfield first.** A new project is a survey with empty findings; wire to what exists, report gaps instead of fabricating fixes.
-- **Budgets over relentlessness.** Interviews are capped and priced; ceremony scales to the risk it guards.
-- **Retention is the score.** A component that goes unused is a negative asset — delete it.
+The user should not memorize or coordinate a collection of overlapping process skills. `gap` is the only entry point. Its `SKILL.md` holds routing and shared invariants; focused references are loaded only when their branch applies. This keeps the installed skill list small without forcing every task to carry the entire workflow in context.
 
 ## Install
+
+Install from the repository with a compatible skill installer:
 
 ```bash
 npx skills add leoncuhk/gap-skills
 ```
 
-Or copy any `skills/<name>` folder into `~/.claude/skills/` (Claude Code), or anywhere your agent reads the SKILL.md format.
+Or install the single folder directly:
+
+- Claude Code: place `skills/gap` in the supported project or user skill location.
+- Codex repository scope: copy or symlink `skills/gap` to `.agents/skills/gap`.
+- Codex user scope: copy or symlink `skills/gap` to `$HOME/.agents/skills/gap`.
+
+The repository also includes Claude and Codex plugin manifests. Platform-specific settings and enforcement remain platform-specific; the shared workflow does not pretend one harness's hooks control another.
 
 ## Use
 
-You do three things; everything else fires on its own:
+State the development task normally. `gap` may activate for ambiguous, multi-step, risky, governed, review, incident, or environment-improvement work. It deliberately skips simple well-scoped edits and one-lookup questions.
 
-1. **State your task normally.** `gap-survey` opens it — audits the harness, scouts the territory, seeds `GAP.md`, and hands back your request rewritten by what it found. Trivial tasks: gap-skills stands down, no ceremony.
-2. **`/gap-plan` when gaps are burned down** — a one-page plan, volatile decisions first, ending in a checkable stop condition. Answer the 2–4 yes/no items and let it build. Deviations get logged, not asked about.
-3. **`/gap-gate` before merge** — tests must be green, the diff must reconcile against the ledger, and you pass a short quiz on what actually shipped. Then the ledger dies and its whys graduate to `docs/adr/`.
+Invoke it explicitly when desired:
 
-Every two weeks: `/gap-evolve` — it mines your deviation history and proposes one bounded improvement to your hooks or CLAUDE.md; nothing lands without your approval.
+```text
+$gap assess and deliver this change using the smallest trustworthy path
+```
 
-Fresh session mid-task? Say "continue — read GAP.md and PLAN.md". Nothing is lost.
+To adopt it in an existing project:
 
-A complete worked pass: [EXAMPLES.md](EXAMPLES.md). Validation methodology: [tests/PROTOCOL.md](tests/PROTOCOL.md). History: [CHANGELOG.md](CHANGELOG.md).
+```text
+$gap inspect this repository and propose a minimal adoption plan; do not change configuration yet
+```
 
-## Lineage
+The adoption pass is read-only until the user approves exact project changes.
 
-Gap-skills is the unified successor to the author's [defog](https://github.com/leoncuhk/defog) (unknowns ledger, quadrants, budgeted asking, quiz gate — now archived) and rig (audit-first assembly, strength hierarchy, gated evolution). It also adapts, with gratitude: Matt Pocock's [skills](https://github.com/mattpocock/skills) (grilling discipline, skill-writing principles) and the documented failure modes of its wayfinder (#450, #484); Thariq Shihipar's map/territory frame; Neeeophytee's [finding-unknowns-skills](https://github.com/Neeeophytee/finding-unknowns-skills) (belief-labeled probes, criterion sentence, blast-radius ordering); Nico Bailon's [grill-for-unknowns](https://github.com/nicobailon/grill-for-unknowns) (ledger concept, question budget, fatigue valve, question gates); the verification-density principle (Jason Wei's Verifier's Law); plan-conditioned execution (StraTA, arXiv 2605.06642); and trace-driven, regression-gated environment evolution (Self-Harness, arXiv 2606.09498). See [NOTICE.md](NOTICE.md).
+## Artifacts
+
+Existing trackers and documentation conventions win. Defaults are provided only when a project has none:
+
+- disposable working state: `.gap/work/<change-id>/state.md`;
+- durable governed records: `docs/changes/<change-id>/`;
+- durable environment work: `docs/agent/harness-backlog.md` and `docs/agent/evolution-log.md`.
+
+Temporary state is removed only after unresolved environment problems, meaningful deviations, and durable decisions have been promoted. Accepted plans and approvals needed for review or audit are retained.
+
+## Evidence and limits
+
+Repository validation checks packaging, references, manifests, invocation metadata, templates, and workflow invariants. Behavioral evaluation includes positive and negative activation cases plus Quick, Standard, and Governed fixtures. These checks show that the implementation is coherent; comparative effectiveness still requires retained results from real work.
+
+See [tests/PROTOCOL.md](tests/PROTOCOL.md) for the evaluation contract, [tests/RESULTS-2026-08-27.md](tests/RESULTS-2026-08-27.md) for current evidence, and [NOTICE.md](NOTICE.md) for lineage.
 
 ## License
 

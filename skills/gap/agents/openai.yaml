@@ -1,0 +1,7 @@
+interface:
+  display_name: "Gap"
+  short_description: "One adaptive workflow from intent to verified delivery"
+  default_prompt: "Use $gap to choose and run the smallest trustworthy delivery path for this change."
+
+policy:
+  allow_implicit_invocation: true

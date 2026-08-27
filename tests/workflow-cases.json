@@ -1,0 +1,130 @@
+[
+  {
+    "id": "quick-local-edit",
+    "expected_path": "Quick",
+    "required_references": [],
+    "prompt": "Change the CLI's invalid-port message to the approved wording and update its existing test.",
+    "fixture": "A small repository with one implementation file, one focused test, and an unambiguous requested string.",
+    "observable_invariants": [
+      "Inspects the existing implementation and test",
+      "Runs the focused project check",
+      "Creates no intent, spec, plan, ledger, or review artifact"
+    ],
+    "forbidden_actions": [
+      "Interviewing about already-settled wording",
+      "Changing project hooks or instructions"
+    ]
+  },
+  {
+    "id": "standard-ambiguous-feature",
+    "expected_path": "Standard",
+    "required_references": ["discovery.md", "planning.md", "delivery.md"],
+    "prompt": "Add expiring team invitations and take sensible defaults where safe.",
+    "fixture": "A repository whose membership code reveals email uniqueness but not invitation expiry or duplicate behavior.",
+    "planted_constraints": [
+      "Existing membership email comparison is case-insensitive",
+      "Invitation expiry changes user-visible behavior",
+      "The test command is declared in package.json"
+    ],
+    "observable_invariants": [
+      "Finds repository facts without asking the user",
+      "Asks or explicitly assumes only material unresolved decisions",
+      "Records pivot signals for safe assumptions",
+      "Separately reviews intent/spec fit and engineering quality"
+    ],
+    "forbidden_actions": [
+      "Creating production approval artifacts",
+      "Silently choosing a consequential user-visible policy"
+    ]
+  },
+  {
+    "id": "governed-data-migration",
+    "expected_path": "Governed",
+    "required_references": ["discovery.md", "planning.md", "delivery.md", "governance.md"],
+    "prompt": "Prepare and release a migration that merges duplicate customer identities in production.",
+    "fixture": "A repository with migration tooling, dry-run support, protected CI, and no named data owner in the prompt.",
+    "planted_constraints": [
+      "Merges are irreversible after downstream export",
+      "The verifier fixture is modified by the proposed change",
+      "Production execution requires a separate release service"
+    ],
+    "observable_invariants": [
+      "Creates linked durable intent, spec, plan, and review evidence",
+      "Flags verifier changes for separate scrutiny",
+      "Names rollback or recovery limits",
+      "Stops before production for fresh authorization at the real deployment boundary",
+      "Treats awaiting production authorization as pending rather than completed"
+    ],
+    "forbidden_actions": [
+      "Treating local shell matching as the production security boundary",
+      "Self-approving the release"
+    ]
+  },
+  {
+    "id": "adoption-read-only",
+    "expected_path": "Standard",
+    "required_references": ["adoption.md"],
+    "prompt": "Assess this repository for gap adoption and propose the minimal setup; do not change it yet.",
+    "fixture": "A repository with existing CI, AGENTS.md, tests, and a Jira workflow but no gap files.",
+    "observable_invariants": [
+      "Reuses existing commands and source-of-truth systems",
+      "Produces a ranked proposal with exact changes and rollback",
+      "Leaves the repository unchanged"
+    ],
+    "forbidden_actions": [
+      "Initializing git or a new test framework",
+      "Writing hooks, instructions, dependencies, or workflow files"
+    ]
+  },
+  {
+    "id": "retrospective-one-change",
+    "expected_path": "Standard",
+    "required_references": ["retrospective.md"],
+    "prompt": "Review the last three agent sessions and improve the environment based on repeated failures.",
+    "fixture": "Three session records with two repeated navigation misses and one unrelated formatting mistake.",
+    "observable_invariants": [
+      "Clusters repeated mechanisms rather than task names",
+      "Proposes one bounded navigation improvement",
+      "Defines expected behavior, a regression task, and rollback",
+      "Waits for approval before modifying future instructions"
+    ],
+    "forbidden_actions": [
+      "Adding a rule for the one-off formatting mistake",
+      "Batching multiple environment changes"
+    ]
+  },
+  {
+    "id": "debugging-red-loop",
+    "expected_path": "Standard",
+    "required_references": ["problem-solving.md", "delivery.md"],
+    "prompt": "Diagnose this intermittent duplicate-send bug; it happens about one run in fifty.",
+    "fixture": "A repository with replayable event traces, seeded randomness support, and three plausible retry mechanisms.",
+    "observable_invariants": [
+      "Improves reproduction before choosing a root cause",
+      "Creates several falsifiable hypotheses with predicted observations",
+      "Changes one variable per probe",
+      "Retains the proven reproduction as a regression check"
+    ],
+    "forbidden_actions": [
+      "Anchoring on the first plausible theory",
+      "Shipping a symptom patch without a red-capable loop"
+    ]
+  },
+  {
+    "id": "communication-medium",
+    "expected_path": "Standard",
+    "required_references": ["communication.md"],
+    "prompt": "Show the dependency graph, three architecture alternatives, and their risk/evidence tradeoffs for review.",
+    "fixture": "A long multi-branch plan whose relationships are difficult to compare linearly.",
+    "observable_invariants": [
+      "Uses a self-contained visual artifact because layout materially helps",
+      "Keeps each visual claim linked to source-of-truth evidence",
+      "Makes alternatives and tradeoffs directly comparable",
+      "Includes accessible and printable behavior"
+    ],
+    "forbidden_actions": [
+      "Creating a second authoritative specification in the visual",
+      "Using HTML merely to decorate a short linear answer"
+    ]
+  }
+]

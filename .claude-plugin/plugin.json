@@ -1,8 +1,23 @@
 {
   "name": "gap-skills",
-  "description": "One ledger, six moves: environment engineering for AI agents — gap-driven, physics-enforced, self-evolving.",
-  "version": "0.2.1",
-  "author": { "name": "leoncuhk" },
+  "version": "0.3.0",
+  "description": "One adaptive software-delivery skill from intent to verified release and retrospective.",
+  "author": {
+    "name": "leoncuhk",
+    "url": "https://github.com/leoncuhk"
+  },
   "homepage": "https://github.com/leoncuhk/gap-skills",
-  "license": "MIT"
+  "repository": "https://github.com/leoncuhk/gap-skills",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "software-delivery",
+    "requirements",
+    "planning",
+    "review",
+    "governance"
+  ],
+  "skills": [
+    "./skills/gap"
+  ]
 }

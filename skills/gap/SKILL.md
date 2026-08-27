@@ -1,71 +1,70 @@
 ---
 name: gap
-description: Core spec for the gap-skills environment system — the gap ledger, strength hierarchy, and task lifecycle. Use when a task has unresolved gaps or unverified constraints, when the user mentions the gap-skills ledger, or when another gap-* skill needs the shared rules.
+description: Guide ambiguous, multi-step, risky, or governed software changes from intent through planning, implementation, verification, review, release, and retrospective. Use for requirements discovery, prototypes, specs, plans, multi-session delivery, evidence-backed review, production gates, incidents, or agent-environment improvement. Skip simple well-scoped edits and questions answerable with one lookup.
 ---
 
 # Gap
 
-The map (prompt, plan, config) never matches the territory (codebase, APIs, real constraints, taste) at the start. Every mismatch is a **gap**. Gap-skills makes gaps explicit in one ledger, closes each with its cheapest resolver, enforces every "must" as physics, and evolves the environment from its own traces.
+Run one adaptive software-delivery workflow. Use the smallest path that makes the change trustworthy; do not make the user choose among separate process skills.
 
-## The ledger
+## Operating contract
 
-One per task: `GAP.md`, next to the work. Second task in a directory: rename the existing ledger to `GAP-<task-slug>.md` first, also slugged.
+- Inspect the repository and available evidence before asking questions. Facts come from the environment; decisions come from the user.
+- Start read-only. Changing project instructions, hooks, permissions, CI, dependencies, or repository structure requires the user's request or explicit approval of a concrete proposal.
+- Treat fluent claims as unverified until supported by a file, command, observation, source, or clearly labeled judgment.
+- Put a rule at the weakest layer that safely controls its failure: guidance for judgment, automated checks for repeatable facts, protected external gates for actions that must not be bypassed.
+- Keep working state separate from durable evidence. Temporary notes may die; accepted intent, specifications, plans, approvals, incidents, and lasting environment gaps remain in the project's chosen source of truth.
+- Preserve the project's existing tracker, documentation layout, commands, and delivery system. Add a parallel system only when the user explicitly wants migration.
 
-```markdown
-# GAP: <task, corrected as surveyed>
+## Route the task
 
-## Gaps
-- [KU] <fact to verify> → lookup
-- [KU] <decision the user must make> → ask
-- [UK] <taste recognized only on sight> → show
-- [UU?] <suspected constraint nobody checked> → survey
-- [H] <harness gap: missing verification, guard, or convention> → wire
+Inspect the request and repository, then assess three dimensions:
 
-## Assumed
-- [A] <default taken> — cost to revisit: <cost>
+1. **Ambiguity**: Are outcome, behavior, constraints, and important choices settled?
+2. **Scale**: Is the work local and single-session, or cross-cutting, multi-session, or parallel?
+3. **Risk**: Could it affect production, security, privacy, money, data, compatibility, compliance, or an irreversible external action?
 
-## Resolved
-- [x] <decision or finding> (<who: user | territory>, <date>) — <why>
+Choose the highest path required by any dimension:
 
-## Deviations            <!-- add on first deviation; never keep empty -->
-- <plan said / did instead / why / cost to revisit>
-```
-
-`territory` covers anything verified against the real system, including your own experiments.
-
-## Gap types and resolvers
-
-| Tag | Gap | Resolver |
+| Path | Use when | Required shape |
 |---|---|---|
-| — | Known known | Not a gap. Straight into the plan. |
-| `KU` fact | The territory can answer it | `→ lookup` — never ask what code or docs can answer |
-| `KU` decision | The user must choose | `→ ask` (`gap-resolve`) |
-| `UK` | Taste, recognized on sight | `→ show` (`gap-resolve`) |
-| `UU?` | Suspected unknown unknown | `→ survey` (`gap-survey`) |
-| `H` | Environment lacks a verification, guard, or convention | `→ wire` (`gap-survey`), or accept as `[A]` |
-| `A` | Low-risk residue | Most reversible default, labeled, veto-able |
+| **Quick** | Clear, local, reversible, low-risk | Inspect, implement, run the project's checks, report evidence. Create no process files. |
+| **Standard** | Material ambiguity, several interacting changes, or a handoff/multi-session build | Clarify intent, record a concise plan, implement in verifiable slices, reconcile intent/plan/diff, run checks, review. |
+| **Governed** | Production, migration, sensitive data, external side effects, regulated work, or required organizational approval | Durable intent → spec → plan → implementation evidence → independent review → named approval → release/incident loop. |
 
-## Strength hierarchy
+For Standard or Governed work, state the selected path and the reason in one sentence. If the task changes shape, reroute upward; moving downward requires evidence that the original risk is gone.
 
-A rule lives at the level its **failure cost** demands, not the level its topic suggests:
+## Load only the branch you need
 
-1. **Physics** — hooks, permissions, CI. What MUST happen. The agent cannot bypass it.
-2. **Structure** — the gap-* skills: budgets, gates, checkable completion criteria.
-3. **Prose** — CLAUDE.md, ≤30 lines, judgment calls only. A "must" found in prose is a misplaced `[H]` gap.
+- Unclear intent, unfamiliar territory, hidden constraints, user taste, or “like this” references: read [references/discovery.md](references/discovery.md).
+- A written plan, specification, task graph, handoff, or multi-session build: read [references/planning.md](references/planning.md).
+- A hard bug, flaky failure, incoming issue backlog, architecture improvement, domain-language problem, merge conflict, or long investigation: read [references/problem-solving.md](references/problem-solving.md).
+- Any code or configuration change on Standard or Governed paths: read [references/delivery.md](references/delivery.md).
+- A plan, comparison, architecture explanation, review, demo, or status report whose relationships are hard to scan in prose: read [references/communication.md](references/communication.md).
+- Production, approvals, policy enforcement, deployment, monitoring, or incidents: read [references/governance.md](references/governance.md).
+- A retrospective, repeated failure, or proposed change to agent instructions/tools: read [references/retrospective.md](references/retrospective.md).
+- Installing or adapting this workflow to a project: read [references/adoption.md](references/adoption.md) first and alone; load another reference only if the inspected project presents that branch's concrete risk.
 
-## Rules
+Quick work needs no reference unless one of these branches actually applies.
 
-- **Every open gap carries its resolver.** The ledger is a work queue, not a diary.
-- **Burn-down is visible.** Announce `<n> open, <m> assumed` after every ledger write.
-- **Triggers bind only to observable events** — a gate passing, the user declaring done. Never to states the agent can't perceive (session end, a merge happening elsewhere).
-- **Verdicts are external.** Environment feedback, tests, or the user decide; self-assessment is a signal, never the gate.
-- **Resolved keeps its why** — a finding shaped the plan only if a later step would act differently knowing it; the rest is dropped.
-- **Gap-skills stands down for trivial work.** A task that is mechanical, has unambiguous acceptance criteria, or whose open questions one tool call can answer needs no ledger — ceremony must never exceed the gaps it manages.
+## Artifact policy
 
-## Lifecycle
+Use the project's existing issue tracker or documentation convention as the source of truth. When none exists:
 
-`SURVEY → RESOLVE → PLAN → BUILD → GATE`, with `EVOLVE` running across tasks.
+- Temporary working state: `.gap/work/<change-id>/state.md` from [assets/state.md](assets/state.md).
+- Durable governed change records: `docs/changes/<change-id>/` using [intent.md](assets/intent.md), [spec.md](assets/spec.md), [plan.md](assets/plan.md), and [review.md](assets/review.md).
+- Durable environment work: `docs/agent/harness-backlog.md` and `docs/agent/evolution-log.md` using the supplied assets.
 
-- **Birth:** any gap-* skill that would write to a missing ledger (or section) creates it first.
-- **Handoff:** `GAP.md` + `PLAN.md` are the launch packet — any fresh session resumes from them at zero loss. Sessions are cattle, not pets.
-- **Death:** when `gap-gate` passes or the user declares the task done — graduate the whys that are hard to reverse or surprising without context into `docs/adr/` or the commit message, then delete the ledger. Working memory, not documentation.
+Standard work may keep intent and plan in the issue/PR instead of adding files. Governed work names one durable source of truth and records approvals there. Never maintain two authoritative copies.
+
+Before deleting temporary state, promote every unresolved environment problem, important deviation, and hard-to-reverse decision to its durable home. A plan required for review or audit remains durable.
+
+## Completion
+
+Completion means the selected path's promises are satisfied:
+
+- **Quick**: requested behavior exists and relevant project checks were run.
+- **Standard**: intent, plan, implementation, and verification agree; material deviations are explained; review finds no unresolved blocking issue.
+- **Governed**: durable artifacts and evidence agree, required independent reviews passed, and every requested authorized action was executed and verified. Awaiting authorization is not completion; report it as the remaining boundary.
+
+Report what was verified, what was not verified, and any remaining risk. Never call the workflow effective or optimal from self-assessment alone; that conclusion comes from retained task results and comparison over time.

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.0 — 2026-08-27
+
+Rebuilt the package around one user-facing `gap` skill.
+
+- Replaced seven lifecycle skills with one adaptive router and progressively disclosed discovery, planning, problem-solving, delivery, communication, governance, retrospective, and adoption references.
+- Added Quick, Standard, and Governed paths so ceremony scales with ambiguity, size, and risk.
+- Folded in the useful coverage of unknown discovery, grilling, specs/tickets, debugging, architecture, context handoffs, visual artifacts, plan-conditioned implementation, two-axis review, AI-native SDLC governance, and environment retrospectives without requiring parallel skill suites.
+- Made adoption read-only by default and separated guidance, automated checks, and protected external gates.
+- Split disposable task state from durable intent/spec/plan/review records and long-lived environment backlog.
+- Added current Codex metadata and plugin packaging alongside the Claude plugin.
+- Replaced the trigger-only protocol with positive and negative activation cases, workflow fixtures, deterministic contract tests, and a paired real-work pilot design.
+
 ## 0.2.1 — 2026-07-31
 
 Line-by-line review pass: legacy vocabulary purged (fog, rig), skill headings unified, LICENSE holder corrected, knowns/unknowns quadrant table added to README, GitHub About + topics set. Fixed a real installability bug: templates now live inside the skills that reference them (`gap-survey/templates/`, `gap-gate/templates/`) — root-level `templates/` never reached `npx skills add` installs.

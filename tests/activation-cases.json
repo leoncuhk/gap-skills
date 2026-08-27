@@ -1,0 +1,122 @@
+[
+  {
+    "id": "positive-01",
+    "prompt": "Add team invitations; I have not decided expiry, duplicate handling, or roles yet.",
+    "should_activate": true,
+    "reason": "Material requirements ambiguity"
+  },
+  {
+    "id": "positive-02",
+    "prompt": "Plan and execute a customer identity data migration with rollback and production approval.",
+    "should_activate": true,
+    "reason": "Migration and production risk"
+  },
+  {
+    "id": "positive-03",
+    "prompt": "Review this PR against the originating specification and our engineering standards.",
+    "should_activate": true,
+    "reason": "Evidence-backed two-axis review"
+  },
+  {
+    "id": "positive-04",
+    "prompt": "Turn last night's payment incident into a diagnosis, safe fix, and regression plan.",
+    "should_activate": true,
+    "reason": "Incident and governed delivery loop"
+  },
+  {
+    "id": "positive-05",
+    "prompt": "Inspect this repository and propose how to adopt an AI-native development workflow.",
+    "should_activate": true,
+    "reason": "Explicit workflow adoption"
+  },
+  {
+    "id": "positive-06",
+    "prompt": "Break this cross-service feature into independently deliverable tickets for several sessions.",
+    "should_activate": true,
+    "reason": "Multi-session planning and task graph"
+  },
+  {
+    "id": "positive-07",
+    "prompt": "I cannot describe the visual direction; show genuinely different prototypes before implementation.",
+    "should_activate": true,
+    "reason": "Tacit taste discovery"
+  },
+  {
+    "id": "positive-08",
+    "prompt": "Reimplement the behavior of this reference library in our stack without copying its code.",
+    "should_activate": true,
+    "reason": "Reference-as-spec discovery"
+  },
+  {
+    "id": "positive-09",
+    "prompt": "We have repeated the same agent mistake in three changes; improve the project environment.",
+    "should_activate": true,
+    "reason": "Evidence-based environment retrospective"
+  },
+  {
+    "id": "positive-10",
+    "prompt": "Redesign authentication across web, mobile, and API clients with compatibility and security review.",
+    "should_activate": true,
+    "reason": "Cross-cutting high-risk design"
+  },
+  {
+    "id": "negative-01",
+    "prompt": "Fix the spelling of 'seperate' in README.md.",
+    "should_activate": false,
+    "reason": "Clear local mechanical edit"
+  },
+  {
+    "id": "negative-02",
+    "prompt": "What does parse_config return?",
+    "should_activate": false,
+    "reason": "One repository lookup"
+  },
+  {
+    "id": "negative-03",
+    "prompt": "Run the existing unit tests and report failures.",
+    "should_activate": false,
+    "reason": "Well-scoped diagnostic command"
+  },
+  {
+    "id": "negative-04",
+    "prompt": "Rename the local variable tmp to result in this function.",
+    "should_activate": false,
+    "reason": "Clear reversible refactor"
+  },
+  {
+    "id": "negative-05",
+    "prompt": "Explain this stack trace without changing files.",
+    "should_activate": false,
+    "reason": "Focused explanation"
+  },
+  {
+    "id": "negative-06",
+    "prompt": "Format src/example.py with the project's formatter.",
+    "should_activate": false,
+    "reason": "Existing deterministic operation"
+  },
+  {
+    "id": "negative-07",
+    "prompt": "Update the snapshot for the already-approved copy change.",
+    "should_activate": false,
+    "reason": "Acceptance criteria already settled"
+  },
+  {
+    "id": "negative-08",
+    "prompt": "Which version of React is declared in package.json?",
+    "should_activate": false,
+    "reason": "One-file factual lookup"
+  },
+  {
+    "id": "negative-09",
+    "prompt": "Add a comment explaining why this regex is case-insensitive.",
+    "should_activate": false,
+    "reason": "Small explicit documentation edit"
+  },
+  {
+    "id": "negative-10",
+    "prompt": "Summarize the last 20 lines of this build log.",
+    "should_activate": false,
+    "reason": "Bounded read-only summary"
+  }
+]

@@ -1,42 +1,37 @@
-# A full pass, end to end
+# Examples
 
-One task — "add rate limiting to the public API" — walked through all six moves. Condensed; the mid-task ledger this produces is [examples/GAP.md](examples/GAP.md).
+## Quick: a local bug fix
 
-## 1. Open — gap-survey (automatic)
+Request: “Fix the typo in the validation error and update its snapshot.”
 
-You say: *"Add rate limiting to the public API."*
+Route: Quick. Inspect the existing error and snapshot convention, make the local change, run the focused test, report evidence. No intent, plan, ledger, or quiz.
 
-Survey sweeps the harness (finds `npm test` exists but no PostToolUse hook → wires it; finds "always use the shared Redis" buried in CLAUDE.md → flags it as a misplaced must) and the territory (finds Redis already in the stack, finds `middleware/auth.ts` resolves keys before routing, suspects Stripe webhook bursts are unhandled). It seeds the ledger and ends:
+## Standard: an ambiguous feature
 
-> **GAP: add per-key rate limiting at the middleware seam, reusing the existing Redis** — 3 open, 1 assumed.
+Request: “Add team invitations.”
 
-Your request, corrected by the territory.
+Route: Standard. Inspect authentication, membership, email, and existing UI patterns. Ask only material decisions such as invitation expiry and duplicate handling. Record intent and a concise plan, implement end-to-end slices, run checks, then review separately for intent/spec fit and engineering quality.
 
-## 2. Close gaps — gap-resolve (automatic)
+## Standard: taste discovered by showing
 
-Facts were looked up already. One decision remains:
+Request: “Make the dashboard feel calmer.”
 
-> **Question:** Limit per API key, or per account? Keys can share an account.
-> **Why it matters:** per-account needs a key→account join on the hot path.
-> **Evidence:** `models/api_key.ts:12` — keys carry `account_id`.
-> **Recommended:** per-key. Silence = this.
+Route: Standard with discovery. Find existing references or show contrasting disposable variants along one axis. Convert the reaction into an explicit criterion, plan the accepted direction, and keep prototypes out of production unless separately approved.
 
-You answer "per-key". The taste item (429 body tone) gets two contrasting drafts; you point at the terse one → criterion sentence lands in Resolved. Burn-down: `0 open, 2 assumed`.
+## Governed: production data migration
 
-## 3. Compile — /gap-plan
+Request: “Merge customer identities and deploy the migration.”
 
-PLAN.md opens with three lines (what / approach / riskiest assumption), leads with the two decisions you might tweak, compresses the mechanical work, and ends:
+Route: Governed. Create durable intent/spec/plan, name the data owner and release approver, define dry-run evidence and rollback, independently review the migration and verifier changes, and stop before production until the real deployment boundary receives fresh authorization.
 
-> **Stop condition:** `npm test` green, `429` returned under 30 req/s on the bench script, terse body per criterion.
+## Adoption
 
-## 4. Build — gap-build (automatic)
+Request: “Use gap in this repository.”
 
-Mid-build the plan's "one limiter instance" line collides with the worker pool. The session takes the reversible option (per-worker instance + shared Redis window), logs the deviation, updates the plan line, keeps going. No interruption.
+Read the repository instructions, commands, CI, tracker, review, deploy path, and risks. Return a minimal proposal first. Do not initialize git, install dependencies, rewrite instructions, or add hooks until those exact changes are approved.
 
-## 5. Gate — /gap-gate
+## Retrospective
 
-Machine gate: tests green. Understanding gate: reconcile finds one unaccounted edit — a drive-by rename in `auth.ts` — you own it into Resolved. Three questions ("what happens to in-flight requests at the window boundary?"), all answerable from the report. Pass.
+Observation: two separate changes silently weakened fixtures to make tests pass.
 
-## 6. Death — and later, /gap-evolve
-
-The why behind "per-worker limiter instances" graduates to `docs/adr/`; GAP.md and PLAN.md are deleted. Two weeks later, evolve notices "forgot bench script before gate" appeared twice across tasks → proposes one hook line; you approve; journal records it.
+Propose one change: add an independent review check for verifier modifications, define a regression fixture, state the possible false-positive cost, and wait for approval. Do not add unrelated rules in the same retrospective.

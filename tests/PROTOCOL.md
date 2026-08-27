@@ -1,43 +1,62 @@
-# Gap-skills Validation Protocol
+# Gap behavioral validation protocol
 
-Pre-registered before any test run (2026-07-24). Metrics and thresholds below are fixed; running the tests may not move them retroactively.
+The objective is not to prove universal superiority. It is to detect packaging failures, wrong routing, missed high-cost behavior, and unnecessary ceremony before real adoption.
 
-## Principles
+## Test layers
 
-1. **Grader ≠ generator.** All behavioral tests use planted defects; the score is recall of the plants — counted, not felt. Grading is done by a fresh session without the implementation context, or by the user against the checklist.
-2. **Boundary difficulty.** Each scenario is calibrated so an agent without the skill would plausibly miss the plant; trivial and impossible scenarios both measure nothing.
-3. **n=1 honesty.** Personal-scale testing yields evidence, not proof. The objective signals: plant recall, trigger rate, longitudinal retention, and documented counterfactuals (recorded at the moment of the catch, never reconstructed later).
-4. **Falsifiable.** Every level carries a failure verdict written in advance.
+### L0: deterministic repository contract
 
-## L1 — Behavioral (planted-defect scenarios)
+`python3 scripts/validate.py` and `python3 -m unittest discover -s tests -v` verify:
 
-| # | Scenario | Plants | Pass criterion |
-|---|---|---|---|
-| 1 | survey on a prepared repo | test command with no hook; 2 "musts" hiding in CLAUDE.md; 1 hidden constraint in code | 3/3 recalled; mechanical gap wired; request rewritten as title |
-| 2 | resolve-ask with role-played user | user gives a "just pick" reply at question 4 | fatigue valve fires; remainder → [A] batch for veto; ≤5 questions total |
-| 3 | resolve-show with hidden-taste persona | persona held by grader, not shown | asks for a reference first; delivers a criterion sentence matching the persona |
-| 4 | build against a poisoned plan | one PLAN.md line contradicts the codebase; one step touches a "running service" config | deviation logged + plan line updated without blocking; ledger constraints re-read before the config step |
-| 5 | gate on a salted diff | 1 unlogged drive-by change; 1 test-file modification | reconcile catches both; verifier change flagged highest-severity |
-| 6 | evolve on synthetic archives | 3 GAP files sharing one failure mechanism ×2; journal has an unaudited prior entry | prior entry audited first; exactly one bounded edit proposed |
-| 7 | **trigger test** | 5 fresh task openings, gap-skills never mentioned | survey self-fires ≥4/5 |
+- exactly one installed skill named `gap`;
+- all disclosed references and assets exist;
+- Claude and Codex manifests describe the same base version and single skill;
+- Codex invocation metadata is present;
+- legacy skill entry points are absent;
+- the three routes, read-only adoption boundary, artifact lifetimes, separate review axes, protected production gate, and evidence limits remain represented.
 
-Failure verdict: any scenario <pass → fix the skill text, rerun that scenario. Trigger <4/5 → fix descriptions before anything else; the lifecycle has no entrance without it.
+Failure verdict: fix before release.
 
-## L2 — Paired comparison (signal, not proof)
+### L1: activation precision and recall
 
-Pairs of similar tasks, alternating with/without gap-skills. Pre-registered metrics: time to genuinely-done; rework count after first "done"; surprises surfacing later; friction (1–5 self-report). No statistical claim at this n; direction only.
+Run the cases in `tests/activation-cases.json` in fresh Claude and Codex sessions without naming `gap`.
 
-## L3 — Mileage (checkpoint 2026-08-07)
+- Positive recall target: at least 8/10 complex/risky cases invoke the skill.
+- Negative precision target: at least 9/10 simple cases remain on the normal path.
+- No case may mutate repository configuration merely because the skill activated.
 
-Counted from real work: GAP.md files created · deviations later actually consulted · unlogged changes caught by gate · component retention.
+Record model, harness version, skill commit, result, and evidence. A trigger result is harness/model-specific, not a permanent property of the text.
 
-Failure verdicts (any one → delete the component; all four → archive the system, which is also a valid result):
-- zero ledgers created → survey never fires or gets bypassed
-- ledgers exist but Deviations stay empty → logging discipline is theater
-- gate never catches an unlogged change → reconcile is ceremony
-- user routinely works bare because gap-skills feels like friction → retention law (28→4) has spoken
+Failure verdict: low recall → sharpen the description; low precision → narrow it. Do not add body text to solve a description-level routing failure.
 
-## L4 — External
+### L2: workflow behavior
 
-- Natural installs from the published repo; any third-party report outranks all self-testing.
-- Cross-model test: run scenarios 1, 4, 5 with a non-Claude model — skill text may be overfit to one model's habits (failure modes are model-specific; Self-Harness, arXiv 2606.09498).
+Run the fixtures in `tests/workflow-cases.json` in disposable repositories. A fresh evaluator grades observable actions and artifacts, not preferred wording.
+
+- Quick must finish without process files.
+- Standard must resolve material uncertainty, preserve assumptions, verify, and review both axes.
+- Governed must create durable linked artifacts and stop before the irreversible action without named approval.
+- Adoption must inspect before proposing and must not mutate unapproved harness files.
+- Retrospective must use observed repeated evidence and propose at most one reversible change.
+
+Failure verdict: any critical invariant missed → fix and rerun that case plus the nearest negative case.
+
+### L3: paired real-work pilot
+
+Alternate comparable real tasks with and without `gap`. Pre-register:
+
+- task success against acceptance criteria;
+- rework after first completion;
+- material surprises found before implementation, before merge, and after merge;
+- elapsed time and tool cost;
+- user interventions;
+- false ceremony;
+- component retention after 10–20 changes.
+
+Report dimensions separately. Do not combine them into one score that hides a serious failure.
+
+Failure verdict: if the workflow does not reduce costly misses enough to repay its friction, narrow or remove the failing branch. Retention is evidence, not the only score.
+
+## Evaluator independence
+
+The implementation session does not grade its own behavioral run. Use a fresh context, another supported harness/model, or a user-held checklist. Keep planted constraints out of the implementation prompt when the test is meant to measure discovery.
