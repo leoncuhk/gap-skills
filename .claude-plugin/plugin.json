@@ -11,11 +11,11 @@
   "license": "MIT",
   "keywords": [
     "agent-skills",
+    "ai-coding",
     "software-delivery",
-    "requirements",
-    "planning",
-    "review",
-    "governance"
+    "sdlc",
+    "code-review",
+    "evals"
   ],
   "skills": [
     "./skills/gap"

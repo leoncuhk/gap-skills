@@ -1,6 +1,7 @@
 # gap-skills
 
 [![validate](https://github.com/leoncuhk/gap-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/leoncuhk/gap-skills/actions/workflows/validate.yml)
+[![skills.sh](https://skills.sh/b/leoncuhk/gap-skills/gap)](https://skills.sh/leoncuhk/gap-skills/gap)
 
 **One skill, one adaptive path from intent to verified delivery.**
 
