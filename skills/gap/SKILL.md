@@ -29,10 +29,12 @@ Choose the highest path required by any dimension:
 | Path | Use when | Required shape |
 |---|---|---|
 | **Quick** | Clear, local, reversible, low-risk | Inspect, implement, run the project's checks, report evidence. Create no process files. |
-| **Standard** | Material ambiguity, several interacting changes, or a handoff/multi-session build | Clarify intent, record a concise plan, implement in verifiable slices, reconcile intent/plan/diff, run checks, review. |
+| **Standard** | Material ambiguity, several interacting changes, a material standalone review, or a handoff/multi-session build | Clarify intent as needed, record a concise plan for implementation work, complete only the requested stages, run relevant checks, review. |
 | **Governed** | Production, migration, sensitive data, external side effects, regulated work, or required organizational approval | Durable intent → spec → plan → implementation evidence → independent review → named approval → release/incident loop. |
 
 For Standard or Governed work, state the selected path and the reason in one sentence. If the task changes shape, reroute upward; moving downward requires evidence that the original risk is gone.
+
+The path controls rigor, not scope. A request to plan, diagnose, review, adopt, or run a retrospective stops after that requested outcome; it does not silently continue into implementation, release, or environment changes.
 
 ## Load only the branch you need
 
@@ -40,6 +42,7 @@ For Standard or Governed work, state the selected path and the reason in one sen
 - A written plan, specification, task graph, handoff, or multi-session build: read [references/planning.md](references/planning.md).
 - A hard bug, flaky failure, incoming issue backlog, architecture improvement, domain-language problem, merge conflict, or long investigation: read [references/problem-solving.md](references/problem-solving.md).
 - Any code or configuration change on Standard or Governed paths: read [references/delivery.md](references/delivery.md).
+- A standalone PR/diff review, or the closing review for Standard or Governed delivery: read [references/reviewing-changes.md](references/reviewing-changes.md).
 - A plan, comparison, architecture explanation, review, demo, or status report whose relationships are hard to scan in prose: read [references/communication.md](references/communication.md).
 - Production, approvals, policy enforcement, deployment, monitoring, or incidents: read [references/governance.md](references/governance.md).
 - A retrospective, repeated failure, or proposed change to agent instructions/tools: read [references/retrospective.md](references/retrospective.md).
@@ -51,7 +54,7 @@ Quick work needs no reference unless one of these branches actually applies.
 
 Use the project's existing issue tracker or documentation convention as the source of truth. When none exists:
 
-- Temporary working state: `.gap/work/<change-id>/state.md` from [assets/state.md](assets/state.md).
+- Temporary Standard/Governed working state when a real handoff needs it: `.gap/work/<change-id>/state.md` from [assets/state.md](assets/state.md).
 - Durable governed change records: `docs/changes/<change-id>/` using [intent.md](assets/intent.md), [spec.md](assets/spec.md), [plan.md](assets/plan.md), and [review.md](assets/review.md).
 - Durable environment work: `docs/agent/harness-backlog.md` and `docs/agent/evolution-log.md` using the supplied assets.
 
@@ -66,5 +69,7 @@ Completion means the selected path's promises are satisfied:
 - **Quick**: requested behavior exists and relevant project checks were run.
 - **Standard**: intent, plan, implementation, and verification agree; material deviations are explained; review finds no unresolved blocking issue.
 - **Governed**: durable artifacts and evidence agree, required independent reviews passed, and every requested authorized action was executed and verified. Awaiting authorization is not completion; report it as the remaining boundary.
+
+For a partial workflow, completion means its requested artifact or decision is evidence-backed, its limits are explicit, and no unrequested downstream action was taken.
 
 Report what was verified, what was not verified, and any remaining risk. Never call the workflow effective or optimal from self-assessment alone; that conclusion comes from retained task results and comparison over time.

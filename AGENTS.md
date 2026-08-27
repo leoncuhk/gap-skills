@@ -12,6 +12,7 @@ One cross-harness `gap` skill that routes software work through the smallest tru
 - `skills/gap/assets/`: optional output templates, never project policy.
 - `tests/cases/`: activation and workflow contracts.
 - `tests/fixtures/`: clean repositories given to agents.
+- `tests/patches/`: candidate changes applied after a fixture becomes a git repository.
 - `tests/evaluators/`: hidden outcome checks kept outside agent fixtures.
 - `tests/reference-solutions/`: known-green baselines proving evaluators are solvable.
 - `tests/results/`: retained harness evidence and limits.

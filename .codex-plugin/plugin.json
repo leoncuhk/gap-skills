@@ -1,6 +1,6 @@
 {
   "name": "gap-skills",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "One adaptive software-delivery skill from intent to verified release and retrospective.",
   "skills": "./skills/",
   "author": {
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Gap",
     "shortDescription": "One adaptive path from intent to verified delivery",
-    "longDescription": "Routes software work by ambiguity, scale, and risk, then applies only the needed discovery, planning, delivery, review, governance, and retrospective practices through one skill.",
+    "longDescription": "Routes software work by ambiguity, scale, and risk, then applies only the needed discovery, planning, delivery, fixed-diff review, governance, and retrospective practices through one skill.",
     "developerName": "leoncuhk",
     "category": "Productivity",
     "capabilities": [

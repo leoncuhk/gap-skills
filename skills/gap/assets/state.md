@@ -2,7 +2,7 @@
 
 ## Path
 
-Quick | Standard | Governed — <reason>
+Standard | Governed — <reason>
 
 ## Open
 

@@ -1,0 +1,11 @@
+diff --git a/src/pricing.py b/src/pricing.py
+--- a/src/pricing.py
++++ b/src/pricing.py
+@@ -1,2 +1,6 @@
+-def final_total(subtotal_cents: int, is_member: bool) -> int:
++def final_total(
++    subtotal_cents: int, is_member: bool, discount_percent: int = 10
++) -> int:
++    if is_member:
++        return int(subtotal_cents * (1 - discount_percent / 100))
+     return subtotal_cents

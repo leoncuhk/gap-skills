@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-08-27
+
+- Added first-class standalone PR/diff review routing while preserving `gap` as the only user-facing skill.
+- Split fixed-point, read-only, two-axis review guidance into a progressively disclosed reference used by both standalone review and delivery closeout.
+- Added an executable review fixture whose visible tests remain green while the diff violates the specification and repository engineering rules.
+- Clarified Quick artifact boundaries, partial-workflow stopping, repair-budget semantics, and minimal/surgical implementation guidance.
+- Documented Codex `$gap`, Claude Code `/gap`, automatic activation, and a complete user-facing Standard workflow example.
+
 ## 0.3.1 — 2026-08-27
 
 - Added evidence-driven repair budgets and explicit blocked outcomes for long or costly loops.

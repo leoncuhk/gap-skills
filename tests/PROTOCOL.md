@@ -35,6 +35,7 @@ Run the cases in `tests/cases/workflows.json` against their declared disposable 
 
 - Quick must finish without process files.
 - Standard must resolve material uncertainty, preserve assumptions, verify, and review both axes.
+- Standalone review must resolve a fixed non-empty diff, stay read-only, and keep intent/spec and engineering findings separate.
 - Governed must create durable linked artifacts and stop before the irreversible action without named approval.
 - Adoption must inspect before proposing and must not mutate unapproved harness files.
 - Retrospective must use observed repeated evidence and propose at most one reversible change.
@@ -53,6 +54,10 @@ Failure verdict: any critical invariant missed → fix and rerun that case plus 
 - a five-iteration, 30-minute execution budget.
 
 The baseline fixture must fail the hidden evaluator and the reference solution must pass it. A candidate run passes only when its visible project checks and hidden evaluator both pass, no unrequested process artifacts appear, and its final report completes both review axes or labels the lack of independent review.
+
+#### Executable standalone-review MVP
+
+`standalone-change-review` initializes `tests/fixtures/review-change` as a git repository, commits the baseline on `main`, applies `tests/patches/review-change.patch` as a candidate commit, and asks the agent to review `main...HEAD` without editing. The contract verifies that the commit diff is non-empty and the candidate worktree is clean. The visible project suite stays green. A passing review must still identify the two specification failures and the two engineering concerns planted in the fixed diff, keep the axis verdicts separate, preserve the worktree exactly, and report independence truthfully. The hidden evaluator must fail the candidate and pass `tests/reference-solutions/review-change`.
 
 ### L3: paired real-work pilot
 

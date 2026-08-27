@@ -4,7 +4,9 @@ Implement against accepted intent and planning artifacts while keeping feedback 
 
 ## Build
 
-Read the current source-of-truth artifacts before editing. Work in the smallest slice that can be verified. For changed behavior, prefer a failing test or other observable red signal before the fix when the repository supports it. Run focused checks during the build and the full relevant verification before review.
+Read the current source-of-truth artifacts before editing. Work in the smallest slice that can be verified. Prefer the smallest design that satisfies accepted behavior: every changed line supports that behavior or cleans up something this change made obsolete; preserve unrelated code and local conventions. Add abstraction or configuration only for a present requirement or an established seam.
+
+For changed behavior, prefer a failing test or other observable red signal before the fix when the repository supports it. Run focused checks during the build and the full relevant verification before review.
 
 When reality contradicts the plan:
 
@@ -28,20 +30,13 @@ Treat modifications to tests, fixtures, CI, hooks, evaluators, and acceptance th
 
 ## Bounded repair loop
 
-When verification fails, feed the exact command, observed failure, and supported conclusion into the next repair. Each retry must use new evidence, a changed hypothesis, or a meaningfully different action; never repeat an unchanged attempt.
+When verification fails, feed the exact command, observed failure, and supported conclusion into the next repair. Each retry must use new evidence, a changed hypothesis, or a meaningfully different action; never repeat an unchanged attempt. A repair iteration begins after a failed verification; if a budget should include the initial implementation, say "total attempts" instead.
 
 For long-running, costly, flaky, or externally limited work, set a proportional time, iteration, or tool-cost budget before looping. Stop when the objective passes, the budget is exhausted, no defensible new path remains, or user input is required. A stopped loop reports attempted paths, evidence, blocker, and the input that would unlock progress; budget exhaustion is not completion.
 
-## Two-axis review
+## Review handoff
 
-Review the change independently on two axes and keep the findings separate:
-
-1. **Intent/spec**: missing behavior, wrong behavior, unrequested behavior, unresolved constraints.
-2. **Engineering**: correctness, security, maintainability, repository conventions, tests, operational risk.
-
-Use a separate reviewer/context when available for material work so implementation assumptions do not silently become review assumptions. Attempt unavailable review infrastructure once, then continue with an explicit self-review and report that independence was not achieved; do not wait or retry unchanged. Every blocking finding cites concrete evidence and a location. Skip issues already enforced reliably by tools.
-
-Do not collapse the axes into one score. A change can follow engineering standards while solving the wrong problem, or match the spec while damaging the codebase.
+Before closing Standard or Governed delivery, read [reviewing-changes.md](reviewing-changes.md). Review the accepted intent, fixed diff, verification evidence, and verifier changes. Fix blocking findings only within the user's authorized scope, rerun affected checks, and review the resulting diff again.
 
 ## Human understanding
 

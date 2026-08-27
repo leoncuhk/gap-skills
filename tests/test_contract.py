@@ -1,7 +1,9 @@
 import json
 import os
+import shutil
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -54,6 +56,7 @@ class RepositoryContractTests(unittest.TestCase):
                 "governance.md",
                 "planning.md",
                 "problem-solving.md",
+                "reviewing-changes.md",
                 "retrospective.md",
             },
         )
@@ -67,6 +70,17 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertEqual(standard["budget"], {"max_iterations": 5, "max_minutes": 30})
         for key in ("fixture", "hidden_evaluator", "reference_solution"):
             self.assertTrue((ROOT / standard[key]).exists())
+
+        review = next(
+            case for case in cases if case["id"] == "standalone-change-review"
+        )
+        for key in (
+            "fixture",
+            "setup_patch",
+            "hidden_evaluator",
+            "reference_solution",
+        ):
+            self.assertTrue((ROOT / review[key]).exists())
 
     def test_only_one_skill_entrypoint_exists(self):
         entries = sorted((ROOT / "skills").glob("*/SKILL.md"))
@@ -118,6 +132,96 @@ class RepositoryContractTests(unittest.TestCase):
             check=False,
         )
         self.assertEqual(green.returncode, 0, green.stdout + green.stderr)
+
+    def test_review_mvp_is_red_capable_and_known_good(self):
+        fixture = ROOT / "tests" / "fixtures" / "review-change"
+        patch = ROOT / "tests" / "patches" / "review-change.patch"
+        evaluator = ROOT / "tests" / "evaluators" / "review_change.py"
+        reference = ROOT / "tests" / "reference-solutions" / "review-change"
+
+        with tempfile.TemporaryDirectory(prefix="gap-review-") as temporary:
+            candidate = Path(temporary) / "candidate"
+            shutil.copytree(fixture, candidate)
+            commands = (
+                ["git", "init", "-q"],
+                ["git", "config", "user.name", "Gap Test"],
+                ["git", "config", "user.email", "gap-test@example.invalid"],
+                ["git", "add", "."],
+                ["git", "commit", "-qm", "baseline"],
+                ["git", "branch", "-M", "main"],
+                ["git", "switch", "-qc", "candidate"],
+                ["git", "apply", str(patch)],
+                ["git", "add", "src/pricing.py"],
+                ["git", "commit", "-qm", "candidate"],
+            )
+            for command in commands:
+                result = subprocess.run(
+                    command,
+                    cwd=candidate,
+                    text=True,
+                    capture_output=True,
+                    check=False,
+                )
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            diff = subprocess.run(
+                ["git", "diff", "--quiet", "main...HEAD"],
+                cwd=candidate,
+                check=False,
+            )
+            self.assertEqual(diff.returncode, 1, "review diff must be non-empty")
+
+            status = subprocess.run(
+                ["git", "status", "--porcelain=v1"],
+                cwd=candidate,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            self.assertEqual(status.returncode, 0, status.stdout + status.stderr)
+            self.assertEqual(status.stdout, "")
+
+            visible = subprocess.run(
+                [
+                    sys.executable,
+                    "-m",
+                    "unittest",
+                    "discover",
+                    "-s",
+                    "tests",
+                    "-v",
+                ],
+                cwd=candidate,
+                env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            self.assertEqual(visible.returncode, 0, visible.stdout + visible.stderr)
+
+            red = subprocess.run(
+                [sys.executable, str(evaluator), str(candidate), "-v"],
+                cwd=ROOT,
+                env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            self.assertNotEqual(
+                red.returncode,
+                0,
+                "candidate must fail hidden review outcomes",
+            )
+
+            green = subprocess.run(
+                [sys.executable, str(evaluator), str(reference), "-v"],
+                cwd=ROOT,
+                env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            self.assertEqual(green.returncode, 0, green.stdout + green.stderr)
 
 
 if __name__ == "__main__":

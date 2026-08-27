@@ -68,6 +68,7 @@ def validate_repository() -> list[str]:
         "planning.md",
         "problem-solving.md",
         "delivery.md",
+        "reviewing-changes.md",
         "communication.md",
         "governance.md",
         "retrospective.md",
@@ -81,6 +82,11 @@ def validate_repository() -> list[str]:
             f"skills/gap/references: expected {sorted(required_refs)}, "
             f"found {sorted(actual_refs)}"
         )
+    for reference in required_refs:
+        if f"references/{reference}" not in body:
+            errors.append(
+                f"skills/gap/SKILL.md: reference '{reference}' is not discoverable"
+            )
 
     required_assets = {
         "state.md",
@@ -133,15 +139,26 @@ def validate_repository() -> list[str]:
 
     delivery = _read_required(SKILL / "references" / "delivery.md", errors)
     for phrase in (
-        "Intent/spec",
-        "Engineering",
-        "Do not collapse the axes",
         "Bounded repair loop",
         "budget exhaustion is not completion",
-        "independence was not achieved",
+        "reviewing-changes.md",
     ):
         if phrase not in delivery:
             errors.append(f"references/delivery.md: missing '{phrase}'")
+
+    review = _read_required(SKILL / "references" / "reviewing-changes.md", errors)
+    for phrase in (
+        "fixed point",
+        "Review the selected diff",
+        "Intent/spec",
+        "Engineering",
+        "Do not merge or rerank the axes",
+        "independence limitation",
+        "Review-only work does not modify files",
+        "repository root as the instruction-discovery boundary",
+    ):
+        if phrase not in review:
+            errors.append(f"references/reviewing-changes.md: missing '{phrase}'")
 
     governance = _read_required(SKILL / "references" / "governance.md", errors)
     for phrase in ("Protected gate", "fresh explicit authorization", "shell-command substring"):
@@ -158,7 +175,11 @@ def validate_repository() -> list[str]:
     communication = _read_required(
         SKILL / "references" / "communication.md", errors
     )
-    for phrase in ("Use concise Markdown", "self-contained HTML", "view, not a second specification"):
+    for phrase in (
+        "Use concise Markdown",
+        "self-contained HTML",
+        "view, not a second specification",
+    ):
         if phrase not in communication:
             errors.append(f"references/communication.md: missing '{phrase}'")
 
@@ -212,31 +233,69 @@ def validate_repository() -> list[str]:
             continue
         loaded_cases[relative.name] = cases
 
-    fixture_files = (
-        ".gitignore",
-        "AGENTS.md",
-        "README.md",
-        "src/invitations.py",
-        "tests/test_invitations.py",
-    )
-    for fixture_name in ("quick-project", "standard-invitation"):
+    fixture_files = {
+        "quick-project": (
+            ".gitignore",
+            "AGENTS.md",
+            "README.md",
+            "src/invitations.py",
+            "tests/test_invitations.py",
+        ),
+        "standard-invitation": (
+            ".gitignore",
+            "AGENTS.md",
+            "README.md",
+            "src/invitations.py",
+            "tests/test_invitations.py",
+        ),
+        "review-change": (
+            ".gitignore",
+            "AGENTS.md",
+            "SPEC.md",
+            "src/pricing.py",
+            "tests/test_pricing.py",
+        ),
+    }
+    for fixture_name, required_files in fixture_files.items():
         fixture = ROOT / "tests" / "fixtures" / fixture_name
-        for relative in fixture_files:
+        for relative in required_files:
             if not (fixture / relative).is_file():
                 errors.append(f"tests/fixtures/{fixture_name}/{relative}: missing")
 
     workflow_cases = loaded_cases.get("workflows.json", [])
-    standard_case = next(
-        (case for case in workflow_cases if case.get("id") == "standard-ambiguous-feature"),
-        {},
-    )
-    for key in ("fixture", "hidden_evaluator", "reference_solution", "budget"):
-        if key not in standard_case:
-            errors.append(f"tests/cases/workflows.json: Standard MVP missing '{key}'")
-    for key in ("fixture", "hidden_evaluator", "reference_solution"):
-        relative = standard_case.get(key)
-        if isinstance(relative, str) and not (ROOT / relative).exists():
-            errors.append(f"tests/cases/workflows.json: missing {key} path '{relative}'")
+    executable_cases = {
+        "standard-ambiguous-feature": (
+            "fixture",
+            "hidden_evaluator",
+            "reference_solution",
+            "budget",
+        ),
+        "standalone-change-review": (
+            "fixture",
+            "setup_patch",
+            "hidden_evaluator",
+            "reference_solution",
+        ),
+    }
+    for case_id, required_keys in executable_cases.items():
+        case = next(
+            (item for item in workflow_cases if item.get("id") == case_id),
+            {},
+        )
+        if not case:
+            errors.append(f"tests/cases/workflows.json: missing case '{case_id}'")
+            continue
+        for key in required_keys:
+            if key not in case:
+                errors.append(f"tests/cases/workflows.json: {case_id} missing '{key}'")
+                continue
+            if key == "budget":
+                continue
+            relative = case.get(key)
+            if not isinstance(relative, str) or not (ROOT / relative).exists():
+                errors.append(
+                    f"tests/cases/workflows.json: {case_id} has missing {key} path '{relative}'"
+                )
 
     return errors
 
@@ -248,7 +307,10 @@ def main() -> int:
         return 1
     reference_count = len(list((SKILL / "references").glob("*.md")))
     asset_count = len(list((SKILL / "assets").glob("*.md")))
-    print(f"OK — 1 skill, {reference_count} references, {asset_count} assets, 2 manifests")
+    print(
+        f"OK — 1 skill, {reference_count} references, "
+        f"{asset_count} assets, 2 manifests"
+    )
     return 0
 
 

@@ -1,0 +1,1 @@
+"""Pricing fixture package."""
