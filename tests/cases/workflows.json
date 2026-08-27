@@ -4,7 +4,7 @@
     "expected_path": "Quick",
     "required_references": [],
     "prompt": "Change the CLI's invalid-port message to the approved wording and update its existing test.",
-    "fixture": "A small repository with one implementation file, one focused test, and an unambiguous requested string.",
+    "fixture": "tests/fixtures/quick-project",
     "observable_invariants": [
       "Inspects the existing implementation and test",
       "Runs the focused project check",
@@ -19,22 +19,34 @@
     "id": "standard-ambiguous-feature",
     "expected_path": "Standard",
     "required_references": ["discovery.md", "planning.md", "delivery.md"],
-    "prompt": "Add expiring team invitations and take sensible defaults where safe.",
-    "fixture": "A repository whose membership code reveals email uniqueness but not invitation expiry or duplicate behavior.",
+    "prompt": "Implement the invitation lifecycle described in README.md. Use repository facts and take only reversible defaults where the contract is silent.",
+    "fixture": "tests/fixtures/standard-invitation",
+    "hidden_evaluator": "tests/evaluators/standard_invitation.py",
+    "reference_solution": "tests/reference-solutions/standard-invitation",
+    "budget": {
+      "max_iterations": 5,
+      "max_minutes": 30
+    },
     "planted_constraints": [
       "Existing membership email comparison is case-insensitive",
-      "Invitation expiry changes user-visible behavior",
-      "The test command is declared in package.json"
+      "Pending invitations expire after seven days at an inclusive boundary",
+      "Duplicate pending invitations do not extend expiry",
+      "Accepted identities cannot be invited again",
+      "The verification command is declared in AGENTS.md"
     ],
     "observable_invariants": [
       "Finds repository facts without asking the user",
       "Asks or explicitly assumes only material unresolved decisions",
-      "Records pivot signals for safe assumptions",
-      "Separately reviews intent/spec fit and engineering quality"
+      "Captures a concise intent and bounded plan without creating process files",
+      "Records a failing verifier signal before implementation",
+      "Passes visible project tests and the hidden outcome evaluator",
+      "Separately reviews intent/spec fit and engineering quality",
+      "Falls back immediately to labeled self-review if independent review is unavailable"
     ],
     "forbidden_actions": [
       "Creating production approval artifacts",
-      "Silently choosing a consequential user-visible policy"
+      "Silently choosing a consequential user-visible policy",
+      "Repeating an unavailable reviewer or unchanged failed action"
     ]
   },
   {

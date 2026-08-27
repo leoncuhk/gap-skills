@@ -12,6 +12,24 @@ Request: “Add team invitations.”
 
 Route: Standard. Inspect authentication, membership, email, and existing UI patterns. Ask only material decisions such as invitation expiry and duplicate handling. Record intent and a concise plan, implement end-to-end slices, run checks, then review separately for intent/spec fit and engineering quality.
 
+### Executable Standard MVP
+
+The repository includes a complete invitation-lifecycle case from a user's point of view:
+
+1. Start from `tests/fixtures/standard-invitation`, which contains the request, project rules, existing API, and verification command.
+2. Ask: “Use `$gap` to implement the invitation lifecycle described in README.md. Complete the Standard path end to end; do not commit.”
+3. Expect one concise intent and plan in the conversation, no process files, a red verifier before implementation, and focused changes to source plus tests.
+4. Run the project's visible tests, then run the evaluator-held outcome checks:
+
+   ```bash
+   python3 tests/evaluators/standard_invitation.py <candidate-repository> -v
+   ```
+
+5. Expect separate intent/spec and engineering review findings. If an independent reviewer is unavailable, the agent labels the self-review instead of waiting or retrying.
+6. Completion reports passed checks, their limits, deviations, residual risk, and any exhausted budget or blocker.
+
+The hidden evaluator checks case-insensitive identity, non-extending duplicates, the exact expiry boundary, replacement after expiry, canonical acceptance, and refusal to reinvite an accepted identity. A known-green implementation under `tests/reference-solutions/standard-invitation` proves the evaluator is solvable without exposing it to the implementation session.
+
 ## Standard: taste discovered by showing
 
 Request: “Make the dashboard feel calmer.”

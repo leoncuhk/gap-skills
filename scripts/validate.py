@@ -98,18 +98,17 @@ def validate_repository() -> list[str]:
             f"found {sorted(actual_assets)}"
         )
 
-    markdown_sources = [
-        source
-        for source in [skill_md, *sorted((SKILL / "references").glob("*.md"))]
-        if source.is_file()
-    ]
+    markdown_sources = sorted(ROOT.rglob("*.md"))
     for source in markdown_sources:
         source_text = source.read_text(encoding="utf-8")
+        if not source_text.strip():
+            errors.append(f"{source.relative_to(ROOT)}: empty Markdown file")
+            continue
         for target in re.findall(r"\[[^]]+\]\(([^)]+)\)", source_text):
             if "://" in target or target.startswith("#"):
                 continue
             target_path = target.split("#", 1)[0]
-            if not (source.parent / target_path).is_file():
+            if not (source.parent / target_path).exists():
                 errors.append(
                     f"{source.relative_to(ROOT)}: broken link '{target}'"
                 )
@@ -133,7 +132,14 @@ def validate_repository() -> list[str]:
             errors.append(f"references/adoption.md: missing '{phrase}'")
 
     delivery = _read_required(SKILL / "references" / "delivery.md", errors)
-    for phrase in ("Intent/spec", "Engineering", "Do not collapse the axes"):
+    for phrase in (
+        "Intent/spec",
+        "Engineering",
+        "Do not collapse the axes",
+        "Bounded repair loop",
+        "budget exhaustion is not completion",
+        "independence was not achieved",
+    ):
         if phrase not in delivery:
             errors.append(f"references/delivery.md: missing '{phrase}'")
 
@@ -190,19 +196,47 @@ def validate_repository() -> list[str]:
     ):
         errors.append("plugin manifests: base versions differ")
 
-    for file_name in ("activation-cases.json", "workflow-cases.json"):
+    case_files = (
+        Path("cases/activation.json"),
+        Path("cases/workflows.json"),
+    )
+    loaded_cases: dict[str, list[dict[str, object]]] = {}
+    for relative in case_files:
         try:
-            cases = json.loads((ROOT / "tests" / file_name).read_text(encoding="utf-8"))
+            cases = json.loads((ROOT / "tests" / relative).read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError) as exc:
-            errors.append(f"tests/{file_name}: {exc}")
+            errors.append(f"tests/{relative}: {exc}")
             continue
         if not isinstance(cases, list) or not cases:
-            errors.append(f"tests/{file_name}: expected a non-empty list")
+            errors.append(f"tests/{relative}: expected a non-empty list")
+            continue
+        loaded_cases[relative.name] = cases
 
-    fixture = ROOT / "tests" / "fixtures" / "sample-project"
-    for relative in (".gitignore", "AGENTS.md", "README.md", "src/invitations.py", "tests/test_invitations.py"):
-        if not (fixture / relative).is_file():
-            errors.append(f"tests/fixtures/sample-project/{relative}: missing")
+    fixture_files = (
+        ".gitignore",
+        "AGENTS.md",
+        "README.md",
+        "src/invitations.py",
+        "tests/test_invitations.py",
+    )
+    for fixture_name in ("quick-project", "standard-invitation"):
+        fixture = ROOT / "tests" / "fixtures" / fixture_name
+        for relative in fixture_files:
+            if not (fixture / relative).is_file():
+                errors.append(f"tests/fixtures/{fixture_name}/{relative}: missing")
+
+    workflow_cases = loaded_cases.get("workflows.json", [])
+    standard_case = next(
+        (case for case in workflow_cases if case.get("id") == "standard-ambiguous-feature"),
+        {},
+    )
+    for key in ("fixture", "hidden_evaluator", "reference_solution", "budget"):
+        if key not in standard_case:
+            errors.append(f"tests/cases/workflows.json: Standard MVP missing '{key}'")
+    for key in ("fixture", "hidden_evaluator", "reference_solution"):
+        relative = standard_case.get(key)
+        if isinstance(relative, str) and not (ROOT / relative).exists():
+            errors.append(f"tests/cases/workflows.json: missing {key} path '{relative}'")
 
     return errors
 

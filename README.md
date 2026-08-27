@@ -18,7 +18,7 @@ It does not force every task through a full lifecycle. It routes work by ambigui
 
 - **Discover intent:** facts from the repository, decisions from the user, contrasting prototypes for tacit taste, blind-spot inspection, references read as behavioral specifications.
 - **Plan at the right depth:** no artifact for trivial work, a concise plan for ordinary changes, durable intent/spec/plan and tracer-bullet tickets for large or governed changes.
-- **Deliver against the plan:** verifiable slices, tight feedback, explicit deviations, and special scrutiny when tests or evaluators change.
+- **Deliver against the plan:** verifiable slices, bounded evidence-driven repair loops, explicit deviations, and special scrutiny when tests or evaluators change.
 - **Solve hard engineering problems:** red-first debugging loops, evidence-based issue triage, deep-module architecture, domain-language repair, safe context handoffs, and intent-aware merge resolution.
 - **Review on two independent axes:** whether the change solves the requested problem and whether it is sound engineering.
 - **Communicate complex work:** concise Markdown by default, with self-contained HTML only when comparison, spatial layout, diagrams, or interaction materially improve understanding.
@@ -28,6 +28,22 @@ It does not force every task through a full lifecycle. It routes work by ambigui
 ## Why one skill
 
 The user should not memorize or coordinate a collection of overlapping process skills. `gap` is the only entry point. Its `SKILL.md` holds routing and shared invariants; focused references are loaded only when their branch applies. This keeps the installed skill list small without forcing every task to carry the entire workflow in context.
+
+## Repository map
+
+| Path | Responsibility |
+|---|---|
+| [`skills/gap/SKILL.md`](skills/gap/SKILL.md) | The only user-facing skill and route selector. |
+| `skills/gap/references/` | Guidance loaded only for the selected discovery, planning, delivery, problem-solving, communication, governance, retrospective, or adoption branch. |
+| `skills/gap/assets/` | Optional templates copied into projects when durable artifacts are justified. |
+| [`tests/PROTOCOL.md`](tests/PROTOCOL.md) | Evaluation levels, pass criteria, independence rules, and known limits. |
+| `tests/cases/` | Versioned activation and workflow task definitions. |
+| `tests/fixtures/` | Clean disposable repositories visible to an agent under test. |
+| `tests/evaluators/` | Outcome checks withheld from implementation sessions. |
+| `tests/reference-solutions/` | Known-green implementations proving evaluators are solvable. |
+| `tests/results/` | Retained harness runs, measurements, and limitations. |
+| [`scripts/validate.py`](scripts/validate.py) | Deterministic package, documentation, and evaluation-contract validation. |
+| [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json), [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) | Platform-specific manifests for the same `gap` skill. |
 
 ## Install
 
@@ -63,6 +79,8 @@ $gap inspect this repository and propose a minimal adoption plan; do not change 
 
 The adoption pass is read-only until the user approves exact project changes.
 
+See [EXAMPLES.md](EXAMPLES.md) for Quick, Standard, Governed, adoption, and retrospective examples, including the executable Standard MVP.
+
 ## Artifacts
 
 Existing trackers and documentation conventions win. Defaults are provided only when a project has none:
@@ -75,9 +93,9 @@ Temporary state is removed only after unresolved environment problems, meaningfu
 
 ## Evidence and limits
 
-Repository validation checks packaging, references, manifests, invocation metadata, templates, and workflow invariants. Behavioral evaluation includes positive and negative activation cases plus Quick, Standard, and Governed fixtures. These checks show that the implementation is coherent; comparative effectiveness still requires retained results from real work.
+Repository validation checks packaging, documentation links, references, manifests, invocation metadata, templates, and workflow invariants. Behavioral evaluation includes positive and negative activation cases, executable Quick and Standard fixtures, and declared Governed/adoption/retrospective scenarios. These checks show that the implementation is coherent; the Governed scenario and comparative effectiveness still require retained harness and real-work results.
 
-See [tests/PROTOCOL.md](tests/PROTOCOL.md) for the evaluation contract, [tests/RESULTS-2026-08-27.md](tests/RESULTS-2026-08-27.md) for current evidence, and [NOTICE.md](NOTICE.md) for lineage.
+See [tests/PROTOCOL.md](tests/PROTOCOL.md) for the evaluation contract, [tests/results/2026-08-27.md](tests/results/2026-08-27.md) for current evidence, and [NOTICE.md](NOTICE.md) for lineage.
 
 ## License
 

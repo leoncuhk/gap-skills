@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.1 — 2026-08-27
+
+- Added evidence-driven repair budgets and explicit blocked outcomes for long or costly loops.
+- Added immediate labeled self-review fallback when independent review infrastructure is unavailable.
+- Added an executable Standard invitation MVP with a clean fixture, evaluator-held checks, and a known-green reference solution.
+- Reorganized behavioral evidence into scalable cases, fixtures, evaluators, reference solutions, and results directories.
+- Added a repository map and repository-wide Markdown link validation; clarified which workflow scenarios are executable versus declared.
+- Updated project documentation and validation to cover the new runtime boundaries.
+
 ## 0.3.0 — 2026-08-27
 
 Rebuilt the package around one user-facing `gap` skill.

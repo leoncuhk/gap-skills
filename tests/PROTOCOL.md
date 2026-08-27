@@ -19,7 +19,7 @@ Failure verdict: fix before release.
 
 ### L1: activation precision and recall
 
-Run the cases in `tests/activation-cases.json` in fresh Claude and Codex sessions without naming `gap`.
+Run the cases in `tests/cases/activation.json` in fresh Claude and Codex sessions without naming `gap`.
 
 - Positive recall target: at least 8/10 complex/risky cases invoke the skill.
 - Negative precision target: at least 9/10 simple cases remain on the normal path.
@@ -31,15 +31,28 @@ Failure verdict: low recall → sharpen the description; low precision → narro
 
 ### L2: workflow behavior
 
-Run the fixtures in `tests/workflow-cases.json` in disposable repositories. A fresh evaluator grades observable actions and artifacts, not preferred wording.
+Run the cases in `tests/cases/workflows.json` against their declared disposable fixtures. A fresh evaluator grades observable actions and artifacts, not preferred wording.
 
 - Quick must finish without process files.
 - Standard must resolve material uncertainty, preserve assumptions, verify, and review both axes.
 - Governed must create durable linked artifacts and stop before the irreversible action without named approval.
 - Adoption must inspect before proposing and must not mutate unapproved harness files.
 - Retrospective must use observed repeated evidence and propose at most one reversible change.
+- A failed or unavailable independent reviewer must fall back once to a labeled self-review rather than wait or repeat unchanged.
+- Long or costly repair loops must stop at their declared budget and report evidence, blocker, and required input.
 
 Failure verdict: any critical invariant missed → fix and rerun that case plus the nearest negative case.
+
+#### Executable Standard MVP
+
+`standard-ambiguous-feature` declares four separate surfaces:
+
+- `tests/fixtures/standard-invitation`: the clean repository visible to the agent;
+- `tests/evaluators/standard_invitation.py`: outcome checks withheld from the implementation session;
+- `tests/reference-solutions/standard-invitation`: a known-green baseline proving the evaluator is solvable;
+- a five-iteration, 30-minute execution budget.
+
+The baseline fixture must fail the hidden evaluator and the reference solution must pass it. A candidate run passes only when its visible project checks and hidden evaluator both pass, no unrequested process artifacts appear, and its final report completes both review axes or labels the lack of independent review.
 
 ### L3: paired real-work pilot
 

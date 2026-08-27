@@ -10,7 +10,11 @@ One cross-harness `gap` skill that routes software work through the smallest tru
 - `skills/gap/SKILL.md`: the only skill entry point and shared contract.
 - `skills/gap/references/`: branch-specific procedures loaded on demand.
 - `skills/gap/assets/`: optional output templates, never project policy.
-- `tests/`: structural and behavioral evaluation contract.
+- `tests/cases/`: activation and workflow contracts.
+- `tests/fixtures/`: clean repositories given to agents.
+- `tests/evaluators/`: hidden outcome checks kept outside agent fixtures.
+- `tests/reference-solutions/`: known-green baselines proving evaluators are solvable.
+- `tests/results/`: retained harness evidence and limits.
 
 ## Conventions
 - Preserve one user-facing skill; add a reference, asset, or deterministic script only when a real branch needs it.

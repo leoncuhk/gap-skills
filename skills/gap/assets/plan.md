@@ -22,6 +22,11 @@
 
 - <risk> — prevention: <control> — rollback/recovery: <action>
 
+## Execution bounds
+
+- Budget: <not needed, or time/iterations/tool cost>
+- Stop and report: <success, exhausted budget, no new path, or required input>
+
 ## Approval
 
 - <owner and decision required before the next irreversible step>
