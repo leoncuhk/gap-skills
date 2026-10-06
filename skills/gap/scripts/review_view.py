@@ -15,6 +15,8 @@ def render_text(data):
         lines += [f"- Evidence: {file['path']} | recorded: {file['target']} {file['sha256']} | current: {file['current']}" for file in item['evidence']]
         if item['note']:
             lines += ['Observed: ' + item['note']]
+    for experience in data['experience_uses']:
+        lines += [f"Experience: {experience['path']} | {experience['declared_status']} / {experience['decision']} | stale: {experience['stale_files']}", experience['reason']]
     lines += ['', 'Feedback must quote the observation and criterion ID. It does not authorize actions.', data['limits']]
     return '\n'.join(lines) + '\n'
 
@@ -32,6 +34,7 @@ def render_html(data):
 <label for="decision-{index}">Feedback for {escape(item['id'])}</label>
 <select id="decision-{index}"><option value="">No feedback</option value="question">Question</option><option value="correction">Correction</option><option value="agree">Agree with this evidence</option></select>
 <label for="note-{index}">Reason / correction for {escape(item['id'])}</label><textarea id="note-{index}" rows="2"></textarea></section>''')
+    experiences = ''.join('<li>' + escape(f"{x['path']} — {x['declared_status']} / {x['decision']}; stale files: {x['stale_files']}; reason: {x['reason']}") + '</li>' for x in data['experience_uses']) or '<li>No experience use recorded.</li>'
     payload = json.dumps({'version': 1, 'observation_sha256': data['observation_sha256'],
                           'ids': [i['id'] for i in data['criteria']]}, ensure_ascii=False).replace('<', '\\u003c')
     return '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -41,7 +44,7 @@ def render_html(data):
 <p><strong>Run:</strong> ''' + escape(data['run']['status']) + ''' · <strong>Artifact ready:</strong> ''' + str(data['artifact_ready']) + '''</p><p><strong>Independent acceptance:</strong> ''' + escape(data['independent_acceptance']) + '''</p><p><strong>Human judgment pending:</strong> ''' + escape(', '.join(data['waiting_for_human']) or 'none recorded') + '''</p>
 <details><summary>How to read this evidence</summary><svg viewBox="0 0 720 95" role="img" aria-label="Declared sources support criteria; receipts are checked against current files. A receipt is not authorization."><g fill="#e6eff4" stroke="#174c65"><rect x="5" y="15" width="195" height="55" rx="8"/><rect x="265" y="15" width="195" height="55" rx="8"/><rect x="525" y="15" width="190" height="55" rx="8"/></g><g fill="#172b3a" font-family="system-ui" font-size="17"><text x="30" y="49">Declared sources</text><text x="288" y="49">Task criteria</text><text x="551" y="49">Actual receipts</text><text x="217" y="49">→</text><text x="478" y="49">←</text></g></svg><p>Inspect each criterion’s evidence paths, target identities and current status. This schematic explains the declared relationship; it does not prove causal or business truth.</p></details></header>
 <div class="controls"><label><input id="problems" type="checkbox"> Show only unresolved criteria</label></div>''' + ''.join(cards) + '''
-<aside><h2>Return review feedback</h2><p>This exports local feedback only. It does not send, publish, approve or change the task. The agent must recheck the observed version before using it.</p><button id="prepare">Prepare feedback JSON</button><button id="download">Download prepared JSON</button><p id="message" role="status" aria-live="polite"></p><label for="output">Export preview / copy manually if download is unavailable</label><textarea id="output" readonly></textarea><noscript>Use the text view and return the observation ID, criterion ID and your note; interactive export needs JavaScript.</noscript></aside><footer>''' + escape(data['limits']) + '''</footer>
+<aside><h2>Experience consulted</h2><ul>''' + experiences + '''</ul></aside><aside><h2>Return review feedback</h2><p>This exports local feedback only. It does not send, publish, approve or change the task. The agent must recheck the observed version before using it.</p><button id="prepare">Prepare feedback JSON</button><button id="download">Download prepared JSON</button><p id="message" role="status" aria-live="polite"></p><label for="output">Export preview / copy manually if download is unavailable</label><textarea id="output" readonly></textarea><noscript>Use the text view and return the observation ID, criterion ID and your note; interactive export needs JavaScript.</noscript></aside><footer>''' + escape(data['limits']) + '''</footer>
 <script type="application/json" id="binding">''' + payload + '''</script><script>
 'use strict';
 const binding=JSON.parse(document.getElementById('binding').textContent);
@@ -74,7 +77,7 @@ document.getElementById('download').addEventListener('click',()=>{
 
 
 def validate_feedback(payload, data):
-    if not isinstance(payload, dict) or set(payload) != {'version', 'observation_sha256', 'feedback'} or payload['version'] != 1:
+    if not isinstance(payload, dict) or set(payload) != {'version', 'observation_sha256', 'feedback'} or type(payload['version']) is not int or payload['version'] != 1:
         raise ValueError('invalid feedback envelope')
     if payload['observation_sha256'] != data['observation_sha256']:
         raise ValueError('stale feedback: re-open current evidence and recheck the proposed decision')

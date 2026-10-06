@@ -68,6 +68,24 @@ class ReviewViewTests(unittest.TestCase):
         self.assertIn('stale feedback', result['error'])
         self.assertEqual(before, self.state.read_bytes())
 
+    def test_changed_consulted_experience_invalidates_feedback(self):
+        self.write('experience.md', 'Candidate: inspect capacity by workshop')
+        self.cli('use', '--file', 'experience.md', '--status', 'candidate', '--decision', 'trial', '--reason', 'check actual data')
+        view, page = self.view()
+        self.assertIn('experience.md', page)
+        self.write('feedback.json', self.payload(view['observation_sha256']))
+        self.write('experience.md', 'Changed claim after feedback')
+        self.cli('feedback', '--file', 'feedback.json', expected=2)
+        _, text = self.view('text', 'experience-view.txt')
+        self.assertIn("stale: ['experience.md']", text)
+
+    def test_feedback_version_requires_integer_not_boolean_or_float(self):
+        view, _ = self.view()
+        for version in [True, 1.0, '1']:
+            payload = self.payload(view['observation_sha256']); payload['version'] = version
+            self.write('feedback.json', payload)
+            self.cli('feedback', '--file', 'feedback.json', expected=2)
+
     def test_unknown_duplicate_and_unauthorized_fields_rejected(self):
         view, _ = self.view()
         for mutation in ['unknown', 'duplicate', 'approve', 'empty']:

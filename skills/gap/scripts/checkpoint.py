@@ -152,6 +152,8 @@ def inspect(state, root):
 def review_data(state, root):
     data = inspect(state, root)
     names = set(state['contract']['inputs'])
+    for experience in state['experience_uses']:
+        names.update(experience['files'])
     for item in data['criteria']:
         receipt = next((r for r in reversed(state['receipts']) if r['criterion'] == item['id']), None)
         item['note'] = receipt.get('note', '') if receipt else ''
