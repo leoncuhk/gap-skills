@@ -1,7 +1,7 @@
 # Project: gap-skills
 
 ## Purpose
-One cross-harness `gap` skill that routes software work through the smallest trustworthy delivery path.
+One cross-harness `gap` skill that routes software, analysis and local-artifact work through the smallest trustworthy delivery path.
 
 ## Commands
 - verify: `PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate.py && PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v`
@@ -9,6 +9,7 @@ One cross-harness `gap` skill that routes software work through the smallest tru
 ## Structure
 - `skills/gap/SKILL.md`: the only skill entry point and shared contract.
 - `skills/gap/references/`: branch-specific procedures loaded on demand.
+- `skills/gap/scripts/checkpoint.py`: optional file-bound evidence checker; no task runner.
 - `skills/gap/assets/`: optional output templates, never project policy.
 - `tests/cases/`: activation and workflow contracts.
 - `tests/fixtures/`: clean repositories given to agents.

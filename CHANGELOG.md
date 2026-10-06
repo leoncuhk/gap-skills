@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 — 2026-10-06 (local, unpublished)
+
+- Preserve purpose and semantic definitions across software, analysis and artifact-delivery work; source/goal changes invalidate affected evidence.
+- Add one optional, self-contained Python checkpoint helper for actual file inspection, versioned intent, receipt freshness and traceable experience use. No agent runtime, dependencies or automatic actions.
+- Distinguish ended runs, ready artifacts, actual independent acceptance and pending human judgment; keep Quick free of process files.
+- Add four synthetic development scenarios and CLI/package regression coverage. Long-term user-effort reduction remains unproven.
+
 ## 0.4.0 — 2026-08-27
 
 - Added first-class standalone PR/diff review routing while preserving `gap` as the only user-facing skill.

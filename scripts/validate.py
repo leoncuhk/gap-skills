@@ -63,6 +63,10 @@ def validate_repository() -> list[str]:
     if "disable-model-invocation" in metadata:
         errors.append("skills/gap/SKILL.md: invocation policy belongs in agents/openai.yaml")
 
+    helper = SKILL / "scripts" / "checkpoint.py"
+    if not helper.is_file():
+        errors.append("skills/gap/scripts/checkpoint.py: missing installed helper")
+
     required_refs = {
         "discovery.md",
         "planning.md",

@@ -1,16 +1,17 @@
 ---
 name: gap
-description: Guide ambiguous, multi-step, risky, or governed software changes from intent through planning, implementation, verification, review, release, and retrospective. Use for requirements discovery, prototypes, specs, plans, multi-session delivery, evidence-backed review, production gates, incidents, or agent-environment improvement. Skip simple well-scoped edits and questions answerable with one lookup.
+description: Guide ambiguous, multi-step, risky, or governed software, analysis, or artifact-delivery tasks from intent through planning, implementation, verification, review, release, and retrospective. Use for requirements discovery, prototypes, specs, plans, multi-session delivery, evidence-backed review, production gates, incidents, or agent-environment improvement. Skip simple well-scoped edits and questions answerable with one lookup.
 ---
 
 # Gap
 
-Run one adaptive software-delivery workflow. Use the smallest path that makes the change trustworthy; do not make the user choose among separate process skills.
+Run one adaptive delivery workflow for software, analysis and local artifacts. Use the smallest path that makes the change trustworthy; do not make the user choose among separate process skills.
 
 ## Operating contract
 
 - Inspect the repository and available evidence before asking questions. Facts come from the environment; decisions come from the user.
 - Start read-only. Changing project instructions, hooks, permissions, CI, dependencies, or repository structure requires the user's request or explicit approval of a concrete proposal.
+- Preserve the user’s purpose and non-substitutable meanings. Autonomy is permission to execute within scope, not to lower acceptance criteria. When the goal or a key source changes, trace the decision and invalidate affected evidence.
 - Treat fluent claims as unverified until supported by a file, command, observation, source, or clearly labeled judgment.
 - Put a rule at the weakest layer that safely controls its failure: guidance for judgment, automated checks for repeatable facts, protected external gates for actions that must not be bypassed.
 - Keep working state separate from durable evidence. Temporary notes may die; accepted intent, specifications, plans, approvals, incidents, and lasting environment gaps remain in the project's chosen source of truth.
@@ -41,7 +42,7 @@ The path controls rigor, not scope. A request to plan, diagnose, review, adopt, 
 - Unclear intent, unfamiliar territory, hidden constraints, user taste, or “like this” references: read [references/discovery.md](references/discovery.md).
 - A written plan, specification, task graph, handoff, or multi-session build: read [references/planning.md](references/planning.md).
 - A hard bug, flaky failure, incoming issue backlog, architecture improvement, domain-language problem, merge conflict, or long investigation: read [references/problem-solving.md](references/problem-solving.md).
-- Any code or configuration change on Standard or Governed paths: read [references/delivery.md](references/delivery.md).
+- Implementation, analysis/artifact delivery, resumption, or evidence-backed closure on Standard or Governed paths: read [references/delivery.md](references/delivery.md).
 - A standalone PR/diff review, or the closing review for Standard or Governed delivery: read [references/reviewing-changes.md](references/reviewing-changes.md).
 - A plan, comparison, architecture explanation, review, demo, or status report whose relationships are hard to scan in prose: read [references/communication.md](references/communication.md).
 - Production, approvals, policy enforcement, deployment, monitoring, or incidents: read [references/governance.md](references/governance.md).
@@ -71,5 +72,7 @@ Completion means the selected path's promises are satisfied:
 - **Governed**: durable artifacts and evidence agree, required independent reviews passed, and every requested authorized action was executed and verified. Awaiting authorization is not completion; report it as the remaining boundary.
 
 For a partial workflow, completion means its requested artifact or decision is evidence-backed, its limits are explicit, and no unrequested downstream action was taken.
+
+Distinguish run ended, artifact ready, independent acceptance passed, and waiting for human judgment. On handoff, inspect actual outputs and current receipts before rerunning; the optional [checkpoint helper](scripts/checkpoint.py) is described in delivery.md. A prepared list or draft does not establish an external action.
 
 Report what was verified, what was not verified, and any remaining risk. Never call the workflow effective or optimal from self-assessment alone; that conclusion comes from retained task results and comparison over time.

@@ -45,3 +45,23 @@ For large solo-maintained or high-risk changes, summarize how behavior interacts
 ## Close
 
 Reconcile intent, plan, deviations, diff, and evidence. Promote durable decisions and unresolved environment gaps. Delete only disposable working state; retain artifacts required by the project's review, audit, or future maintenance.
+
+## Resume from actual state
+
+Read the latest purpose, accepted semantics and remaining criteria. Inspect the actual outputs, source versions, worktree and receipts before deciding what to run next. A process that ended, a saved file, a passed local check, a separate acceptance verdict and a pending human decision are different facts. Reuse still-valid work; recheck only affected claims. Never overwrite an original with a processed copy or repeat an external action merely because a previous session stopped.
+
+When file freshness is a concrete risk, [checkpoint.py](../scripts/checkpoint.py) provides a local Python 3.10+ standard-library helper. It ships inside the skill and has no repository imports. It does not run jobs, interpret business truth, authenticate reviewers or grant permission. Hashes only show continuity of the files the agent actually declared. Include all inputs that could invalidate a claim and inspect semantic fit yourself.
+
+Use an existing task directory and checkpoint location. Create a contract JSON with `purpose`, `source` (user decision/source pointer), `semantics` (list), `inputs` (root-relative files), and `criteria` (nonempty list of `{ "id": "report", "claim": "requested observable result", "kind": "artifact" }`). Kinds are `artifact`, `check`, `external`, `human`, `review`. Set `"independent": true` on a review criterion when a genuinely separate review is required. Include `review` only when required; a substantive human decision has its own criterion. Do not add permission gates that the user has already resolved.
+
+```sh
+# Set TASK to the actual task directory, GAP to the installed gap skill folder.
+python3 "$GAP/scripts/checkpoint.py" --root "$TASK" --state "$TASK/state.json" init --contract "$TASK/contract.json"
+# After a real check: retain its actual log, then bind it and the observed output.
+python3 "$GAP/scripts/checkpoint.py" --root "$TASK" --state "$TASK/state.json" record --criterion report --kind artifact --result pass --by current-session --receipt verification.txt --file report.csv --note 'Compared the generated report with the requested definition; no external delivery claimed.'
+python3 "$GAP/scripts/checkpoint.py" --root "$TASK" --state "$TASK/state.json" check
+```
+
+`check` is read-only: exit 0 means every declared criterion has current recorded passing evidence, 1 means missing/failed/stale evidence, 2 means invalid input. It is not an independent acceptance gate. Read the returned dimensions, not just the exit code. `end --reason ...` records termination without satisfying criteria. `revise --contract ... --authority ... --reason ...` preserves old contracts/input fingerprints and invalidates old receipts; use it after inspecting changed goals or inputs, even when the wording is unchanged. Direct edits to the stored contract are rejected. Evidence files must be inside the task root; use a local, authorized receipt/export for external observations. No synthetic success logs.
+
+Record each check's actual failing or passing result; never capture an old log against new files as though the check was rerun. For a separate review, use kind `review`, `--by` with its real context/identity, and `--independent` only if it actually was independent; the review also binds earlier evidence. A self-declared name is not proof. In the final report distinguish run ended, artifact ready, independent acceptance (or its absence), and waiting for a named human judgment. Missing external-action receipts remain incomplete even when a list or draft exists.

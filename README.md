@@ -85,6 +85,16 @@ The adoption pass is read-only until the user approves exact project changes.
 
 See [EXAMPLES.md](EXAMPLES.md) for Quick, Standard, Governed, review, adoption, and retrospective examples, including executable Standard and review MVPs.
 
+## Resume or close a multi-session task
+
+```text
+$gap continue this task from the actual artifacts and latest evidence. Preserve the original goal and data definitions; recheck only invalidated claims, then report what is ready and what still needs a decision.
+```
+
+Version 0.5.0 includes an optional Python 3.10+ checkpoint helper **inside** the installed skill folder. It binds actual receipts to the purpose, semantic contract and files, preserving revisions and distinguishing run termination from artifact readiness. See [delivery.md](skills/gap/references/delivery.md) for the short CLI procedure. It neither runs an agent nor certifies business truth, external actions or reviewer identity. Quick tasks still create no process files. No global installation is required to test the helper.
+
+Experience remains candidate or validated within a stated scope; later tasks record apply/trial/reject and observed results. No automatic self-promotion. Comparative human-effort savings are not established by the synthetic tests.
+
 ## Execution budgets
 
 A budget is a stop condition for a costly or uncertain repair loop, not a quota for ordinary development and not permission to stop before success. Set one only when retries are long-running, flaky, externally rate-limited, or expensive, for example `max repair iterations: 5` or `max elapsed time: 30 minutes`. A repair iteration starts after verification fails; use `total attempts` when the initial implementation must count. Passing ends the loop early. Exhaustion produces a blocked report with attempts, evidence, and required input; it never counts as completion.

@@ -78,3 +78,9 @@ Failure verdict: if the workflow does not reduce costly misses enough to repay i
 ## Evaluator independence
 
 The implementation session does not grade its own behavioral run. Use a fresh context, another supported harness/model, or a user-held checklist. Keep planted constraints out of the implementation prompt when the test is meant to measure discovery.
+
+## 2026-10-06 collaboration iteration
+
+The frozen [iteration contract](results/2026-10-06-plan.md) defines success and budgets before implementation. `tests/fixtures/collaboration` contains four synthetic development failures, with an external outcome evaluator and known-green reference outputs. These test original preservation, message semantics, truthful external-action status and resumption without duplication. They are development regressions, not held-out model effectiveness.
+
+`tests/test_checkpoint.py` executes the installed helper against real temporary files, including missing/changed evidence, contract/input revisions, receipt kinds, candidate experience, independent-review freshness and a copied skill folder. Hash checks establish continuity only; semantic truth and identity remain external responsibilities. Held-out task variants are owned by a fresh acceptance context outside the development tree until freeze. Report unavailable model identity, tokens, timings or human effort as unknown, not as zero.

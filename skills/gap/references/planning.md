@@ -41,3 +41,11 @@ Wide mechanical refactors are the exception. Use expand–migrate–contract: in
 Standard work needs user confirmation only for unresolved material choices or when the user requested plan approval. Governed work requires explicit acceptance of intent, spec, and plan by the named owner before the next irreversible stage.
 
 Planning is complete when the next implementer can act without guessing at consequential choices and every acceptance check has an owner.
+
+## Preserve the promise across changes
+
+For a handoff or ambiguous analysis/delivery task, retain a short purpose, its user/source pointer, non-substitutable semantics, and observable acceptance criteria. Examples of semantics: original repository versus a processed copy; message rows versus event counts; exact comparison windows and denominator; a prepared list versus an executed external action. An instruction to work autonomously does not change these meanings.
+
+When the user changes the goal or a key source contradicts it, retain the old decision and the new source/reason, identify affected claims and tests, and invalidate their old evidence. Correct factual assumptions within scope; ask only for unresolved value/scope choices. Update downstream conclusions, not just a footnote. Existing authorization remains valid within its original scope.
+
+For evidence likely to go stale across sessions, use the optional checkpoint procedure in [delivery.md](delivery.md). Keep one authoritative checkpoint in the project's existing location; the helper is unnecessary for Quick work.
