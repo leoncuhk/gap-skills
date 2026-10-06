@@ -7,6 +7,8 @@ description: Guide ambiguous, multi-step, risky, or governed software, analysis,
 
 Run one adaptive delivery workflow for software, analysis and local artifacts. Use the smallest path that makes the change trustworthy; do not make the user choose among separate process skills.
 
+The human owns purpose, value tradeoffs and judgments that require human responsibility. The agent carries most of the investigation, implementation, testing, state resumption and closure, and makes any needed human involvement clear with options and consequences. Aim to improve real work together over successive tasks by retaining and testing useful experience; continued improvement is a goal to verify through actual outcomes.
+
 ## Operating contract
 
 - Inspect the repository and available evidence before asking questions. Facts come from the environment; decisions come from the user.

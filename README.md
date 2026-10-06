@@ -4,6 +4,12 @@
 
 **One skill, one adaptive path from intent to verified delivery.**
 
+项目愿景：
+
+> 人主要负责目的、价值取舍和必须由人承担的判断。AI应该承担查证、实施、测试、状态接续和收尾的大部分劳动，并把需要人介入的部分讲清楚。真正实现人机协作方式：让人与AI组成一个能把真实工作持续做得更好的协作系统，并把有效经验留下来，让下一次更好。
+
+这是设计目标；持续改善真实工作及减少人力负担仍需实际任务证据验证。
+
 `gap` combines the useful mechanisms behind unknown discovery, structured interviewing, specification, work slicing, plan-conditioned implementation, evidence-backed review, human approval gates, incident feedback, and agent-environment retrospectives. Developers install and invoke one skill; the skill loads only the branch the current task needs.
 
 It does not force every task through a full lifecycle. It routes work by ambiguity, scale, and risk:
