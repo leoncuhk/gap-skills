@@ -46,3 +46,21 @@ python3 "$GAP/scripts/checkpoint.py" --root "$TASK" --state "$TASK/state.json" f
 The default is text. Output files must be new, so a view cannot overwrite source evidence. HTML is an offline view with native disclosures and a local JSON export; it neither sends nor applies feedback. The observation fingerprint binds the contract, state and actual current files, including symlink target identity. Changed files make old feedback stale even when state.json is unchanged. Re-open current evidence and recheck the note; never remove the version binding to force it through. Intake validates IDs/version and returns review input, not approval or a changed criterion. Verify the feedback’s actual provenance and meaning, then continue within existing authorization.
 
 Test the reader’s operation: find the questionable criterion, inspect its source/evidence, state the unresolved decision, modify/export/read back a note, and confirm stale feedback cannot be used as current. Browser checks establish interaction correctness; model reviews or attractive layouts do not establish human understanding, saved review time or business value.
+
+### Source-bound delivery explanation (optional)
+
+When hashes and receipt names do not explain the change, add `--brief brief.json` to **both** `view` and `feedback`. Render text and HTML from that same file. Keep it beside the existing task artifacts. Version 1 schema:
+
+```text
+{version: 1, summary,
+ changes: [{criterion, title, impact, claim_type: "source_fact"|"inference"|"proposal",
+            before: CITE, after: CITE, basis: [CITE]}],
+ decisions: [{criterion, question, owner, deferral,
+              options: [{id, label, consequence, tradeoff}, ...]}],
+ limits: [text]}
+CITE = {path, start, end, sha256, target}
+```
+
+Citations use canonical root-relative paths, actual full-file SHA-256 and resolved target, with 1-based inclusive spans up to 80 lines in a UTF-8 file up to 512000 bytes. Cite the meaningful exception/context, not a convenient fragment; the helper verifies identity and extracts actual text but cannot judge whether a span supports a claim. Each change names a known criterion and includes at least one basis citation. Distinguish source facts, inference and proposals. Every unresolved human criterion needs its question, decision owner, consequence of deferral, and at least two options with consequences and tradeoffs. This is information for a real decision, never an added approval ritual for settled choices.
+
+The default text view keeps the change, impact, verification, pending decision and material limits, with exact source paths/spans. Add `--details` to the same `view` command (keep the same `--brief` and write a new output) for full original excerpts, computed line differences and a deduplicated receipt directory. Both text modes and HTML bind the same observation. HTML keeps details in the same document, folded by default; source/receipt links open their containing disclosures, focus and scroll to the target. Without JavaScript, manually expand the named native disclosures. Technical fingerprints remain secondary; no evidence or material exception may be deleted to reduce reading length. A changed citation makes the explanation explicitly stale and blocks feedback intake until rechecked, even if checkpoint state has not changed. The user must not treat old narrative paired with newly changed text as a reviewed conclusion. Missing sources fail closed. Source formatting, interaction correctness and information completeness are separate from actual human comprehension, which needs a real reader trial.

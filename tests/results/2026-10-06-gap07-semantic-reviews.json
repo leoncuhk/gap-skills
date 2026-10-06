@@ -1,0 +1,103 @@
+{
+  "dev-baseline": {
+    "reviewer": "independent acceptance context; not solver or implementer",
+    "domain": "pass: independently recomputed exact structured result and freshly executed solver",
+    "delivery_facts": "pass: exact per-request/product before/after, affected and unchanged entities, and correct basis",
+    "decisions": "pass: named owner, both option costs/consequences/tradeoffs and deferral with no authorization",
+    "readable_original_and_diff": "partial: complete verbatim policy and correct original file/line references plus numeric differences; raw previous/current JSON or CSV before/after excerpts and literal source diff not embedded",
+    "text_html_common_source": "pass: inspected common-source renderer and both artifact paths; local content checks, no browser",
+    "source_and_feedback_freshness": "not implemented: source integrity logs exist, but no observation-bound feedback validator or automatic old-source/old-feedback rejection surface",
+    "feedback_non_authorization": "pass as delivered static review wording and audit.authorization=false; no interactive feedback execution surface tested",
+    "actual_experience": "pass: bounded trial, retained prior candidate, actual local result and rejecting team-collapse counterexample; limited provisional support, no claim of blind external validation",
+    "verification_replay": "pass: verify.py independently inspected and run in a separate copied workspace; see dev-baseline-verifier-replay.txt",
+    "human_comprehension": "not measured",
+    "platform_trace": "unknown",
+    "backend_and_tokens": "unknown",
+    "blocking_content_findings": [],
+    "evidence": [
+      "runs/dev/baseline/deliverables/review.txt",
+      "runs/dev/baseline/deliverables/experience.json",
+      "runs/dev/baseline/deliverables/verify.py",
+      "reports/dev-baseline-mechanical.json",
+      "reports/dev-baseline-verifier-replay.txt"
+    ]
+  },
+  "heldout-baseline": {
+    "reviewer": "independent acceptance context; not solver or implementer",
+    "domain": "pass: independently recomputed exact structured result and freshly executed solver",
+    "delivery_facts": "pass: exact per-request/product before/after, affected and unchanged entities, and correct basis",
+    "decisions": "pass: named owner, both option costs/consequences/tradeoffs and deferral with no authorization",
+    "readable_original_and_diff": "partial: complete verbatim policy and correct original file/line references plus numeric differences; raw previous/current JSON or CSV before/after excerpts and literal source diff not embedded",
+    "text_html_common_source": "pass: inspected common-source renderer and both artifact paths; local content checks, no browser",
+    "source_and_feedback_freshness": "not implemented: source integrity logs exist, but no observation-bound feedback validator or automatic old-source/old-feedback rejection surface",
+    "feedback_non_authorization": "pass as delivered static review wording and audit.authorization=false; no interactive feedback execution surface tested",
+    "actual_experience": "pass: explicit scoped candidate rejection; actual maximum-revision-per-product and last-row counterexamples retained and independently rerun",
+    "verification_replay": "pass: verify.py independently inspected and run in a separate copied workspace; see heldout-baseline-verifier-replay.txt",
+    "human_comprehension": "not measured",
+    "platform_trace": "unknown",
+    "backend_and_tokens": "unknown",
+    "blocking_content_findings": [],
+    "evidence": [
+      "runs/heldout/baseline/deliverables/review.txt",
+      "runs/heldout/baseline/deliverables/experience.json",
+      "runs/heldout/baseline/deliverables/verify.py",
+      "reports/heldout-baseline-mechanical.json",
+      "reports/heldout-baseline-verifier-replay.txt"
+    ]
+  },
+  "dev-enhanced": {
+    "reviewer": "independent acceptance context; not solver or implementer",
+    "domain": "pass: independently recomputed complete structured output and regenerated in isolated copy",
+    "delivery_facts": "pass: precise affected and unchanged request/team or product quantities and basis",
+    "decisions": "pass: exact costs, consequences, tradeoffs, owner and cutoff deferral; authorization false",
+    "readable_original_and_diff": "pass: actual original/current excerpts and raw unified differences plus cited original policy. Sources independently checked against frozen inputs.",
+    "text_html_common_source": "pass: actual original views regenerate byte-for-byte in relocated copy from same brief/state, observation identical",
+    "source_and_feedback_freshness": "pass: full-file/target binding via installed API; actual output feedback rejects changed uncited source line and changed brief, existing evidence state untouched",
+    "feedback_non_authorization": "pass: actual accepted synthetic feedback applied=false authorization=false and byte-identical state",
+    "actual_experience": "pass: candidate trial bound to task/use/result IDs, verification and negative controls fresh, candidate retained with no validations. SQL/manual check and same-total team-aggregation identity-loss negative test actually independently rerun.",
+    "verification_replay": "pass: solve.py, verify.py and binding tests executed in new copied roots; heldout verify_review.py also rerun",
+    "frozen_skill_unchanged": true,
+    "human_comprehension": "not measured",
+    "platform_trace": "unknown",
+    "backend_and_tokens": "unknown",
+    "blocking_content_findings": [],
+    "presentation_limits": [
+      "Repeated technical receipts and long differences make the review substantially longer; net readability not measured."
+    ],
+    "evidence": [
+      "runs/dev/enhanced/deliverables/review.txt",
+      "runs/dev/enhanced/deliverables/brief.json",
+      "runs/dev/enhanced/deliverables/experience.json",
+      "reports/dev-enhanced-mechanical.json",
+      "reports/actual-bindings-replay.json"
+    ]
+  },
+  "heldout-enhanced": {
+    "reviewer": "independent acceptance context; not solver or implementer",
+    "domain": "pass: independently recomputed complete structured output and regenerated in isolated copy",
+    "delivery_facts": "pass: precise affected and unchanged request/team or product quantities and basis",
+    "decisions": "pass: exact costs, consequences, tradeoffs, owner and cutoff deferral; authorization false",
+    "readable_original_and_diff": "pass: actual original/current excerpts and raw unified differences plus cited original policy. Sources independently checked against frozen inputs.",
+    "text_html_common_source": "pass: actual original views regenerate byte-for-byte in relocated copy from same brief/state, observation identical",
+    "source_and_feedback_freshness": "pass: full-file/target binding via installed API; actual output feedback rejects changed uncited source line and changed brief, existing evidence state untouched",
+    "feedback_non_authorization": "pass: actual accepted synthetic feedback applied=false authorization=false and byte-identical state",
+    "actual_experience": "pass: explicit candidate rejection recorded for original incident, with independent replay of maximum-revision transfer counterexample 13/-3/5. Semantic mismatch correctly explained; no promotion.",
+    "verification_replay": "pass: solve.py, verify.py and binding tests executed in new copied roots; heldout verify_review.py also rerun",
+    "frozen_skill_unchanged": true,
+    "human_comprehension": "not measured",
+    "platform_trace": "unknown",
+    "backend_and_tokens": "unknown",
+    "blocking_content_findings": [],
+    "presentation_limits": [
+      "Repeated technical receipts and long differences make the review substantially longer; net readability not measured.",
+      "Cross-document diff between incident and counterexample shows their text differences, not an actual edit to the incident; the inference label and unchanged-input evidence keep this distinction recoverable."
+    ],
+    "evidence": [
+      "runs/heldout/enhanced/deliverables/review.txt",
+      "runs/heldout/enhanced/deliverables/brief.json",
+      "runs/heldout/enhanced/deliverables/experience.json",
+      "reports/heldout-enhanced-mechanical.json",
+      "reports/actual-bindings-replay.json"
+    ]
+  }
+}

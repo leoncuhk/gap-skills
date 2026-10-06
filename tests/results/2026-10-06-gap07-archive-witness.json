@@ -1,0 +1,59 @@
+{
+  "archive": "/tmp/gap07-acceptance-20261006/gap07-evidence-20261006.tar.gz",
+  "sha256": "8123942cae5006a796d090857f1e8900d5b695486d2ac52c691b85a568205806",
+  "bytes": 321627,
+  "manifest_file_count": 343,
+  "all_extracted_file_hashes_match": true,
+  "final_archive_replay_exit": 0,
+  "final_archive_replay": {
+    "package_root": "/private/tmp/gap07-acceptance-20261006/relocation/final/gap07-acceptance-20261006",
+    "results": [
+      {
+        "name": "qualification",
+        "returncode": 0,
+        "pass": true
+      },
+      {
+        "name": "independent-api-cli",
+        "returncode": 0,
+        "pass": true
+      },
+      {
+        "name": "actual-enhanced-bindings",
+        "returncode": 0,
+        "pass": true
+      },
+      {
+        "name": "dev-baseline",
+        "returncode": 0,
+        "pass": true
+      },
+      {
+        "name": "dev-enhanced",
+        "returncode": 0,
+        "pass": true
+      },
+      {
+        "name": "heldout-baseline",
+        "returncode": 0,
+        "pass": true
+      },
+      {
+        "name": "heldout-enhanced",
+        "returncode": 0,
+        "pass": true
+      }
+    ],
+    "all_mechanical_pass": true,
+    "semantic_review": "Read retained independent semantic report; this replay does not perform or authenticate semantic review.",
+    "platform_trace": "unknown",
+    "human_comprehension": "not measured",
+    "original_paths": "Historical records are preserved, never rewritten."
+  },
+  "stdout": "{\n  \"package_root\": \"/private/tmp/gap07-acceptance-20261006/relocation/final/gap07-acceptance-20261006\",\n  \"results\": [\n    {\n      \"name\": \"qualification\",\n      \"returncode\": 0,\n      \"pass\": true\n    },\n    {\n      \"name\": \"independent-api-cli\",\n      \"returncode\": 0,\n      \"pass\": true\n    },\n    {\n      \"name\": \"actual-enhanced-bindings\",\n      \"returncode\": 0,\n      \"pass\": true\n    },\n    {\n      \"name\": \"dev-baseline\",\n      \"returncode\": 0,\n      \"pass\": true\n    },\n    {\n      \"name\": \"dev-enhanced\",\n      \"returncode\": 0,\n      \"pass\": true\n    },\n    {\n      \"name\": \"heldout-baseline\",\n      \"returncode\": 0,\n      \"pass\": true\n    },\n    {\n      \"name\": \"heldout-enhanced\",\n      \"returncode\": 0,\n      \"pass\": true\n    }\n  ],\n  \"all_mechanical_pass\": true,\n  \"semantic_review\": \"Read retained independent semantic report; this replay does not perform or authenticate semantic review.\",\n  \"platform_trace\": \"unknown\",\n  \"human_comprehension\": \"not measured\",\n  \"original_paths\": \"Historical records are preserved, never rewritten.\"\n}\n",
+  "stderr": "",
+  "relocation_receipt": "/tmp/gap07-acceptance-20261006/relocation/final/gap07-acceptance-20261006/reports/relocated-final/summary.json",
+  "archive_includes_prior_relocation_receipt": "reports/relocation-first.json",
+  "contains_platform_private_reasoning": false,
+  "historical_paths_rewritten": false
+}

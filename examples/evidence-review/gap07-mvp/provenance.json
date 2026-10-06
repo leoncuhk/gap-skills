@@ -1,0 +1,21 @@
+{
+  "kind": "post-run presentation reduction; original solver brief/state unchanged",
+  "source_workspace": "runs/dev/enhanced",
+  "original_bundle": "tests/results/2026-10-06-gap07-evidence.tar.gz",
+  "observation_sha256": "5de0c252180a1b74f40979f112587229cc1b71b486335b61d04eda1688d5007e",
+  "files": {
+    "review.html": "fcf4ea1b776b3f5bf5e410bcf88d758d385d309d86c58a02c61a011c549259ab",
+    "review.txt": "1e4e18edf95b46fc9e552773293dbb91618fe1e245af4b85021fbb644b7e5eda",
+    "review-details.txt": "f999182b3d5c2297eb6673f1a5de23a427ecf7d628aac5ab33477eb621bd43a8"
+  },
+  "renderer_sha256": {
+    "checkpoint.py": "4685c2310b14c2ff973f9eb0d4b7c378fa341d34631173fd2c762450611a3851",
+    "review_view.py": "d2d4dd1471545b7fc363156a8a7198e32bef9d7ec93708f100d58eba908040db",
+    "brief.py": "28b80245040fe6f04d1218d58f0570e3ac46612c98b8e66592393e37f1682ecf"
+  },
+  "limits": [
+    "Same original evidence, regenerated presentation after four solver runs. Original outputs retained in original evidence bundle.",
+    "Not browser-tested or a human-comprehension trial.",
+    "Mei decision unresolved; no external action authorized."
+  ]
+}

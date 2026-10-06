@@ -1,0 +1,136 @@
+{
+  "freeze_id": "d086ecaf8a82b2b192d8db608f48f078b3d6427aa0fe8c241cc24c45377a5481",
+  "scope": "Two synthetic tasks, four separate solver contexts; no overall effectiveness score",
+  "requested_model": "gpt-6-astra",
+  "requested_effort": "high",
+  "requested_fork": "none",
+  "budget": "18 tool calls / 12 minutes per context; platform-wide enforcement unverified",
+  "rows": [
+    {
+      "case": "dev",
+      "condition": "baseline",
+      "complete_domain_and_local_replay": "pass",
+      "changed_and_unchanged_entities": "pass",
+      "decision_information": "pass",
+      "shared_text_html_source": "pass",
+      "original_policy_and_numeric_diff": "pass",
+      "embedded_original_before_after_and_raw_diff": "partial",
+      "automatic_stale_source_feedback_rejection": "not_implemented",
+      "actual_scoped_experience": "trial_pass_provisional_local_support_no_validated_promotion",
+      "human_comprehension": "not_measured",
+      "platform_full_trace": "unknown"
+    },
+    {
+      "case": "dev",
+      "condition": "enhanced",
+      "complete_domain_and_local_replay": "pass",
+      "changed_and_unchanged_entities": "pass",
+      "decision_information": "pass",
+      "shared_text_html_source": "pass",
+      "original_policy_and_numeric_diff": "pass",
+      "embedded_original_before_after_and_raw_diff": "pass",
+      "automatic_stale_source_feedback_rejection": "pass",
+      "actual_scoped_experience": "trial_pass_candidate_retained",
+      "human_comprehension": "not_measured",
+      "platform_full_trace": "unknown"
+    },
+    {
+      "case": "heldout",
+      "condition": "baseline",
+      "complete_domain_and_local_replay": "pass",
+      "changed_and_unchanged_entities": "pass",
+      "decision_information": "pass",
+      "shared_text_html_source": "pass",
+      "original_policy_and_numeric_diff": "pass",
+      "embedded_original_before_after_and_raw_diff": "partial",
+      "automatic_stale_source_feedback_rejection": "not_implemented",
+      "actual_scoped_experience": "reject_pass",
+      "human_comprehension": "not_measured",
+      "platform_full_trace": "unknown"
+    },
+    {
+      "case": "heldout",
+      "condition": "enhanced",
+      "complete_domain_and_local_replay": "pass",
+      "changed_and_unchanged_entities": "pass",
+      "decision_information": "pass",
+      "shared_text_html_source": "pass",
+      "original_policy_and_numeric_diff": "pass",
+      "embedded_original_before_after_and_raw_diff": "pass",
+      "automatic_stale_source_feedback_rejection": "pass",
+      "actual_scoped_experience": "reject_pass",
+      "human_comprehension": "not_measured",
+      "platform_full_trace": "unknown"
+    }
+  ],
+  "cost_proxies": [
+    {
+      "case": "dev",
+      "condition": "baseline",
+      "deliverable_files": 19,
+      "deliverable_bytes": 46315,
+      "review_text_bytes": 7053,
+      "review_html_bytes": 8447,
+      "tool_calls_self_report": null,
+      "backend": "unknown",
+      "tokens": "unknown",
+      "wall_time": "unknown; no independently authenticated exact timing"
+    },
+    {
+      "case": "dev",
+      "condition": "enhanced",
+      "deliverable_files": 40,
+      "deliverable_bytes": 170979,
+      "review_text_bytes": 19721,
+      "review_html_bytes": 36295,
+      "tool_calls_self_report": 12,
+      "backend": "unknown",
+      "tokens": "unknown",
+      "wall_time": "unknown; no independently authenticated exact timing"
+    },
+    {
+      "case": "heldout",
+      "condition": "baseline",
+      "deliverable_files": 12,
+      "deliverable_bytes": 34118,
+      "review_text_bytes": 4391,
+      "review_html_bytes": 5265,
+      "tool_calls_self_report": 4,
+      "backend": "unknown",
+      "tokens": "unknown",
+      "wall_time": "unknown; no independently authenticated exact timing"
+    },
+    {
+      "case": "heldout",
+      "condition": "enhanced",
+      "deliverable_files": 27,
+      "deliverable_bytes": 130327,
+      "review_text_bytes": 20737,
+      "review_html_bytes": 37835,
+      "tool_calls_self_report": 8,
+      "backend": "unknown",
+      "tokens": "unknown",
+      "wall_time": "unknown; no independently authenticated exact timing"
+    }
+  ],
+  "implementation_checks": {
+    "independent_api_cli": 24,
+    "pass": 24,
+    "known_solvable_positive_controls": 2,
+    "meaningful_negative_controls": 8
+  },
+  "resolved_implementation_findings": [
+    "experience version accepted boolean/float",
+    "selected brief identity missing from observation digest when both brief paths already observed",
+    "experience result stayed current after unreferenced contract input change"
+  ],
+  "remaining_limits": [
+    "No human comprehension test",
+    "No backend or token/cost telemetry",
+    "No platform-complete call trace",
+    "No population-level causal or efficacy conclusion",
+    "Dev uses known incident values; positive forward generalization not established",
+    "No validated-experience apply path demonstrated by actual solver tasks; covered only by deterministic boundaries, not successful independent promotion",
+    "More files and longer reports may add review burden"
+  ]
+}

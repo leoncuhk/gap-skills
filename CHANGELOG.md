@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0 — 2026-10-06 (local, unpublished)
+
+- Add optional source-bound delivery briefs with actual original excerpts, computed before/after differences, decision options, consequences and source navigation in the same text/HTML observation.
+- Bind feedback to the selected brief as well as full source identity; stale explanations cannot receive current feedback.
+- Bind scoped experience adoption to a task and contract revision, retain actual use outcomes and failure history, and reject unsupported validated labels or recycled evidence.
+- Deduplicate repeated receipts; make full text evidence opt-in with `view --details` and HTML disclosures, retaining the compact view’s source and observation identity.
+- Preserve plain checkpoint and Quick paths without mandatory briefing or experience files. Browser QA, human comprehension and comparative efficiency remain unproven.
+
 ## 0.6.1 — 2026-10-06 (local, unpublished)
 
 - Inspect existing check wiring and failure propagation before proposing another check; verify both bad and valid inputs through the actual entry point.

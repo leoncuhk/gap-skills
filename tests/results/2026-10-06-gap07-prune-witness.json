@@ -1,0 +1,28 @@
+{
+  "archive": "/tmp/gap07-acceptance-20261006/compact-review/gap07-prune4-evidence-20261006.tar.gz",
+  "sha256": "cf29abe663d1c3b1f0d6583ad669c780bf569a739fce849d62beb9a13cbdc3e3",
+  "bytes": 448911,
+  "skill_manifest_sha256": "aecc74723873a540a6c3fedddb976cd8f3cbb530ef93be2e9c17cc7e1183eda6",
+  "baseline_archive_sha256": "8123942cae5006a796d090857f1e8900d5b695486d2ac52c691b85a568205806",
+  "prune3_archive_sha256": "4b81b9c78f6895c595dc034471f3d2b6a0e81f4db136341b645bab4518b7a5db",
+  "results": [
+    {
+      "name": "compat24",
+      "returncode": 0,
+      "log": "/tmp/gap07-acceptance-20261006/compact-review/relocation/prune4-final/gap07-acceptance-20261006/compact-review/compat24-prune4.log"
+    },
+    {
+      "name": "node-citation",
+      "returncode": 0,
+      "log": "/tmp/gap07-acceptance-20261006/compact-review/relocation/prune4-final/gap07-acceptance-20261006/compact-review/node-citation-prune4.log"
+    },
+    {
+      "name": "actual-views",
+      "returncode": 0,
+      "log": "/tmp/gap07-acceptance-20261006/compact-review/relocation/prune4-final/gap07-acceptance-20261006/compact-review/actual-views-prune4.log"
+    }
+  ],
+  "all_pass": true,
+  "delta": "Only rstrip on empty detailed Evidence line; two detailed outputs each one byte smaller; default text/HTML byte-identical to prune3",
+  "scope": "No new solver or browser; original artifacts and prior archives preserved"
+}

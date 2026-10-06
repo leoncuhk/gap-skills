@@ -1,0 +1,34 @@
+[
+  {
+    "case": "dev",
+    "pass": true,
+    "checks": [
+      "actual checkpoint current nonhuman criteria pass; human decision remains missing",
+      "candidate and actual task/use/result identities consistent, with current file bindings",
+      "both actual views regenerate byte-for-byte at a new root with identical observation",
+      "actual current feedback accepted as input only; state bytes unchanged",
+      "old feedback rejected after full cited source mutation including uncited line",
+      "old feedback rejected after structured explanation change"
+    ],
+    "historical_cli_calls": "state/receipts declare calls; platform provenance unknown",
+    "independent_replay": "these commands executed locally in a separate copied root",
+    "browser": "not used",
+    "human_comprehension": "not measured"
+  },
+  {
+    "case": "heldout",
+    "pass": true,
+    "checks": [
+      "actual checkpoint current nonhuman criteria pass; human decision remains missing",
+      "candidate and actual task/use/result identities consistent, with current file bindings",
+      "both actual views regenerate byte-for-byte at a new root with identical observation",
+      "actual current feedback accepted as input only; state bytes unchanged",
+      "old feedback rejected after full cited source mutation including uncited line",
+      "old feedback rejected after structured explanation change"
+    ],
+    "historical_cli_calls": "state/receipts declare calls; platform provenance unknown",
+    "independent_replay": "these commands executed locally in a separate copied root",
+    "browser": "not used",
+    "human_comprehension": "not measured"
+  }
+]

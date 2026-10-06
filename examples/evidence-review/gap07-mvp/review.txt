@@ -1,0 +1,47 @@
+# Correct the synthetic badge queue and prepare a source-backed review
+Run: ended | Artifact ready: True
+Independent acceptance: not established
+Human judgment pending: shipping
+
+## 交付说明（AI整理，原文可追查）
+The corrected queue contains 17 badges instead of 21: Q1 North 8 (-2), Q2 South 5 (-2), Q4 South 4 (unchanged). North receives 2 fewer badges, South 2 fewer; both South requests remain separate. Q3 remains excluded because its latest snapshot is cancelled. Operations owner Mei must still choose one shipping mode for all 17. No print order is authorized or sent.
+
+### Greatest revision replaces last physical row: exact queue changes [source_fact]
+影响：Q1: revision 2 quantity 10 -> revision 3 quantity 8 (requests.csv lines 7 and 5). Q2: revision 1 quantity 7 -> revision 2 quantity 5 (lines 6 and 3). Q4 stays 4 (line 9). Q3 remains absent: latest revision 2 cancelled supersedes revision 1 approved (lines 8 and 4). Total falls by 4, from 21 to 17. North total 10 -> 8; South total 11 -> 9, still Q2 and Q4 separately. Print operations would overproduce 4 badges under the previous queue.
+before: input/previous_queue.json:1-20 [source-0]
+after: deliverables/results.json:1-20 [source-1]
+依据：input/policy.txt:1-9 [source-2], input/requests.csv:1-9 [source-3], input/incident.txt:1-7 [source-4]
+### 待决定：Choose rush or standard for all 17 approved badges? Choice is still pending; feedback is review input only.
+负责人：Mei
+暂不决定：Policy input/policy.txt:9: if no choice is made by 17:00, keep the queue on hold; no print order may be sent. No deadline date or timezone is specified, so this review does not infer whether the cutoff has passed.
+- rush · Rush: 68 credits (17 × 4)：All 17 badges reach Monday setup (policy lines 6-8). Corrected rush cost is 68 versus 84 for the previous 21-badge queue, a 16-credit reduction.；代价/取舍：Costs 51 credits more than standard to arrive for setup. Requires Mei choice; currently unauthorized.
+- standard · Standard: 17 credits (17 × 1)：All 17 badges arrive Tuesday after setup (policy lines 6-8). Corrected standard cost is 17 versus 21 previously, a 4-credit reduction.；代价/取舍：Saves 51 credits against rush, but misses Monday setup. Requires Mei choice; currently unauthorized.
+限制：Verification uses a separate SQLite/manual oracle but was authored in the same context; no independent reviewer acceptance.
+限制：Experience remains candidate: one incident replay plus synthetic edge cases cannot establish generalized improvement.
+限制：HTML is local and offline; no browser interaction or human comprehension test was performed. Feedback cannot authorize printing.
+限制：Input hashes establish continuity only. Local files do not establish platform-wide trace completeness or external delivery.
+
+## queue — pass (artifact)
+Reusable solver produces Q1=8, Q2=5, Q4=4 and total 17.
+Observed: Actual local executions retained; same-context verification does not establish independent acceptance.
+## verification — pass (check)
+Independent SQL/manual oracle passes; last-row and team-collapse controls fail.
+Observed: Actual local executions retained; same-context verification does not establish independent acceptance.
+## experience — pass (check)
+Scoped candidate actually trialed with retained outcome; no global promotion.
+Observed: Actual local executions retained; same-context verification does not establish independent acceptance.
+## review — pass (review)
+Self-review reconciles behavior and engineering constraints; separate acceptance not available.
+Observed: Intent and engineering reviewed separately; no separate reviewer context permitted.
+## shipping — missing (human)
+Mei chooses rush 68 credits or standard 17 credits; no choice authorized.
+Experience: deliverables/experience.json | candidate / trial | stale: []
+Policy lines 2-5 explicitly specify replacement snapshots, integer revision, stable request ID, and distinct same-team requests.
+Current result status: recorded
+Recorded outcome (not certification): pass
+
+Observation: 5de0c252180a1b74f40979f112587229cc1b71b486335b61d04eda1688d5007e | Brief: deliverables/brief.json
+完整原文、差异与回执：在同一条 view 命令加入 --details（保留相同 --brief；输出到新文件）。详情必须与本摘要Observation一致，否则先重新核查。反馈须引用observation和判据ID。
+
+Feedback is review input, not authorization.
+Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.

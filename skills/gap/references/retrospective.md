@@ -43,4 +43,45 @@ Keep an observation or suspected cause as a **candidate** until a comparable tas
 
 At the start of a relevant later task, consult only the matching entries in the project's existing evolution log. Check whether their sources, versions and task conditions still apply; record the selected entry and why it is applied, trialed or rejected. At closure attach the observed outcome and cost/extra user intervention (unknown if not measured). Reading an entry alone is not evidence that it helped.
 
-If using the delivery checkpoint, `use --file <local-experience-file> --status candidate --decision trial --reason <applicability>` records the exact experience file consulted. A candidate cannot be recorded as a validated application. The helper retains declared status and freshness; it cannot certify the experience's validity. Use `validated`/`apply` only after inspecting the underlying validation evidence. No automatic promotion or global installation. Apply an environment change already authorized by the current request without asking again; otherwise present the concrete proposal.
+If using the delivery checkpoint, `use --file <local-experience-file> --status candidate --decision trial --reason <applicability>` keeps legacy Markdown usable as a candidate. Its result stays `unverified` until the same task records its actual outcome. A `validated` command-line label cannot promote Markdown or a candidate JSON entry. No automatic promotion or global installation. Apply an environment change already authorized by the current request without asking again; otherwise present the concrete proposal.
+
+### File-bound experience and adoption
+
+Use structured JSON only when the additional evidence is useful. Keep it beside the project's existing evolution log, not in a global rule registry. Version 1 has these fields:
+
+```text
+{
+  version: 1, id: "bounded-experience-id", status: "candidate" | "validated",
+  sources: [{task_id, failure, receipt: REF}],
+  scope: {applies_to: [condition], excludes: [condition]},
+  correction: {action, expected_result, check},
+  validations: [{
+    task_id, kind: "regression" | "forward", scope: [condition],
+    before: REF, after: REF, before_result: "fail", after_result: "pass",
+    observed, review: {by, independent: true, receipt: REF}
+  }]
+}
+REF = {path: "root-relative/file", sha256: "64 lowercase hex digits", target: "resolved/root-relative/file"}
+```
+
+All text is nonempty; conditions, exclusions and failure sources are nonempty lists. A candidate may have no validations. A validated entry needs at least two distinct validation tasks, separate from failure-source tasks, including a forward task. Each validation covers the exact bounded scope, has distinct before/after files and a separate semantic-review receipt. Reusing the same after-receipt target or bytes under another task label cannot count twice. One severe incident may justify a candidate precaution, not a validated claim. Exact scope labels prevent accidental structural broadening; they cannot prove the labels describe reality.
+
+For structured `trial` or `apply`, add `--scope <task-scope.json>`:
+
+```text
+{task_id, experience_id, matched_scope: [condition],
+ excluded_conditions_checked: [condition], basis: [REF], reason}
+```
+
+The scope file must identify this experience, match all its conditions, check every exclusion, and retain actual task evidence. The helper snapshots the experience, all source/validation/review files, the scope file and its basis together. Changed bytes, missing files or a repointed symlink make the adoption stale even when the experience JSON is unchanged. Paths must remain inside the task root. A stale entry cannot be applied or trialed; rejection may retain stale references for audit. Legacy Markdown remains candidate-only and may retain its reason without a structured scope file.
+
+For every trial/application, capture a new result receipt at task closure and attach it through `use-result --use-id <id> --receipt <result.json> --outcome pass|fail|unknown`:
+
+```text
+{use_id, task_id, experience_id, outcome: "pass" | "fail" | "unknown",
+ observed, cost, user_intervention, checks: [REF]}
+```
+
+Copy the use and task identifiers from the recorded adoption. `checks` must bind new actual check files for this task, not recycled validation evidence. Write `unknown` for unmeasured cost or intervention. The receipt must match this particular adoption and outcome; another task's success cannot close it. Missing or unknown outcomes remain `unverified`; pass/fail means an outcome was recorded, not that improvement was certified. Retries append results so a later pass does not erase failure history. Inspect both failed and successful outcomes before judging the experience.
+
+Hashes check integrity and freshness only. Review independence and actor identity are declarations, not authenticated facts; matching scope labels, a passing receipt and saved files do not establish semantic fit or causal improvement. Independent semantic review must still inspect the underlying evidence and limits. Reading is not use; use is not improvement.

@@ -73,6 +73,8 @@ Codex:       $gap assess and deliver this change using the smallest trustworthy 
 Claude Code: /gap assess and deliver this change using the smallest trustworthy path
 ```
 
+Without installation, ask the agent to read this repository’s `skills/gap/SKILL.md` and complete the task using it. `$gap` and `/gap` require the corresponding installation; local package validation does not establish installation or automatic activation.
+
 Ordinary natural-language requests can also activate the skill when the harness supports implicit discovery. You never call separate planning, debugging, implementation, or review skills; `gap` loads those internal references only when the task needs them.
 
 To adopt it in an existing project:
@@ -91,11 +93,13 @@ See [EXAMPLES.md](EXAMPLES.md) for Quick, Standard, Governed, review, adoption, 
 $gap continue this task from the actual artifacts and latest evidence. Preserve the original goal and data definitions; recheck only invalidated claims, then report what is ready and what still needs a decision.
 ```
 
-Version 0.6.0 includes an optional Python 3.10+ checkpoint helper **inside** the installed skill folder. It binds actual receipts to the purpose, semantic contract and files, preserving revisions and distinguishing run termination from artifact readiness. See [delivery.md](skills/gap/references/delivery.md) for the short CLI procedure. It neither runs an agent nor certifies business truth, external actions or reviewer identity. Quick tasks still create no process files. No global installation is required to test the helper.
+Version 0.7.0 includes an optional Python 3.10+ checkpoint helper **inside** the installed skill folder. It binds actual receipts to the purpose, semantic contract and files, preserving revisions and distinguishing run termination from artifact readiness. See [delivery.md](skills/gap/references/delivery.md) for the short CLI procedure. It neither runs an agent nor certifies business truth, external actions or reviewer identity. Quick tasks still create no process files. No global installation is required to test the helper.
 
 Use `view` for a concise text checkpoint or `view --format html --output <new-file>` for an offline evidence/feedback surface. Returned feedback is bound to current file identity and is never an approval. See [communication.md](skills/gap/references/communication.md). Text is the default; diagrams show relationships, HTML supports inspection, and video needs a real motion/procedure requirement.
 
-Experience remains candidate or validated within a stated scope; later tasks record apply/trial/reject and observed results. No automatic self-promotion. Comparative human-effort savings are not established by the synthetic tests.
+For substantive handoff, optional `view --brief brief.json` puts original excerpts, actual differences, impacts and pending choices ahead of technical receipts. Use the same `--brief` on feedback intake. Default text is concise; add `--details` for full originals and deduplicated receipts. HTML exposes the same evidence through expandable source links.
+
+Experience remains candidate or validated within a stated scope; later tasks record apply/trial/reject and observed results through `use-result`. Structured validated application requires source failures, separate regression/forward validation, and current-task scope evidence. No automatic self-promotion. Comparative human-effort savings are not established by the synthetic tests.
 
 ## Execution budgets
 
@@ -115,7 +119,9 @@ Temporary state is removed only after unresolved environment problems, meaningfu
 
 Repository validation checks packaging, documentation links, references, manifests, invocation metadata, templates, and workflow invariants. Behavioral evaluation includes positive and negative activation cases, executable Quick, Standard-delivery, and standalone-review fixtures, plus declared Governed/adoption/retrospective scenarios. These checks show that the implementation is coherent and that planted review defects are detectable; the Governed scenario and comparative effectiveness still require retained harness and real-work results.
 
-Latest local iteration: [0.6.1 Matt adoption and three-arm results](tests/results/2026-10-06-matt-adoption.md). All three repaired artifacts pass independent local controls; complete original execution traces and comparative benefit remain unverified. Earlier [0.6.0 feedback-loop results](tests/results/2026-10-06-batch2.md) and [interactive synthetic MVP](examples/evidence-review/mvp/review.html) retain their browser-QA and human-effort limits.
+Latest local iteration: [0.7 source-bound delivery and scoped experience](tests/results/2026-10-06-gap07.md): 57 local regressions and four independently replayed task outcomes. Baseline and enhanced both solve the tasks; enhanced binds original excerpts and stale feedback, while originally producing substantially more artifacts. A separately reviewed presentation reduction retains full on-demand evidence and reduces default text; it is not a new solver comparison. Human understanding and net effort savings remain unmeasured.
+
+Earlier [0.6.1 Matt adoption and three-arm results](tests/results/2026-10-06-matt-adoption.md). All three repaired artifacts pass independent local controls; complete original execution traces and comparative benefit remain unverified. Earlier [0.6.0 feedback-loop results](tests/results/2026-10-06-batch2.md) and [interactive synthetic MVP](examples/evidence-review/mvp/review.html) retain their browser-QA and human-effort limits.
 
 See [tests/PROTOCOL.md](tests/PROTOCOL.md) for the evaluation contract, [tests/results/2026-08-27.md](tests/results/2026-08-27.md) for current evidence, and [NOTICE.md](NOTICE.md) for lineage.
 

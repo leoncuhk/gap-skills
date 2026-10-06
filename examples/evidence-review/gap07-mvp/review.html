@@ -1,0 +1,156 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gap evidence review</title><style>
+:root{font:16px/1.55 system-ui,sans-serif;color:#172b3a;background:#f2f5f7}body{max-width:1000px;margin:auto;padding:24px}h1{font-size:2rem;line-height:1.2}h2{font-size:1.15rem}section,header,aside{background:white;border:1px solid #b9cbd5;border-radius:10px;padding:20px;margin:16px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f2f5f7;padding:12px}code{overflow-wrap:anywhere;font-size:.86em}.sub{color:#435c6a}.status{font-size:.85rem;border:1px solid #657f8d;border-radius:5px;padding:3px 8px;margin-left:8px}.criterion[data-status="stale"],.criterion[data-status="fail"]{border-left:6px solid #ae3c28}label{display:block;margin-top:12px}textarea,select{font:inherit;box-sizing:border-box;width:100%;padding:8px;border:1px solid #718694;border-radius:5px}button{font:inherit;padding:9px 15px;background:#174c65;color:white;border:0;border-radius:6px;margin:8px 8px 8px 0}summary,button{cursor:pointer}button:focus-visible,summary:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #cc6900;outline-offset:3px}#output{min-height:180px}svg{max-width:100%;height:auto}input[type=checkbox]{width:18px;height:18px;vertical-align:middle}li{margin:8px 0} @media(max-width:520px){body{padding:12px}header,section,aside{padding:14px}h1{font-size:1.5rem}}@media print{button,.controls,label,select,textarea{display:none}.criterion[hidden]{display:block}details{display:block}body{padding:0}section{break-inside:avoid}}
+</style><header><p class="sub">GAP · observed evidence, not an approval</p><h1>Correct the synthetic badge queue and prepare a source-backed review</h1><details><summary>Source and observation identity</summary><p>Source: task.md and input/policy.txt</p><p>Contract revision: 1</p><p>Observation: <code>5de0c252180a1b74f40979f112587229cc1b71b486335b61d04eda1688d5007e</code></p></details>
+<p><strong>Run:</strong> ended · <strong>Artifact ready:</strong> True</p><p><strong>Independent acceptance:</strong> not established</p><p><strong>Human judgment pending:</strong> shipping</p>
+</header><section><h2>交付说明（AI整理，原文可追查）</h2><p>The corrected queue contains 17 badges instead of 21: Q1 North 8 (-2), Q2 South 5 (-2), Q4 South 4 (unchanged). North receives 2 fewer badges, South 2 fewer; both South requests remain separate. Q3 remains excluded because its latest snapshot is cancelled. Operations owner Mei must still choose one shipping mode for all 17. No print order is authorized or sent.</p><article><h3>Greatest revision replaces last physical row: exact queue changes · 来源事实</h3><p>影响：Q1: revision 2 quantity 10 -&gt; revision 3 quantity 8 (requests.csv lines 7 and 5). Q2: revision 1 quantity 7 -&gt; revision 2 quantity 5 (lines 6 and 3). Q4 stays 4 (line 9). Q3 remains absent: latest revision 2 cancelled supersedes revision 1 approved (lines 8 and 4). Total falls by 4, from 21 to 17. North total 10 -&gt; 8; South total 11 -&gt; 9, still Q2 and Q4 separately. Print operations would overproduce 4 badges under the previous queue.</p><p>之前：<a data-evidence-target href="#source-0">input/previous_queue.json:1-20</a> · 现在：<a data-evidence-target href="#source-1">deliverables/results.json:1-20</a></p><p>依据：<a data-evidence-target href="#source-2">input/policy.txt:1-9</a> · <a data-evidence-target href="#source-3">input/requests.csv:1-9</a> · <a data-evidence-target href="#source-4">input/incident.txt:1-7</a></p><details><summary>查看实际行差异</summary><pre>--- input/previous_queue.json:1
++++ deliverables/results.json:1
+@@ -3,12 +3,12 @@
+     {
+       &quot;request_id&quot;: &quot;Q1&quot;,
+       &quot;team&quot;: &quot;North&quot;,
+-      &quot;quantity&quot;: 10
++      &quot;quantity&quot;: 8
+     },
+     {
+       &quot;request_id&quot;: &quot;Q2&quot;,
+       &quot;team&quot;: &quot;South&quot;,
+-      &quot;quantity&quot;: 7
++      &quot;quantity&quot;: 5
+     },
+     {
+       &quot;request_id&quot;: &quot;Q4&quot;,
+@@ -16,5 +16,5 @@
+       &quot;quantity&quot;: 4
+     }
+   ],
+-  &quot;total_badges&quot;: 21
++  &quot;total_badges&quot;: 17
+ }</pre></details></article><article><h3>待决定：Choose rush or standard for all 17 approved badges? Choice is still pending; feedback is review input only.</h3><p>负责人：Mei</p><p>暂不决定：Policy input/policy.txt:9: if no choice is made by 17:00, keep the queue on hold; no print order may be sent. No deadline date or timezone is specified, so this review does not infer whether the cutoff has passed.</p><ul><li><strong>rush · Rush: 68 credits (17 × 4)</strong>：All 17 badges reach Monday setup (policy lines 6-8). Corrected rush cost is 68 versus 84 for the previous 21-badge queue, a 16-credit reduction.<br>代价/取舍：Costs 51 credits more than standard to arrive for setup. Requires Mei choice; currently unauthorized.</li><li><strong>standard · Standard: 17 credits (17 × 1)</strong>：All 17 badges arrive Tuesday after setup (policy lines 6-8). Corrected standard cost is 17 versus 21 previously, a 4-credit reduction.<br>代价/取舍：Saves 51 credits against rush, but misses Monday setup. Requires Mei choice; currently unauthorized.</li></ul><p>在判据 shipping 的反馈中写明选择或问题；不会自动批准或执行。</p></article><ul><li>Verification uses a separate SQLite/manual oracle but was authored in the same context; no independent reviewer acceptance.</li><li>Experience remains candidate: one incident replay plus synthetic edge cases cannot establish generalized improvement.</li><li>HTML is local and offline; no browser interaction or human comprehension test was performed. Feedback cannot authorize printing.</li><li>Input hashes establish continuity only. Local files do not establish platform-wide trace completeness or external delivery.</li></ul></section><section><details id="source-index"><summary>原文目录（引用点击后展开定位）</summary><details id="source-0"><summary>input/previous_queue.json:1-20</summary><pre>1: {
+2:   &quot;requests&quot;: [
+3:     {
+4:       &quot;request_id&quot;: &quot;Q1&quot;,
+5:       &quot;team&quot;: &quot;North&quot;,
+6:       &quot;quantity&quot;: 10
+7:     },
+8:     {
+9:       &quot;request_id&quot;: &quot;Q2&quot;,
+10:       &quot;team&quot;: &quot;South&quot;,
+11:       &quot;quantity&quot;: 7
+12:     },
+13:     {
+14:       &quot;request_id&quot;: &quot;Q4&quot;,
+15:       &quot;team&quot;: &quot;South&quot;,
+16:       &quot;quantity&quot;: 4
+17:     }
+18:   ],
+19:   &quot;total_badges&quot;: 21
+20: }</pre><p>记录SHA：<code>5c95dbb5042d1dbc71bc43343e008a5894d802b9a7006f1aa58b2ca3b9c7cf7d</code></p></details><details id="source-1"><summary>deliverables/results.json:1-20</summary><pre>1: {
+2:   &quot;requests&quot;: [
+3:     {
+4:       &quot;request_id&quot;: &quot;Q1&quot;,
+5:       &quot;team&quot;: &quot;North&quot;,
+6:       &quot;quantity&quot;: 8
+7:     },
+8:     {
+9:       &quot;request_id&quot;: &quot;Q2&quot;,
+10:       &quot;team&quot;: &quot;South&quot;,
+11:       &quot;quantity&quot;: 5
+12:     },
+13:     {
+14:       &quot;request_id&quot;: &quot;Q4&quot;,
+15:       &quot;team&quot;: &quot;South&quot;,
+16:       &quot;quantity&quot;: 4
+17:     }
+18:   ],
+19:   &quot;total_badges&quot;: 17
+20: }</pre><p>记录SHA：<code>cd4a132371699b24dc5390196e3e32786324b74fd7313667091e2672ee19f378</code></p></details><details id="source-2"><summary>input/policy.txt:1-9</summary><pre>1: Badge production policy — synthetic exercise
+2: Each request_id is a complete replacement snapshot, not an additive event.
+3: The greatest integer revision for each request_id is the current snapshot, even if rows arrive out of order.
+4: Only current snapshots with status=approved count toward the print queue.
+5: Quantity is per request; do not collapse distinct request_id values belonging to the same team.
+6: Rush printing costs 4 credits per badge; standard printing costs 1 credit per badge.
+7: Operations owner Mei must choose rush for all current approved badges or standard for all; no choice is authorized yet.
+8: Rush reaches Monday setup; standard arrives Tuesday after setup.
+9: If no choice is made by 17:00, keep the queue on hold; no print order may be sent.</pre><p>记录SHA：<code>e61f3a4e6e0d41b38b112b97628e9ed508398970ff0745b19a3caea0b90166e0</code></p></details><details id="source-3"><summary>input/requests.csv:1-9</summary><pre>1: request_id,revision,team,status,quantity
+2: Q1,1,North,approved,12
+3: Q2,2,South,approved,5
+4: Q3,1,North,approved,3
+5: Q1,3,North,approved,8
+6: Q2,1,South,approved,7
+7: Q1,2,North,approved,10
+8: Q3,2,North,cancelled,3
+9: Q4,1,South,approved,4</pre><p>记录SHA：<code>4f3178b6ee651b1f58df0679f2e14da18cc7dc6a3e73e1e719068b214373a74c</code></p></details><details id="source-4"><summary>input/incident.txt:1-7</summary><pre>1: Observed previous failure, synthetic evidence
+2: The previous program kept the last physical CSV row for each request_id.
+3: It returned Q1=10 and Q2=7, producing 21 badges.
+4: A manual replay against policy showed Q1 revision 3 means 8 and Q2 revision 2 means 5; Q4 remains 4.
+5: Candidate lesson: for complete replacement snapshots with an explicit integer revision and stable request_id, choose the greatest revision per request_id.
+6: Do not infer that this rule applies to additive ledgers, or that team is a unique request key.
+7: This lesson is a candidate, not accepted policy for unrelated tasks.</pre><p>记录SHA：<code>1cddd8d1d38e6539f3888f9faed8cad6bb934eb831d7ce3f1d8be84225364069</code></p></details></details><noscript>无JavaScript时，请手动展开原文目录和对应引用。</noscript></section>
+<div class="controls"><label><input id="problems" type="checkbox"> Show only unresolved criteria</label></div><section class="criterion" data-status="pass" id="criterion-0">
+<h2>queue <span class="status">pass</span></h2>
+<p>Reusable solver produces Q1=8, Q2=5, Q4=4 and total 17.</p><p class="sub">Kind: artifact · By: local-agent-same-context</p>
+<ul></ul><p>Actual local executions retained; same-context verification does not establish independent acceptance.</p><details><summary>Evidence and feedback for queue</summary><p><a data-evidence-target href="#receipt-0">receipt-0</a>, <a data-evidence-target href="#receipt-1">receipt-1</a>, <a data-evidence-target href="#receipt-2">receipt-2</a>, <a data-evidence-target href="#receipt-3">receipt-3</a>, <a data-evidence-target href="#receipt-4">receipt-4</a>, <a data-evidence-target href="#receipt-5">receipt-5</a>, <a data-evidence-target href="#receipt-6">receipt-6</a>, <a data-evidence-target href="#receipt-7">receipt-7</a>, <a data-evidence-target href="#receipt-8">receipt-8</a></p>
+<label for="decision-0">Feedback for queue</label>
+<select id="decision-0"><option value="">No feedback</option value="question">Question</option><option value="correction">Correction</option><option value="agree">Agree with this evidence</option></select>
+<label for="note-0">Reason / correction for queue</label><textarea id="note-0" rows="2"></textarea></details></section><section class="criterion" data-status="pass" id="criterion-1">
+<h2>verification <span class="status">pass</span></h2>
+<p>Independent SQL/manual oracle passes; last-row and team-collapse controls fail.</p><p class="sub">Kind: check · By: local-agent-same-context</p>
+<ul></ul><p>Actual local executions retained; same-context verification does not establish independent acceptance.</p><details><summary>Evidence and feedback for verification</summary><p><a data-evidence-target href="#receipt-0">receipt-0</a>, <a data-evidence-target href="#receipt-1">receipt-1</a>, <a data-evidence-target href="#receipt-2">receipt-2</a>, <a data-evidence-target href="#receipt-3">receipt-3</a>, <a data-evidence-target href="#receipt-4">receipt-4</a>, <a data-evidence-target href="#receipt-5">receipt-5</a>, <a data-evidence-target href="#receipt-6">receipt-6</a>, <a data-evidence-target href="#receipt-9">receipt-9</a>, <a data-evidence-target href="#receipt-10">receipt-10</a>, <a data-evidence-target href="#receipt-11">receipt-11</a>, <a data-evidence-target href="#receipt-12">receipt-12</a>, <a data-evidence-target href="#receipt-13">receipt-13</a></p>
+<label for="decision-1">Feedback for verification</label>
+<select id="decision-1"><option value="">No feedback</option value="question">Question</option><option value="correction">Correction</option><option value="agree">Agree with this evidence</option></select>
+<label for="note-1">Reason / correction for verification</label><textarea id="note-1" rows="2"></textarea></details></section><section class="criterion" data-status="pass" id="criterion-2">
+<h2>experience <span class="status">pass</span></h2>
+<p>Scoped candidate actually trialed with retained outcome; no global promotion.</p><p class="sub">Kind: check · By: local-agent-same-context</p>
+<ul></ul><p>Actual local executions retained; same-context verification does not establish independent acceptance.</p><details><summary>Evidence and feedback for experience</summary><p><a data-evidence-target href="#receipt-0">receipt-0</a>, <a data-evidence-target href="#receipt-1">receipt-1</a>, <a data-evidence-target href="#receipt-2">receipt-2</a>, <a data-evidence-target href="#receipt-3">receipt-3</a>, <a data-evidence-target href="#receipt-4">receipt-4</a>, <a data-evidence-target href="#receipt-5">receipt-5</a>, <a data-evidence-target href="#receipt-14">receipt-14</a>, <a data-evidence-target href="#receipt-15">receipt-15</a></p>
+<label for="decision-2">Feedback for experience</label>
+<select id="decision-2"><option value="">No feedback</option value="question">Question</option><option value="correction">Correction</option><option value="agree">Agree with this evidence</option></select>
+<label for="note-2">Reason / correction for experience</label><textarea id="note-2" rows="2"></textarea></details></section><section class="criterion" data-status="pass" id="criterion-3">
+<h2>review <span class="status">pass</span></h2>
+<p>Self-review reconciles behavior and engineering constraints; separate acceptance not available.</p><p class="sub">Kind: review · By: local-agent-self-review</p>
+<ul></ul><p>Intent and engineering reviewed separately; no separate reviewer context permitted.</p><details><summary>Evidence and feedback for review</summary><p><a data-evidence-target href="#receipt-0">receipt-0</a>, <a data-evidence-target href="#receipt-1">receipt-1</a>, <a data-evidence-target href="#receipt-2">receipt-2</a>, <a data-evidence-target href="#receipt-3">receipt-3</a>, <a data-evidence-target href="#receipt-4">receipt-4</a>, <a data-evidence-target href="#receipt-5">receipt-5</a>, <a data-evidence-target href="#receipt-16">receipt-16</a>, <a data-evidence-target href="#receipt-6">receipt-6</a>, <a data-evidence-target href="#receipt-7">receipt-7</a>, <a data-evidence-target href="#receipt-8">receipt-8</a>, <a data-evidence-target href="#receipt-9">receipt-9</a>, <a data-evidence-target href="#receipt-10">receipt-10</a>, <a data-evidence-target href="#receipt-11">receipt-11</a>, <a data-evidence-target href="#receipt-12">receipt-12</a>, <a data-evidence-target href="#receipt-13">receipt-13</a>, <a data-evidence-target href="#receipt-14">receipt-14</a>, <a data-evidence-target href="#receipt-15">receipt-15</a></p>
+<label for="decision-3">Feedback for review</label>
+<select id="decision-3"><option value="">No feedback</option value="question">Question</option><option value="correction">Correction</option><option value="agree">Agree with this evidence</option></select>
+<label for="note-3">Reason / correction for review</label><textarea id="note-3" rows="2"></textarea></details></section><section class="criterion" data-status="missing" id="criterion-4">
+<h2>shipping <span class="status">missing</span></h2>
+<p>Mei chooses rush 68 credits or standard 17 credits; no choice authorized.</p><p class="sub">Kind: human · By: not recorded</p>
+<ul></ul><p></p><details><summary>Evidence and feedback for shipping</summary><p>No recorded evidence.</p>
+<label for="decision-4">Feedback for shipping</label>
+<select id="decision-4"><option value="">No feedback</option value="question">Question</option><option value="correction">Correction</option><option value="agree">Agree with this evidence</option></select>
+<label for="note-4">Reason / correction for shipping</label><textarea id="note-4" rows="2"></textarea></details></section>
+<aside><details id="receipt-index"><summary>Evidence directory — each receipt once</summary><ul><li id='receipt-0'><code>AGENTS.md</code><br>Recorded target: <code>AGENTS.md</code><br>Recorded SHA-256: <code>8e152094a8e8f382261b6a0f60b1d095cdee78755c21c9f538134655248c3e13</code><br>Current: <code>{&quot;sha256&quot;: &quot;8e152094a8e8f382261b6a0f60b1d095cdee78755c21c9f538134655248c3e13&quot;, &quot;target&quot;: &quot;AGENTS.md&quot;}</code></li><li id='receipt-1'><code>task.md</code><br>Recorded target: <code>task.md</code><br>Recorded SHA-256: <code>332308c8d18c5240713ae08cb889a7674fbdc2fe4437e4124b0292afcdf9215d</code><br>Current: <code>{&quot;sha256&quot;: &quot;332308c8d18c5240713ae08cb889a7674fbdc2fe4437e4124b0292afcdf9215d&quot;, &quot;target&quot;: &quot;task.md&quot;}</code></li><li id='receipt-2'><code>input/requests.csv</code><br>Recorded target: <code>input/requests.csv</code><br>Recorded SHA-256: <code>4f3178b6ee651b1f58df0679f2e14da18cc7dc6a3e73e1e719068b214373a74c</code><br>Current: <code>{&quot;sha256&quot;: &quot;4f3178b6ee651b1f58df0679f2e14da18cc7dc6a3e73e1e719068b214373a74c&quot;, &quot;target&quot;: &quot;input/requests.csv&quot;}</code></li><li id='receipt-3'><code>input/policy.txt</code><br>Recorded target: <code>input/policy.txt</code><br>Recorded SHA-256: <code>e61f3a4e6e0d41b38b112b97628e9ed508398970ff0745b19a3caea0b90166e0</code><br>Current: <code>{&quot;sha256&quot;: &quot;e61f3a4e6e0d41b38b112b97628e9ed508398970ff0745b19a3caea0b90166e0&quot;, &quot;target&quot;: &quot;input/policy.txt&quot;}</code></li><li id='receipt-4'><code>input/previous_queue.json</code><br>Recorded target: <code>input/previous_queue.json</code><br>Recorded SHA-256: <code>5c95dbb5042d1dbc71bc43343e008a5894d802b9a7006f1aa58b2ca3b9c7cf7d</code><br>Current: <code>{&quot;sha256&quot;: &quot;5c95dbb5042d1dbc71bc43343e008a5894d802b9a7006f1aa58b2ca3b9c7cf7d&quot;, &quot;target&quot;: &quot;input/previous_queue.json&quot;}</code></li><li id='receipt-5'><code>input/incident.txt</code><br>Recorded target: <code>input/incident.txt</code><br>Recorded SHA-256: <code>1cddd8d1d38e6539f3888f9faed8cad6bb934eb831d7ce3f1d8be84225364069</code><br>Current: <code>{&quot;sha256&quot;: &quot;1cddd8d1d38e6539f3888f9faed8cad6bb934eb831d7ce3f1d8be84225364069&quot;, &quot;target&quot;: &quot;input/incident.txt&quot;}</code></li><li id='receipt-6'><code>deliverables/verification.json</code><br>Recorded target: <code>deliverables/verification.json</code><br>Recorded SHA-256: <code>84098c6c26239361d4e50aca88b8c2078969b1dae8851aa25eacb295749fe4cc</code><br>Current: <code>{&quot;sha256&quot;: &quot;84098c6c26239361d4e50aca88b8c2078969b1dae8851aa25eacb295749fe4cc&quot;, &quot;target&quot;: &quot;deliverables/verification.json&quot;}</code></li><li id='receipt-7'><code>deliverables/results.json</code><br>Recorded target: <code>deliverables/results.json</code><br>Recorded SHA-256: <code>cd4a132371699b24dc5390196e3e32786324b74fd7313667091e2672ee19f378</code><br>Current: <code>{&quot;sha256&quot;: &quot;cd4a132371699b24dc5390196e3e32786324b74fd7313667091e2672ee19f378&quot;, &quot;target&quot;: &quot;deliverables/results.json&quot;}</code></li><li id='receipt-8'><code>deliverables/solve.py</code><br>Recorded target: <code>deliverables/solve.py</code><br>Recorded SHA-256: <code>5dc6619aeb0e546885412a74eaf3f6b62502edecda573b2956ca27be4478454a</code><br>Current: <code>{&quot;sha256&quot;: &quot;5dc6619aeb0e546885412a74eaf3f6b62502edecda573b2956ca27be4478454a&quot;, &quot;target&quot;: &quot;deliverables/solve.py&quot;}</code></li><li id='receipt-9'><code>deliverables/verify.py</code><br>Recorded target: <code>deliverables/verify.py</code><br>Recorded SHA-256: <code>c0afe7dee861f2e7ee67b6b97b72d143e623e968602fbea8659e48b12df9749e</code><br>Current: <code>{&quot;sha256&quot;: &quot;c0afe7dee861f2e7ee67b6b97b72d143e623e968602fbea8659e48b12df9749e&quot;, &quot;target&quot;: &quot;deliverables/verify.py&quot;}</code></li><li id='receipt-10'><code>deliverables/oracle.json</code><br>Recorded target: <code>deliverables/oracle.json</code><br>Recorded SHA-256: <code>bc4c7e4f6469d9ada9e849ad30b78aaf354cf86eaddeac63fdb2066d6b90f158</code><br>Current: <code>{&quot;sha256&quot;: &quot;bc4c7e4f6469d9ada9e849ad30b78aaf354cf86eaddeac63fdb2066d6b90f158&quot;, &quot;target&quot;: &quot;deliverables/oracle.json&quot;}</code></li><li id='receipt-11'><code>deliverables/last_row_control.json</code><br>Recorded target: <code>deliverables/last_row_control.json</code><br>Recorded SHA-256: <code>5c95dbb5042d1dbc71bc43343e008a5894d802b9a7006f1aa58b2ca3b9c7cf7d</code><br>Current: <code>{&quot;sha256&quot;: &quot;5c95dbb5042d1dbc71bc43343e008a5894d802b9a7006f1aa58b2ca3b9c7cf7d&quot;, &quot;target&quot;: &quot;deliverables/last_row_control.json&quot;}</code></li><li id='receipt-12'><code>deliverables/team_collapse_control.json</code><br>Recorded target: <code>deliverables/team_collapse_control.json</code><br>Recorded SHA-256: <code>bda42461b11fc80b8dae95d3f1bdd3ea5a4f3608d77396b47ee1af4eba4d1412</code><br>Current: <code>{&quot;sha256&quot;: &quot;bda42461b11fc80b8dae95d3f1bdd3ea5a4f3608d77396b47ee1af4eba4d1412&quot;, &quot;target&quot;: &quot;deliverables/team_collapse_control.json&quot;}</code></li><li id='receipt-13'><code>deliverables/edge_cases.json</code><br>Recorded target: <code>deliverables/edge_cases.json</code><br>Recorded SHA-256: <code>22de6c6ca47a0139e01b3ad19fd1eef93e751209df9a4cfede41ca3d8941f935</code><br>Current: <code>{&quot;sha256&quot;: &quot;22de6c6ca47a0139e01b3ad19fd1eef93e751209df9a4cfede41ca3d8941f935&quot;, &quot;target&quot;: &quot;deliverables/edge_cases.json&quot;}</code></li><li id='receipt-14'><code>deliverables/experience_result.json</code><br>Recorded target: <code>deliverables/experience_result.json</code><br>Recorded SHA-256: <code>6b378db13147b91ea09808b7593a681003c392aaf4cff363c73a065cab1f0cba</code><br>Current: <code>{&quot;sha256&quot;: &quot;6b378db13147b91ea09808b7593a681003c392aaf4cff363c73a065cab1f0cba&quot;, &quot;target&quot;: &quot;deliverables/experience_result.json&quot;}</code></li><li id='receipt-15'><code>deliverables/experience_decision.txt</code><br>Recorded target: <code>deliverables/experience_decision.txt</code><br>Recorded SHA-256: <code>cece00ddf5ac57f0282581bf9d36562a95d6c5fb6d25101c5be6be19ab77ff9b</code><br>Current: <code>{&quot;sha256&quot;: &quot;cece00ddf5ac57f0282581bf9d36562a95d6c5fb6d25101c5be6be19ab77ff9b&quot;, &quot;target&quot;: &quot;deliverables/experience_decision.txt&quot;}</code></li><li id='receipt-16'><code>deliverables/self_review.txt</code><br>Recorded target: <code>deliverables/self_review.txt</code><br>Recorded SHA-256: <code>f174e4ddf9cfd8b5ec7fd6ba2ec1bb1ed595f4ceefeb4abb3c7401caaa208ff3</code><br>Current: <code>{&quot;sha256&quot;: &quot;f174e4ddf9cfd8b5ec7fd6ba2ec1bb1ed595f4ceefeb4abb3c7401caaa208ff3&quot;, &quot;target&quot;: &quot;deliverables/self_review.txt&quot;}</code></li></ul></details></aside><aside><h2>Experience consulted</h2><ul><li>deliverables/experience.json — candidate / trial; current result: recorded; recorded outcome (not certification): pass<p>Policy lines 2-5 explicitly specify replacement snapshots, integer revision, stable request ID, and distinct same-team requests.</p><details><summary>Adoption evidence and historical result</summary><p>{&quot;stale_files&quot;: [], &quot;result&quot;: {&quot;receipt&quot;: &quot;deliverables/experience_result.json&quot;, &quot;outcome&quot;: &quot;pass&quot;, &quot;observed&quot;: &quot;Actual corrected solver agrees with separate SQLite query and fixed manual queue: Q1=8, Q2=5, Q4=4, total 17. Executed last-row baseline reproduces 21 and is rejected; team aggregation preserves total 17 but is rejected for request identity loss. Integer revision 10 beats 2; reversed rows give same output; latest cancellation excluded. Supports continued candidate use only for specified replacement snapshots; no promotion or causal claim.&quot;, &quot;cost&quot;: &quot;One verifier syntax repair; retained initial failure. Wall-time and marginal workflow cost unknown.&quot;, &quot;user_intervention&quot;: &quot;No task-specific correction from user during this local trial; broader intervention unknown.&quot;}}</p></details></li></ul></aside><aside><details><summary>Return review feedback — no authorization</summary><p>This exports local feedback only. It does not send, publish, approve or change the task. The agent must recheck the observed version before using it.</p><button id="prepare">Prepare feedback JSON</button><button id="download">Download prepared JSON</button><p id="message" role="status" aria-live="polite"></p><label for="output">Export preview / copy manually if download is unavailable</label><textarea id="output" readonly></textarea><noscript>Use the text view and return the observation ID, criterion ID and your note; interactive export needs JavaScript.</noscript></details></aside><footer>Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.</footer>
+<script type="application/json" id="binding">{"version": 1, "observation_sha256": "5de0c252180a1b74f40979f112587229cc1b71b486335b61d04eda1688d5007e", "ids": ["queue", "verification", "experience", "review", "shipping"]}</script><script>
+'use strict';
+document.querySelectorAll('a[data-evidence-target]').forEach(anchor=>anchor.addEventListener('click',()=>{
+ const target=document.getElementById(anchor.getAttribute('href').slice(1));
+ if(!target)return;
+ for(let node=target;node;node=node.parentElement){if(node.tagName==='DETAILS')node.open=true;}
+ target.setAttribute('tabindex','-1');target.focus({preventScroll:true});target.scrollIntoView({block:'start'});
+}));
+const binding=JSON.parse(document.getElementById('binding').textContent);
+const message=document.getElementById('message'), output=document.getElementById('output');
+function prepare(){
+ output.value='';
+ const feedback=[];
+ for(let i=0;i<binding.ids.length;i++){
+  const decision=document.getElementById('decision-'+i).value;
+  const note=document.getElementById('note-'+i).value.trim();
+  if(!decision && !note)continue;
+  if(!decision || !note){message.textContent='Choose a decision and provide a reason for each edited criterion.';return null;}
+  feedback.push({criterion:binding.ids[i],decision,note});
+ }
+ if(!feedback.length){message.textContent='Add feedback to at least one criterion.';return null;}
+ const text=JSON.stringify({version:1,observation_sha256:binding.observation_sha256,feedback},null,2);
+ output.value=text;message.textContent='Prepared locally. Includes all edited criteria, even when filtered. Nothing has been applied.';return text;
+}
+binding.ids.forEach((id,i)=>['decision-','note-'].forEach(prefix=>document.getElementById(prefix+i).addEventListener('input',()=>{output.value='';message.textContent='Feedback changed; prepare again before returning it.';})));
+document.getElementById('problems').addEventListener('change',event=>document.querySelectorAll('.criterion').forEach(el=>el.hidden=event.target.checked && el.dataset.status==='pass'));
+document.getElementById('prepare').addEventListener('click',prepare);
+document.getElementById('download').addEventListener('click',()=>{
+ const text=prepare();if(!text)return;
+ let url;
+ try{url=URL.createObjectURL(new Blob([text],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='gap-feedback.json';a.click();message.textContent='Download requested. The same JSON remains in the preview; verify your saved file.';}
+ catch(error){message.textContent='Download unavailable. Copy the complete JSON from the preview.';}
+ finally{if(url)setTimeout(()=>URL.revokeObjectURL(url),1000);}
+});
+</script></html>

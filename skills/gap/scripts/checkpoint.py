@@ -8,6 +8,7 @@ import json
 import os
 from pathlib import Path
 import tempfile
+import uuid
 
 KINDS = {'artifact', 'check', 'external', 'human', 'review'}
 
@@ -95,7 +96,7 @@ def save(path, state):
 
 def load_state(path):
     state = read(path)
-    if state.get('version') != 1:
+    if type(state.get('version')) is not int or state['version'] != 1:
         raise ValueError('unsupported checkpoint version')
     contract_valid(state['contract'])
     if digest(state['contract']) != state['revisions'][-1]['contract_sha256']:
@@ -105,6 +106,14 @@ def load_state(path):
 
 def nonreview_digest(state):
     return digest([r for r in state['receipts'] if r['kind'] != 'review'])
+
+
+def experience_status(entry, state, root):
+    stale = changed(root, entry['files'])
+    basis_stale = changed(root, state['revisions'][-1]['inputs'])
+    revision_stale = entry.get('revision') is not None and entry['revision'] != len(state['revisions'])
+    return {**entry, 'stale_files': stale, 'stale_basis': basis_stale, 'stale_contract': revision_stale,
+            'current_result_status': 'stale' if stale or basis_stale or revision_stale else entry.get('result_status', 'unverified')}
 
 
 def inspect(state, root):
@@ -138,18 +147,19 @@ def inspect(state, root):
         for i in reviews)
     return {
         'purpose': contract['purpose'], 'run': state['run'],
+        'task_id': state.get('task_id', digest(state['revisions'][0]['contract'])),
         'artifact_ready': all(i['status'] == 'pass' for i in artifacts) if artifacts else None,
         'all_criteria_evidenced': all_pass,
         'independent_acceptance': 'recorded; identity and judgment require verification' if independent and all_pass else 'not established',
         'waiting_for_human': [i['id'] for i in items if i['kind'] == 'human' and i['status'] != 'pass'],
         'criteria': items,
-        'experience_uses': [{**x, 'stale_files': changed(root, x['files'])} for x in state['experience_uses']],
+        'experience_uses': [experience_status(x, state, root) for x in state['experience_uses']],
         'next': 'Inspect receipts and semantic fit before claiming completion.' if all_pass else 'Inspect missing/stale actual artifacts; recheck affected criteria before resuming. Do not blindly rerun.',
         'limits': 'Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.'}
 
 
 
-def review_data(state, root):
+def review_data(state, root, brief_path=None):
     data = inspect(state, root)
     names = set(state['contract']['inputs'])
     for experience in state['experience_uses']:
@@ -168,11 +178,16 @@ def review_data(state, root):
             observed.update(snapshot(root, [name]))
         except (OSError, ValueError):
             observed[name] = None
+    if brief_path is not None:
+        from brief import load_brief
+        data['brief'], brief_files = load_brief(root, brief_path, data['criteria'], read, snapshot, file_path)
+        observed.update(brief_files)
     for item in data['criteria']:
         for evidence in item['evidence']:
             evidence['current'] = observed.get(evidence['path'])
     data.update(source=state['contract']['source'], revision=len(state['revisions']),
-                observation_sha256=digest({'state': state, 'current_files': observed}))
+                observation_sha256=digest({'state': state, 'current_files': observed,
+                                           'selected_brief': str(Path(brief_path)) if brief_path is not None else None}))
     return data
 
 
@@ -203,12 +218,20 @@ def main(argv=None):
     use.add_argument('--status', choices=['candidate', 'validated'], required=True)
     use.add_argument('--decision', choices=['trial', 'apply', 'reject'], required=True)
     use.add_argument('--reason', required=True, help='applicability, evidence, and expected effect in this task')
+    use.add_argument('--scope', help='root-relative current-task scope JSON for structured adoption')
+    use_result = commands.add_parser('use-result', help='bind an observed result to one recorded experience use')
+    use_result.add_argument('--use-id', required=True)
+    use_result.add_argument('--receipt', required=True)
+    use_result.add_argument('--outcome', choices=['pass', 'fail', 'unknown'], required=True)
     commands.add_parser('check')
     view = commands.add_parser('view', help='read-only text or offline HTML review of current evidence')
+    view.add_argument('--details', action='store_true', help='include full source and receipt appendix in text; HTML details remain expandable')
     view.add_argument('--format', choices=['text', 'html'], default='text')
     view.add_argument('--output', type=Path, help='new file inside root; never overwrite existing evidence')
     feedback = commands.add_parser('feedback', help='validate returned feedback without applying or approving it')
     feedback.add_argument('--file', required=True, help='root-relative exported JSON')
+    view.add_argument('--brief', help='root-relative source-bound delivery explanation JSON')
+    feedback.add_argument('--brief', help='same delivery explanation used for the reviewed view')
     args = parser.parse_args(argv)
     root = args.root.resolve()
     try:
@@ -223,7 +246,7 @@ def main(argv=None):
             contract = read(args.contract)
             contract_valid(contract)
             snapshot(root, contract['inputs'])
-            state = {'version': 1, 'contract': contract, 'revisions': [
+            state = {'version': 1, 'task_id': uuid.uuid4().hex, 'contract': contract, 'revisions': [
                 {'contract': contract, 'contract_sha256': digest(contract), 'authority': contract['source'], 'reason': 'initial', 'inputs': snapshot(root, contract['inputs'])}],
                 'receipts': [], 'experience_uses': [], 'run': {'status': 'active'}}
         else:
@@ -266,19 +289,37 @@ def main(argv=None):
             state['receipts'].append(receipt)
         elif args.command == 'end':
             state['run'] = {'status': 'ended', 'reason': args.reason}
-        elif args.command == 'use':
-            if args.status == 'candidate' and args.decision == 'apply':
-                raise ValueError('candidate experience may be trialed or rejected, not applied as validated')
-            state['experience_uses'].append({'path': args.file, 'declared_status': args.status,
-                                            'decision': args.decision, 'reason': args.reason,
-                                            'files': snapshot(root, [args.file])})
+        elif args.command in ('use', 'use-result'):
+            from experience import assess_experience, finish_experience
+            if changed(root, state['revisions'][-1]['inputs']):
+                raise ValueError('basis changed; inspect and revise before experience adoption/result')
+            if args.command == 'use':
+                entry = assess_experience(root, args.file, args.status, args.decision, args.scope)
+                task_id = state.get('task_id', digest(state['revisions'][0]['contract']))
+                if entry['task_id'] is not None and entry['task_id'] != task_id:
+                    raise ValueError('experience scope task_id does not match this checkpoint')
+                entry.update(task_id=task_id, reason=args.reason, revision=len(state['revisions']),
+                             contract_sha256=digest(state['contract']))
+            else:
+                entry = next((x for x in state['experience_uses'] if x.get('id') == args.use_id), None)
+                if entry is None:
+                    raise ValueError('unknown experience use id')
+                if entry.get('revision') != len(state['revisions']) or entry.get('contract_sha256') != digest(state['contract']):
+                    raise ValueError('experience use belongs to an older contract revision; reassess applicability')
+                entry = finish_experience(root, entry, args.receipt, args.outcome)
+            if any(info['target'] == str(state_path.relative_to(root)) for info in entry['files'].values()):
+                raise ValueError('checkpoint cannot be its own experience evidence')
+            if args.command == 'use':
+                state['experience_uses'].append(entry)
+            else:
+                state['experience_uses'] = [entry if x.get('id') == args.use_id else x for x in state['experience_uses']]
         if args.command in ('view', 'feedback'):
             from review_view import render_html, render_text, validate_feedback
-            data = review_data(state, root)
+            data = review_data(state, root, args.brief)
             if args.command == 'feedback':
                 print(json.dumps(validate_feedback(read(file_path(root, args.file)), data), indent=2, ensure_ascii=False))
                 return 0
-            rendered = render_html(data) if args.format == 'html' else render_text(data)
+            rendered = render_html(data) if args.format == 'html' else render_text(data, details=args.details)
             if args.output:
                 output = args.output.resolve()
                 if not output.is_relative_to(root):

@@ -75,6 +75,8 @@ Completion means the selected path's promises are satisfied:
 - **Standard**: intent, plan, implementation, and verification agree; material deviations are explained; review finds no unresolved blocking issue.
 - **Governed**: durable artifacts and evidence agree, required independent reviews passed, and every requested authorized action was executed and verified. Awaiting authorization is not completion; report it as the remaining boundary.
 
+For substantive delivery, explain actual changes, impact and supporting source text before technical receipts; make any unresolved human choice and consequences understandable. Consult scoped experience only when relevant, and attach actual use results rather than claiming that reading it helped.
+
 For a partial workflow, completion means its requested artifact or decision is evidence-backed, its limits are explicit, and no unrequested downstream action was taken.
 
 Distinguish run ended, artifact ready, independent acceptance passed, and waiting for human judgment. On handoff, inspect actual outputs and current receipts before rerunning; the optional [checkpoint helper](scripts/checkpoint.py) is described in delivery.md. A prepared list or draft does not establish an external action.

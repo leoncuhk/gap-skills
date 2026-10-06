@@ -70,6 +70,10 @@ def validate_repository() -> list[str]:
     if not (SKILL / "scripts" / "review_view.py").is_file():
         errors.append("skills/gap/scripts/review_view.py: missing installed view support")
 
+    for support in ('brief.py', 'experience.py'):
+        if not (SKILL / 'scripts' / support).is_file():
+            errors.append(f'skills/gap/scripts/{support}: missing installed support')
+
     required_refs = {
         "discovery.md",
         "planning.md",
