@@ -132,6 +132,39 @@ class CheckpointTests(unittest.TestCase):
             self.cli('record', '--criterion', 'output', '--kind', 'artifact', '--result', 'pass', '--by', 'context',
                      '--receipt', 'receipt.txt', '--file', name, '--note', 'bad path', expected=2)
 
+    def test_repointed_source_symlink_invalidates_even_equal_content(self):
+        self.write('alternate.txt', 'original')
+        alias = self.root / 'alias.txt'
+        alias.symlink_to(self.root / 'source.txt')
+        self.contract['inputs'] = ['alias.txt']
+        self.write('contract.json', self.contract)
+        self.cli('revise', '--contract', str(self.root / 'contract.json'), '--authority', 'user', '--reason', 'source alias')
+        self.record()
+        self.record('tests', 'check')
+        self.cli('check')
+        alias.unlink()
+        alias.symlink_to(self.root / 'alternate.txt')
+        result = self.cli('check', expected=1)
+        self.assertEqual(result['criteria'][0]['status'], 'stale')
+        self.record(expected=2)
+
+    def test_revised_review_does_not_require_retired_artifacts(self):
+        self.record()
+        self.contract['criteria'] = [{'id': 'new', 'claim': 'new output', 'kind': 'artifact'},
+                                     {'id': 'review', 'claim': 'current independent review', 'kind': 'review', 'independent': True}]
+        self.write('contract.json', self.contract)
+        self.cli('revise', '--contract', str(self.root / 'contract.json'), '--authority', 'user turn 2', '--reason', 'new deliverable')
+        (self.root / 'output.txt').unlink()
+        self.write('new.txt', 'new requested output')
+        self.cli('record', '--criterion', 'new', '--kind', 'artifact', '--result', 'pass', '--by', 'context',
+                 '--receipt', 'receipt.txt', '--file', 'new.txt', '--note', 'new output inspected')
+        self.cli('record', '--criterion', 'review', '--kind', 'review', '--result', 'pass', '--by', 'self',
+                 '--receipt', 'receipt.txt', '--note', 'self-review')
+        self.cli('check', expected=1)
+        self.cli('record', '--criterion', 'review', '--kind', 'review', '--result', 'pass', '--by', 'fresh-context',
+                 '--receipt', 'receipt.txt', '--note', 'separate review', '--independent')
+        self.assertTrue(self.cli('check')['all_criteria_evidenced'])
+
     def test_installed_folder_is_self_contained(self):
         installed = self.root / 'installed-gap'
         shutil.copytree(ROOT / 'skills/gap', installed)

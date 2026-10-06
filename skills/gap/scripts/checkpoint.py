@@ -30,9 +30,14 @@ def file_path(root, name):
 def snapshot(root, names):
     result = {}
     for name in names:
+        declared = Path(name)
+        if declared.is_absolute() or '..' in declared.parts:
+            raise ValueError(f'evidence path must be root-relative without ..: {name}')
         path = file_path(root, name)
-        key = str(path.relative_to(root))
-        result[key] = hashlib.sha256(path.read_bytes()).hexdigest()
+        # Keep the alias AND target: a repointed symlink is a changed source,
+        # even when both targets happen to contain the same bytes.
+        result[str(declared)] = {'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                                 'target': str(path.relative_to(root))}
     return result
 
 
@@ -40,7 +45,7 @@ def changed(root, files):
     stale = []
     for name, expected in files.items():
         try:
-            actual = snapshot(root, [name])[name]
+            actual = snapshot(root, [name])[str(Path(name))]
         except (ValueError, OSError):
             actual = None
         if actual != expected:
@@ -211,15 +216,19 @@ def main(argv=None):
             if args.independent and args.kind != 'review':
                 raise ValueError('--independent applies only to actual review receipts')
             files = snapshot(root, state['contract']['inputs'] + [args.receipt] + args.file)
-            if str(state_path.relative_to(root)) in files:
+            if any(info['target'] == str(state_path.relative_to(root)) for info in files.values()):
                 raise ValueError('checkpoint cannot be its own evidence')
             receipt = {'criterion': args.criterion, 'kind': args.kind, 'result': args.result,
                        'by': args.by, 'note': args.note, 'independent': args.independent,
                        'contract_sha256': digest(state['contract']), 'revision': len(state['revisions']), 'files': files}
             if args.kind == 'review':
-                for prior in state['receipts']:
-                    if prior['kind'] != 'review':
-                        receipt['files'].update(prior['files'])
+                # Bind only latest evidence for criteria in the current revision.
+                # Retired artifacts remain history, not fresh review dependencies.
+                current_ids = {c['id'] for c in state['contract']['criteria'] if c['kind'] != 'review'}
+                latest = {r['criterion']: r for r in state['receipts']
+                          if r['criterion'] in current_ids and r.get('revision') == len(state['revisions'])}
+                for prior in latest.values():
+                    receipt['files'].update(prior['files'])
                 receipt['covers'] = nonreview_digest(state)
             state['receipts'].append(receipt)
         elif args.command == 'end':
