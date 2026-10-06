@@ -1,0 +1,322 @@
+{
+  "version": 1,
+  "contract": {
+    "purpose": "Continue gap iteration toward reliable human-agent work with traceable evidence and usable review feedback",
+    "source": "User continuation request 2026-10-06; frozen batch2 plan",
+    "semantics": [
+      "Do not convert functional tests into human-effort proof",
+      "Feedback is review input, never automatic approval",
+      "Keep original batch1 protocol failures and current unmet browser QA visible"
+    ],
+    "inputs": [
+      "tests/results/2026-10-06-batch2-plan.md",
+      "skills/gap/SKILL.md",
+      "skills/gap/scripts/checkpoint.py",
+      "skills/gap/scripts/review_view.py"
+    ],
+    "criteria": [
+      {
+        "id": "local-iteration",
+        "kind": "artifact",
+        "claim": "Single installed gap provides evidence continuity and optional same-source views/feedback"
+      },
+      {
+        "id": "regression",
+        "kind": "check",
+        "claim": "All relevant regression and copied-package checks pass"
+      },
+      {
+        "id": "paired-outcomes",
+        "kind": "check",
+        "claim": "New development and held-out tasks pass frozen artifact criteria with exact requested prompt/input controls"
+      },
+      {
+        "id": "browser-mvp",
+        "kind": "check",
+        "claim": "Real browser inspect/edit/export/read-back and wide/narrow render QA completed"
+      },
+      {
+        "id": "independent-code-review",
+        "kind": "review",
+        "independent": true,
+        "claim": "Independent findings repaired and retested without weakening criteria"
+      }
+    ]
+  },
+  "revisions": [
+    {
+      "contract": {
+        "purpose": "Continue gap iteration toward reliable human-agent work with traceable evidence and usable review feedback",
+        "source": "User continuation request 2026-10-06; frozen batch2 plan",
+        "semantics": [
+          "Do not convert functional tests into human-effort proof",
+          "Feedback is review input, never automatic approval",
+          "Keep original batch1 protocol failures and current unmet browser QA visible"
+        ],
+        "inputs": [
+          "tests/results/2026-10-06-batch2-plan.md",
+          "skills/gap/SKILL.md",
+          "skills/gap/scripts/checkpoint.py",
+          "skills/gap/scripts/review_view.py"
+        ],
+        "criteria": [
+          {
+            "id": "local-iteration",
+            "kind": "artifact",
+            "claim": "Single installed gap provides evidence continuity and optional same-source views/feedback"
+          },
+          {
+            "id": "regression",
+            "kind": "check",
+            "claim": "All relevant regression and copied-package checks pass"
+          },
+          {
+            "id": "paired-outcomes",
+            "kind": "check",
+            "claim": "New development and held-out tasks pass frozen artifact criteria with exact requested prompt/input controls"
+          },
+          {
+            "id": "browser-mvp",
+            "kind": "check",
+            "claim": "Real browser inspect/edit/export/read-back and wide/narrow render QA completed"
+          },
+          {
+            "id": "independent-code-review",
+            "kind": "review",
+            "independent": true,
+            "claim": "Independent findings repaired and retested without weakening criteria"
+          }
+        ]
+      },
+      "contract_sha256": "e37289695593a2840ccf06fbe8b44ec3069a4c24f0af07f8fa9ebde69d4f0b6e",
+      "authority": "User continuation request 2026-10-06; frozen batch2 plan",
+      "reason": "initial",
+      "inputs": {
+        "tests/results/2026-10-06-batch2-plan.md": {
+          "sha256": "5b5587503959cf0bdaeefc078ae5861133fb0544f9702900c079d36fcdb5e81a",
+          "target": "tests/results/2026-10-06-batch2-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "24f6a4997744cff1229304e8b6fa9633cca611a0c2f3d733e683caa6bf840fe3",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "13423ff1ba3346aa0f4e9e51e24093f79933ce3c024be2510d95552ab5e4d286",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "skills/gap/scripts/review_view.py": {
+          "sha256": "3ee85909b78230c96c2d5cc0f45e5327c65f5738b42c1f69b383d40aa534efa6",
+          "target": "skills/gap/scripts/review_view.py"
+        }
+      }
+    }
+  ],
+  "receipts": [
+    {
+      "criterion": "local-iteration",
+      "kind": "artifact",
+      "result": "pass",
+      "by": "actual-local-receipts",
+      "note": "Actual package and CLI/JS functional tests plus generated local demo; no browser QA claim",
+      "independent": false,
+      "contract_sha256": "e37289695593a2840ccf06fbe8b44ec3069a4c24f0af07f8fa9ebde69d4f0b6e",
+      "revision": 1,
+      "files": {
+        "tests/results/2026-10-06-batch2-plan.md": {
+          "sha256": "5b5587503959cf0bdaeefc078ae5861133fb0544f9702900c079d36fcdb5e81a",
+          "target": "tests/results/2026-10-06-batch2-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "24f6a4997744cff1229304e8b6fa9633cca611a0c2f3d733e683caa6bf840fe3",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "13423ff1ba3346aa0f4e9e51e24093f79933ce3c024be2510d95552ab5e4d286",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "skills/gap/scripts/review_view.py": {
+          "sha256": "3ee85909b78230c96c2d5cc0f45e5327c65f5738b42c1f69b383d40aa534efa6",
+          "target": "skills/gap/scripts/review_view.py"
+        },
+        "tests/results/2026-10-06-batch2-regression.txt": {
+          "sha256": "1b6d62fa22366ec3a3391a9cbca7b0858d7f880d7b34dcb6ed433b5f77036e1c",
+          "target": "tests/results/2026-10-06-batch2-regression.txt"
+        },
+        "examples/evidence-review/mvp/review.html": {
+          "sha256": "bf72c9ccdbc3ed8d903c2e9ba7f7da95ef4a657ebceab7297d3e3b0bfee09c02",
+          "target": "examples/evidence-review/mvp/review.html"
+        }
+      }
+    },
+    {
+      "criterion": "regression",
+      "kind": "check",
+      "result": "pass",
+      "by": "actual-local-receipts",
+      "note": "30 tests and repository validator passed",
+      "independent": false,
+      "contract_sha256": "e37289695593a2840ccf06fbe8b44ec3069a4c24f0af07f8fa9ebde69d4f0b6e",
+      "revision": 1,
+      "files": {
+        "tests/results/2026-10-06-batch2-plan.md": {
+          "sha256": "5b5587503959cf0bdaeefc078ae5861133fb0544f9702900c079d36fcdb5e81a",
+          "target": "tests/results/2026-10-06-batch2-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "24f6a4997744cff1229304e8b6fa9633cca611a0c2f3d733e683caa6bf840fe3",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "13423ff1ba3346aa0f4e9e51e24093f79933ce3c024be2510d95552ab5e4d286",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "skills/gap/scripts/review_view.py": {
+          "sha256": "3ee85909b78230c96c2d5cc0f45e5327c65f5738b42c1f69b383d40aa534efa6",
+          "target": "skills/gap/scripts/review_view.py"
+        },
+        "tests/results/2026-10-06-batch2-regression.txt": {
+          "sha256": "1b6d62fa22366ec3a3391a9cbca7b0858d7f880d7b34dcb6ed433b5f77036e1c",
+          "target": "tests/results/2026-10-06-batch2-regression.txt"
+        }
+      }
+    },
+    {
+      "criterion": "paired-outcomes",
+      "kind": "check",
+      "result": "pass",
+      "by": "actual-local-receipts",
+      "note": "Four independent task outcomes pass; requested controls verified. Actual backend/toolstream and user effort remain unmeasured",
+      "independent": false,
+      "contract_sha256": "e37289695593a2840ccf06fbe8b44ec3069a4c24f0af07f8fa9ebde69d4f0b6e",
+      "revision": 1,
+      "files": {
+        "tests/results/2026-10-06-batch2-plan.md": {
+          "sha256": "5b5587503959cf0bdaeefc078ae5861133fb0544f9702900c079d36fcdb5e81a",
+          "target": "tests/results/2026-10-06-batch2-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "24f6a4997744cff1229304e8b6fa9633cca611a0c2f3d733e683caa6bf840fe3",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "13423ff1ba3346aa0f4e9e51e24093f79933ce3c024be2510d95552ab5e4d286",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "skills/gap/scripts/review_view.py": {
+          "sha256": "3ee85909b78230c96c2d5cc0f45e5327c65f5738b42c1f69b383d40aa534efa6",
+          "target": "skills/gap/scripts/review_view.py"
+        },
+        "tests/results/2026-10-06-batch2-independent.md": {
+          "sha256": "a45509f17e8068fe06d519e17f535e7357202038c919b467ee10f1199394bd90",
+          "target": "tests/results/2026-10-06-batch2-independent.md"
+        },
+        "tests/results/2026-10-06-batch2-protocol.json": {
+          "sha256": "65e659fcbfb5ed73d5bb073bc7396e98248bb967cde620e7785188a52ec1f396",
+          "target": "tests/results/2026-10-06-batch2-protocol.json"
+        },
+        "tests/results/2026-10-06-batch2-scores.json": {
+          "sha256": "3c349b3a37ee574d354768de2276a0e146f6d3db49fbcfc7936a16d46c085b9c",
+          "target": "tests/results/2026-10-06-batch2-scores.json"
+        }
+      }
+    },
+    {
+      "criterion": "browser-mvp",
+      "kind": "check",
+      "result": "fail",
+      "by": "actual-local-receipts",
+      "note": "Chrome unavailable; IAB rejected file URLs and forbade workaround. Plain JS tests do not satisfy browser criterion",
+      "independent": false,
+      "contract_sha256": "e37289695593a2840ccf06fbe8b44ec3069a4c24f0af07f8fa9ebde69d4f0b6e",
+      "revision": 1,
+      "files": {
+        "tests/results/2026-10-06-batch2-plan.md": {
+          "sha256": "5b5587503959cf0bdaeefc078ae5861133fb0544f9702900c079d36fcdb5e81a",
+          "target": "tests/results/2026-10-06-batch2-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "24f6a4997744cff1229304e8b6fa9633cca611a0c2f3d733e683caa6bf840fe3",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "13423ff1ba3346aa0f4e9e51e24093f79933ce3c024be2510d95552ab5e4d286",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "skills/gap/scripts/review_view.py": {
+          "sha256": "3ee85909b78230c96c2d5cc0f45e5327c65f5738b42c1f69b383d40aa534efa6",
+          "target": "skills/gap/scripts/review_view.py"
+        },
+        "tests/results/2026-10-06-batch2-independent.md": {
+          "sha256": "a45509f17e8068fe06d519e17f535e7357202038c919b467ee10f1199394bd90",
+          "target": "tests/results/2026-10-06-batch2-independent.md"
+        },
+        "examples/evidence-review/mvp/qa-receipt.json": {
+          "sha256": "a60211a114771dbab03b6d9479f4796f2bb4659aa63fe6ac8959a4050ca98dc2",
+          "target": "examples/evidence-review/mvp/qa-receipt.json"
+        }
+      }
+    },
+    {
+      "criterion": "independent-code-review",
+      "kind": "review",
+      "result": "pass",
+      "by": "/root/batch2_acceptance",
+      "note": "Fresh independent owner reran experience-freshness and strict schema probes; both repaired at a8965ba",
+      "independent": true,
+      "contract_sha256": "e37289695593a2840ccf06fbe8b44ec3069a4c24f0af07f8fa9ebde69d4f0b6e",
+      "revision": 1,
+      "files": {
+        "tests/results/2026-10-06-batch2-plan.md": {
+          "sha256": "5b5587503959cf0bdaeefc078ae5861133fb0544f9702900c079d36fcdb5e81a",
+          "target": "tests/results/2026-10-06-batch2-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "24f6a4997744cff1229304e8b6fa9633cca611a0c2f3d733e683caa6bf840fe3",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "13423ff1ba3346aa0f4e9e51e24093f79933ce3c024be2510d95552ab5e4d286",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "skills/gap/scripts/review_view.py": {
+          "sha256": "3ee85909b78230c96c2d5cc0f45e5327c65f5738b42c1f69b383d40aa534efa6",
+          "target": "skills/gap/scripts/review_view.py"
+        },
+        "tests/results/2026-10-06-batch2-code-review.md": {
+          "sha256": "5b8cff23092eac397701d0038a1d68510ae861f88a0ec06023862b9dd6d31fd5",
+          "target": "tests/results/2026-10-06-batch2-code-review.md"
+        },
+        "tests/results/2026-10-06-batch2-regression.txt": {
+          "sha256": "1b6d62fa22366ec3a3391a9cbca7b0858d7f880d7b34dcb6ed433b5f77036e1c",
+          "target": "tests/results/2026-10-06-batch2-regression.txt"
+        },
+        "examples/evidence-review/mvp/review.html": {
+          "sha256": "bf72c9ccdbc3ed8d903c2e9ba7f7da95ef4a657ebceab7297d3e3b0bfee09c02",
+          "target": "examples/evidence-review/mvp/review.html"
+        },
+        "tests/results/2026-10-06-batch2-independent.md": {
+          "sha256": "a45509f17e8068fe06d519e17f535e7357202038c919b467ee10f1199394bd90",
+          "target": "tests/results/2026-10-06-batch2-independent.md"
+        },
+        "tests/results/2026-10-06-batch2-protocol.json": {
+          "sha256": "65e659fcbfb5ed73d5bb073bc7396e98248bb967cde620e7785188a52ec1f396",
+          "target": "tests/results/2026-10-06-batch2-protocol.json"
+        },
+        "tests/results/2026-10-06-batch2-scores.json": {
+          "sha256": "3c349b3a37ee574d354768de2276a0e146f6d3db49fbcfc7936a16d46c085b9c",
+          "target": "tests/results/2026-10-06-batch2-scores.json"
+        },
+        "examples/evidence-review/mvp/qa-receipt.json": {
+          "sha256": "a60211a114771dbab03b6d9479f4796f2bb4659aa63fe6ac8959a4050ca98dc2",
+          "target": "examples/evidence-review/mvp/qa-receipt.json"
+        }
+      },
+      "covers": "74849c435f70a3486dfda778cb4a581b30bb68915c4ca0f77956bc5d1d410710"
+    }
+  ],
+  "experience_uses": [],
+  "run": {
+    "status": "ended",
+    "reason": "Functional engineering and new task outcome loop completed. Actual browser QA blocked; no human-effort or universal protocol claim."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "purpose": "Continue gap iteration toward reliable human-agent work with traceable evidence and usable review feedback",
+  "source": "User continuation request 2026-10-06; frozen batch2 plan",
+  "semantics": [
+    "Do not convert functional tests into human-effort proof",
+    "Feedback is review input, never automatic approval",
+    "Keep original batch1 protocol failures and current unmet browser QA visible"
+  ],
+  "inputs": [
+    "tests/results/2026-10-06-batch2-plan.md",
+    "skills/gap/SKILL.md",
+    "skills/gap/scripts/checkpoint.py",
+    "skills/gap/scripts/review_view.py"
+  ],
+  "criteria": [
+    {
+      "id": "local-iteration",
+      "kind": "artifact",
+      "claim": "Single installed gap provides evidence continuity and optional same-source views/feedback"
+    },
+    {
+      "id": "regression",
+      "kind": "check",
+      "claim": "All relevant regression and copied-package checks pass"
+    },
+    {
+      "id": "paired-outcomes",
+      "kind": "check",
+      "claim": "New development and held-out tasks pass frozen artifact criteria with exact requested prompt/input controls"
+    },
+    {
+      "id": "browser-mvp",
+      "kind": "check",
+      "claim": "Real browser inspect/edit/export/read-back and wide/narrow render QA completed"
+    },
+    {
+      "id": "independent-code-review",
+      "kind": "review",
+      "independent": true,
+      "claim": "Independent findings repaired and retested without weakening criteria"
+    }
+  ]
+}

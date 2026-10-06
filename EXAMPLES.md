@@ -104,3 +104,17 @@ Read the repository instructions, commands, CI, tracker, review, deploy path, an
 Observation: two separate changes silently weakened fixtures to make tests pass.
 
 Propose one change: add an independent review check for verifier modifications, define a regression fixture, state the possible false-positive cost, and wait for approval. Do not add unrelated rules in the same retrospective.
+
+## Evidence review without a new approval workflow
+
+For an actual cross-session checkpoint, ask gap to inspect current evidence first. Use text for a short status; select HTML only when expanding sources and returning per-criterion feedback helps.
+
+The [synthetic evidence-review MVP](examples/evidence-review/mvp/review.html) deliberately contains an old passing receipt, a changed source, and a pending owner decision. Compare its [text view](examples/evidence-review/mvp/review.txt). The page offers criterion-linked local JSON feedback; it does not authorize or apply changes. [Actual non-browser QA receipts](examples/evidence-review/mvp/qa-receipt.json) show valid intake and rejection after a subsequent source change. Browser rendering/interactions remain unverified because available browser tools could not open the local file under their policy.
+
+Rebuild into a **new** disposable directory (the script refuses overwrite):
+
+```sh
+python3 examples/evidence-review/build_demo.py /tmp/my-gap-review-demo
+```
+
+The helper's `view`/`feedback` commands ship in the single skill; the demonstration builder is repository-only. No video/TTS, server or global installation is required.

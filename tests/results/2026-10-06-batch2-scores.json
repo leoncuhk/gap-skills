@@ -1,0 +1,83 @@
+{
+  "engineering": {
+    "fixed_revision": "a8965bad4e2d788662f0aa930bd793a4ff7e4eb3",
+    "repository_validation": "pass",
+    "unittests": {
+      "passed": 30
+    },
+    "independent_defect_reproductions": "old-fail/new-pass",
+    "browser_render_interaction_qa": "blocked/not_completed",
+    "functional_js_qa": "non-browser only; not equivalent to browser QA"
+  },
+  "phases": {
+    "development": {
+      "baseline": {
+        "artifact_task_criteria": "pass",
+        "source_original_preservation": "pass",
+        "current_check": "pass",
+        "continuity_decision": "pass",
+        "stale_feedback": "pass",
+        "experience_scope": "pass",
+        "human_choice": "appropriately pending with concrete options",
+        "unsupported_independent_or_external_claims": "none found",
+        "direct_file_capture": "retained/development/baseline/capture.json",
+        "semantic_review": "retained/development/independent-grading.md",
+        "mechanism_invocation_certified": false
+      },
+      "enhanced": {
+        "artifact_task_criteria": "pass",
+        "source_original_preservation": "pass",
+        "current_check": "pass",
+        "continuity_decision": "pass",
+        "stale_feedback": "pass",
+        "experience_scope": "pass",
+        "human_choice": "appropriately pending with concrete options",
+        "unsupported_independent_or_external_claims": "none found",
+        "direct_file_capture": "retained/development/enhanced/capture.json",
+        "semantic_review": "retained/development/independent-grading.md",
+        "mechanism_invocation_certified": false
+      }
+    },
+    "heldout": {
+      "baseline": {
+        "artifact_task_criteria": "pass",
+        "source_original_preservation": "pass",
+        "current_check": "pass",
+        "continuity_decision": "pass",
+        "stale_feedback": "pass",
+        "experience_scope": "pass",
+        "human_choice": "appropriately pending with concrete options",
+        "unsupported_independent_or_external_claims": "none found",
+        "direct_file_capture": "retained/heldout/baseline/capture.json",
+        "semantic_review": "retained/heldout/independent-grading.md",
+        "mechanism_invocation_certified": false
+      },
+      "enhanced": {
+        "artifact_task_criteria": "pass",
+        "source_original_preservation": "pass",
+        "current_check": "pass",
+        "continuity_decision": "pass",
+        "stale_feedback": "pass",
+        "experience_scope": "pass",
+        "human_choice": "appropriately pending with concrete options",
+        "unsupported_independent_or_external_claims": "none found",
+        "direct_file_capture": "retained/heldout/enhanced/capture.json",
+        "semantic_review": "retained/heldout/independent-grading.md",
+        "mechanism_invocation_certified": false
+      }
+    }
+  },
+  "protocol": {
+    "exact_normalized_prompts": "verified",
+    "frozen_inputs_except_installed_mechanism": "verified",
+    "requested_model_effort_and_fork_context": "verified",
+    "installed_mechanism_matches_fixed_git_tree": "verified",
+    "main_controls_context_count": "4 of maximum8",
+    "actual_backend_identity": "unknown",
+    "complete_runtime_tool_count": "unknown",
+    "budget_observability": "limited; identical requested limits and main wall-time observation only",
+    "acceptance_owned_launches": 0
+  },
+  "human_utility": "unproven; not measured",
+  "global_verdict": "No single all-green verdict; artifact success, engineering checks, protocol limits and user benefit remain separate."
+}

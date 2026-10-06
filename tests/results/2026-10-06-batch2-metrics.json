@@ -1,0 +1,101 @@
+{
+  "scope": "synthetic local pairs, no user effort or service billing measurement",
+  "requested_model": "gpt-6-astra",
+  "requested_effort": "high",
+  "backend_identity": null,
+  "arms": {
+    "development/baseline": {
+      "launch_time": "2026-10-06T08:08:57.672860+00:00",
+      "completion_observed_at": "2026-10-06T08:11:56.947826+00:00",
+      "main_observed_completion_window_seconds": 179.274966,
+      "completion_observed_before_10min": true,
+      "actual_runtime_seconds": null,
+      "actual_total_tool_invocations": null,
+      "tool_limit_requested": 12,
+      "reported_count": null,
+      "reported_count_provenance": "not available",
+      "tokens": null,
+      "currency_cost": null,
+      "human_intervention_minutes": null,
+      "checkpoint_revision_count": 1,
+      "checkpoint_receipt_count": 2,
+      "old_receipts_preserved_as_prefix": true,
+      "mechanism_use": "manual continuation with historical checkpoint; no installed mechanism"
+    },
+    "development/enhanced": {
+      "launch_time": "2026-10-06T08:08:57.673404+00:00",
+      "completion_observed_at": "2026-10-06T08:11:56.948047+00:00",
+      "main_observed_completion_window_seconds": 179.274643,
+      "completion_observed_before_10min": true,
+      "actual_runtime_seconds": null,
+      "actual_total_tool_invocations": null,
+      "tool_limit_requested": 12,
+      "reported_count": 12,
+      "reported_count_provenance": "main records enhanced solver self-report; not independently certified",
+      "tokens": null,
+      "currency_cost": null,
+      "human_intervention_minutes": null,
+      "checkpoint_revision_count": 2,
+      "checkpoint_receipt_count": 4,
+      "old_receipts_preserved_as_prefix": true,
+      "mechanism_use": "declared invocation plus helper-consistent artifact effects; invocation not independently certified"
+    },
+    "heldout/baseline": {
+      "launch_time": "2026-10-06T08:13:58.036551+00:00",
+      "completion_observed_at": "2026-10-06T08:16:33.805324+00:00",
+      "main_observed_completion_window_seconds": 155.768773,
+      "completion_observed_before_10min": true,
+      "actual_runtime_seconds": null,
+      "actual_total_tool_invocations": null,
+      "tool_limit_requested": 12,
+      "reported_count": null,
+      "reported_count_provenance": "not available",
+      "tokens": null,
+      "currency_cost": null,
+      "human_intervention_minutes": null,
+      "checkpoint_revision_count": 1,
+      "checkpoint_receipt_count": 2,
+      "old_receipts_preserved_as_prefix": true,
+      "mechanism_use": "manual continuation with historical checkpoint; no installed mechanism"
+    },
+    "heldout/enhanced": {
+      "launch_time": "2026-10-06T08:13:58.036919+00:00",
+      "completion_observed_at": "2026-10-06T08:16:33.805648+00:00",
+      "main_observed_completion_window_seconds": 155.768729,
+      "completion_observed_before_10min": true,
+      "actual_runtime_seconds": null,
+      "actual_total_tool_invocations": null,
+      "tool_limit_requested": 12,
+      "reported_count": 12,
+      "reported_count_provenance": "main records enhanced solver self-report; not independently certified",
+      "tokens": null,
+      "currency_cost": null,
+      "human_intervention_minutes": null,
+      "checkpoint_revision_count": 2,
+      "checkpoint_receipt_count": 4,
+      "old_receipts_preserved_as_prefix": true,
+      "mechanism_use": "declared invocation plus helper-consistent artifact effects; invocation not independently certified"
+    }
+  },
+  "solver_contexts": {
+    "completed": 4,
+    "authorized_maximum": 8,
+    "acceptance_owned_launches": 0,
+    "replacement_or_retry_contexts": 0
+  },
+  "independent_code_review_findings": {
+    "initial": {
+      "P2": 1,
+      "P3": 1
+    },
+    "repair_rounds": 1,
+    "verified_resolved": 2
+  },
+  "limits": [
+    "Timestamp intervals are main launch-to-completion-observation windows, not measured actual runtime or billed duration.",
+    "Actual total direct+nested tool invocations are unavailable; self-reported 12 is not independently certified.",
+    "Tokens, currency costs and human effort/intervention minutes are unknown.",
+    "No browser/render QA; no workaround.",
+    "No effect-size, speedup, superiority or human-time-saving conclusion."
+  ]
+}

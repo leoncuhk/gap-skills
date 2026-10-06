@@ -115,6 +115,8 @@ Temporary state is removed only after unresolved environment problems, meaningfu
 
 Repository validation checks packaging, documentation links, references, manifests, invocation metadata, templates, and workflow invariants. Behavioral evaluation includes positive and negative activation cases, executable Quick, Standard-delivery, and standalone-review fixtures, plus declared Governed/adoption/retrospective scenarios. These checks show that the implementation is coherent and that planted review defects are detectable; the Governed scenario and comparative effectiveness still require retained harness and real-work results.
 
+Latest local iteration: [0.6.0 feedback-loop results](tests/results/2026-10-06-batch2.md) and [interactive synthetic MVP](examples/evidence-review/mvp/review.html). Engineering and four synthetic task artifacts pass; browser QA and human-effort benefits remain unverified.
+
 See [tests/PROTOCOL.md](tests/PROTOCOL.md) for the evaluation contract, [tests/results/2026-08-27.md](tests/results/2026-08-27.md) for current evidence, and [NOTICE.md](NOTICE.md) for lineage.
 
 ## License

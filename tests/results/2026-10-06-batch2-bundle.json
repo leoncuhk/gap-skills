@@ -1,0 +1,8 @@
+{
+  "export_manifest_files_verified": 298,
+  "archive_contents_match_export_manifest": true,
+  "archive_sha256_matches_receipt": true,
+  "symlinks_or_hardlinks_in_archive": false,
+  "prior_draft_byte_preservation_all_four_arms": true,
+  "archive_sha256": "ae89283c7966c7ce7ce521fce922d8b9565ee56db14a977c711fe7a9b9452369"
+}

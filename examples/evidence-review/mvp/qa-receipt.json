@@ -1,0 +1,13 @@
+{
+  "scope": "non-browser synthetic intake/read-back; not actual human feedback or browser QA",
+  "valid_intake": {
+    "returncode": 0,
+    "stdout": "{\n  \"feedback\": [\n    {\n      \"criterion\": \"current-explanation\",\n      \"decision\": \"correction\",\n      \"note\": \"Synthetic QA feedback: source now says21 calendar days; preserve draft and revalidate the explanation.\"\n    },\n    {\n      \"criterion\": \"exception-policy\",\n      \"decision\": \"question\",\n      \"note\": \"Synthetic QA feedback: show consequences and leave this policy choice to the owner.\"\n    }\n  ],\n  \"observation_sha256\": \"7688138d0dbb30642c875fa7bfb361bb36a078f860f5c9cdb9ea04071b088013\",\n  \"applied\": false,\n  \"authorization\": false,\n  \"next\": \"Treat notes as review input. Verify provenance and meaning; continue only within existing authorization.\"\n}\n"
+  },
+  "state_unchanged": true,
+  "changed_source_rejection": {
+    "returncode": 2,
+    "stdout": "{\"error\": \"stale feedback: re-open current evidence and recheck the proposed decision\"}\n"
+  },
+  "browser": "blocked: Chrome unavailable; IAB rejects file protocol and forbids workaround"
+}

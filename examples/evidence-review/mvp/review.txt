@@ -1,0 +1,20 @@
+# Review the current cancellation explanation and identify the remaining human decision
+Source: Synthetic demo request; never real customer policy
+Contract revision: 1 | Observation: 7688138d0dbb30642c875fa7bfb361bb36a078f860f5c9cdb9ea04071b088013
+Run: ended | Artifact ready: False
+Independent acceptance: not established
+Human judgment pending: exception-policy
+
+## current-explanation — stale (artifact)
+Draft matches the current policy
+- basis changed; revise after inspection: policy.txt
+- file changed or missing: policy.txt
+- Evidence: policy.txt | recorded: policy.txt 69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11 | current: {'sha256': 'd7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff', 'target': 'policy.txt'}
+- Evidence: verification.txt | recorded: verification.txt 028ae89894dbbe0839fbd3a2bab5b5668ea70734e12f6c97d79c32d29e851a9e | current: {'sha256': '028ae89894dbbe0839fbd3a2bab5b5668ea70734e12f6c97d79c32d29e851a9e', 'target': 'verification.txt'}
+- Evidence: draft.txt | recorded: draft.txt 69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11 | current: {'sha256': '69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11', 'target': 'draft.txt'}
+Observed: Actual byte comparison passed before the source changed.
+## exception-policy — missing (human)
+Owner decides whether an exception route is appropriate
+
+Feedback must quote the observation and criterion ID. It does not authorize actions.
+Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.

@@ -1,0 +1,32 @@
+{
+  "development": {
+    "normalized_prompt_equals_frozen_template": true,
+    "envelopes_match_ledger_hashes": true,
+    "requested_model_and_effort_equal": true,
+    "requested_fork_context_equal": "none",
+    "input_equality_at_materialization": "verified producer assertion and fixture commitment; protected inputs independently recaptured",
+    "enhanced_mechanism_matches_fixed_git_tree": true,
+    "freeze_ref": "12a99151618b35fa4211aef4ee5074f454858154",
+    "actual_backend_identity": null,
+    "actual_total_tool_invocations": null
+  },
+  "heldout": {
+    "normalized_prompt_equals_frozen_template": true,
+    "envelopes_match_ledger_hashes": true,
+    "requested_model_and_effort_equal": true,
+    "requested_fork_context_equal": "none",
+    "input_equality_at_materialization": "verified producer assertion and fixture commitment; protected inputs independently recaptured",
+    "enhanced_mechanism_matches_fixed_git_tree": true,
+    "freeze_ref": "a8965bad4e2d788662f0aa930bd793a4ff7e4eb3",
+    "actual_backend_identity": null,
+    "actual_total_tool_invocations": null
+  },
+  "limits": {
+    "solver_contexts_in_batch": 4,
+    "authorized_maximum": 8,
+    "acceptance_owned_launches": 0,
+    "runtime_tool_budget": "same declared limit; complete invocation stream unavailable",
+    "browser_qa": "blocked; no workaround",
+    "human_effort": "not measured"
+  }
+}
