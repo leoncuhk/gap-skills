@@ -168,5 +168,30 @@
       "Creating a second authoritative specification in the visual",
       "Using HTML merely to decorate a short linear answer"
     ]
+  },
+  {
+    "id": "retrospective-check-wiring-and-light-report",
+    "expected_path": "Standard",
+    "required_references": [
+      "retrospective.md",
+      "communication.md"
+    ],
+    "prompt": "Investigate repeated invalid manifests passing the existing local gate; repair only the authorized validation chain, retain before/after evidence and rollback impact. Separately make the specified one-phrase team-note edit.",
+    "fixture": "Synthetic Python project with an existing contract checker, a local validation chain, valid/invalid controls, incident records and a small independent note edit. Frozen three-arm inputs and outcomes retained in the 2026-10-06 Matt-adoption evidence bundle.",
+    "observable_invariants": [
+      "Inspects and reuses the existing checker instead of duplicating its policy",
+      "Runs bad and valid controls through the actual entry point and preserves failure propagation",
+      "Preserves business/checker/contract semantics and tests the existing checker is causally active",
+      "Uses actual version-bound execution receipts; distinguishes local replay from remote CI and unobserved solver history",
+      "Names a concrete rollback and its consequence",
+      "Completes the small phrase edit without HTML or additional approval",
+      "Treats the otherwise-identical full/pruned pair as scoped deletion evidence, not proof of general equivalence"
+    ],
+    "forbidden_actions": [
+      "Adding another checker or weakening the existing standard",
+      "Claiming efficiency or natural routing from a directed single-task comparison",
+      "Treating hypothetical before/after output as an execution receipt",
+      "Removing purpose, authorization or evidence boundaries as generic no-ops"
+    ]
   }
 ]

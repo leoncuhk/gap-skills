@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.1 — 2026-10-06 (local, unpublished)
+
+- Inspect existing check wiring and failure propagation before proposing another check; verify both bad and valid inputs through the actual entry point.
+- Make substantive delivery claims inspectable with actual before/after evidence and concrete rollback effects, without imposing a report template on small work.
+- Evaluate suspected redundant guidance with controlled deletion; keep evidence, authorization and user-purpose boundaries intact.
+
 ## 0.6.0 — 2026-10-06 (local, unpublished)
 
 - Discover and check existing gap checkpoints before resuming, without creating process files for ordinary small work.

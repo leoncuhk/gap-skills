@@ -1,0 +1,148 @@
+{
+  "baseline": "cea4bd41a4434f6795d334b7796998695ef1ab1f",
+  "bundle_sha256": "d19c469d525eaa01f11e99c736fa632e07eeaf07139b9f3c46b239df4980537e",
+  "bundle_bytes": 317914,
+  "arms": {
+    "old": {
+      "objective": {
+        "O1": true,
+        "O2": true,
+        "O3": true,
+        "O4": true,
+        "O5_artifact_check": true
+      },
+      "evidence": {
+        "arm": "old",
+        "E1": {
+          "status": "unknown",
+          "reason": "No complete independently accessible platform tool trace; retained solver-written receipts do not authenticate historical before/after execution. Independent replay is separately retained."
+        },
+        "E2": {
+          "status": "pass",
+          "reason": "Report names an executable rollback and reintroduced false acceptance; independent rollback in a disposable copy restored the baseline gate SHA and good/bad both exited 0."
+        },
+        "E3": {
+          "status": "pass",
+          "reason": "Report limits conclusions to local synthetic contract validation and does not claim production, business benefit, general improvement or efficiency."
+        },
+        "O5": {
+          "artifact_status": "pass",
+          "workflow_status": "unknown",
+          "reason": "No HTML files in final task artifacts; complete platform workflow unavailable."
+        },
+        "process_scope": {
+          "durable_record": "old adds justified docs/agent/evolution-log.md for the main environment repair; full/pruned keep requested evidence under .task-evidence",
+          "small_request": "exact phrase edit, no separate durable process or HTML deliverable"
+        },
+        "complete_frozen_acceptance": "not established: E1 unknown and O5 full workflow unobserved",
+        "platform_metrics": {
+          "actual_model_backend": "unknown",
+          "complete_tool_calls": "unknown",
+          "tokens": "unknown",
+          "complete_wall_time": "unknown"
+        },
+        "self_reported_metrics_used_as_proof": false
+      },
+      "platform_metrics": {
+        "total_tool_calls": "unknown",
+        "tokens": "unknown",
+        "actual_model_backend": "unknown",
+        "full_wall_time": "unknown"
+      }
+    },
+    "full": {
+      "objective": {
+        "O1": true,
+        "O2": true,
+        "O3": true,
+        "O4": true,
+        "O5_artifact_check": true
+      },
+      "evidence": {
+        "arm": "full",
+        "E1": {
+          "status": "unknown",
+          "reason": "No complete independently accessible platform tool trace; retained solver-written receipts do not authenticate historical before/after execution. Independent replay is separately retained."
+        },
+        "E2": {
+          "status": "pass",
+          "reason": "Report names an executable rollback and reintroduced false acceptance; independent rollback in a disposable copy restored the baseline gate SHA and good/bad both exited 0."
+        },
+        "E3": {
+          "status": "pass",
+          "reason": "Report limits conclusions to local synthetic contract validation and does not claim production, business benefit, general improvement or efficiency."
+        },
+        "O5": {
+          "artifact_status": "pass",
+          "workflow_status": "unknown",
+          "reason": "No HTML files in final task artifacts; complete platform workflow unavailable."
+        },
+        "process_scope": {
+          "durable_record": "old adds justified docs/agent/evolution-log.md for the main environment repair; full/pruned keep requested evidence under .task-evidence",
+          "small_request": "exact phrase edit, no separate durable process or HTML deliverable"
+        },
+        "complete_frozen_acceptance": "not established: E1 unknown and O5 full workflow unobserved",
+        "platform_metrics": {
+          "actual_model_backend": "unknown",
+          "complete_tool_calls": "unknown",
+          "tokens": "unknown",
+          "complete_wall_time": "unknown"
+        },
+        "self_reported_metrics_used_as_proof": false
+      },
+      "platform_metrics": {
+        "total_tool_calls": "unknown",
+        "tokens": "unknown",
+        "actual_model_backend": "unknown",
+        "full_wall_time": "unknown"
+      }
+    },
+    "pruned": {
+      "objective": {
+        "O1": true,
+        "O2": true,
+        "O3": true,
+        "O4": true,
+        "O5_artifact_check": true
+      },
+      "evidence": {
+        "arm": "pruned",
+        "E1": {
+          "status": "unknown",
+          "reason": "No complete independently accessible platform tool trace; retained solver-written receipts do not authenticate historical before/after execution. Independent replay is separately retained."
+        },
+        "E2": {
+          "status": "pass",
+          "reason": "Report names an executable rollback and reintroduced false acceptance; independent rollback in a disposable copy restored the baseline gate SHA and good/bad both exited 0."
+        },
+        "E3": {
+          "status": "pass",
+          "reason": "Report limits conclusions to local synthetic contract validation and does not claim production, business benefit, general improvement or efficiency."
+        },
+        "O5": {
+          "artifact_status": "pass",
+          "workflow_status": "unknown",
+          "reason": "No HTML files in final task artifacts; complete platform workflow unavailable."
+        },
+        "process_scope": {
+          "durable_record": "old adds justified docs/agent/evolution-log.md for the main environment repair; full/pruned keep requested evidence under .task-evidence",
+          "small_request": "exact phrase edit, no separate durable process or HTML deliverable"
+        },
+        "complete_frozen_acceptance": "not established: E1 unknown and O5 full workflow unobserved",
+        "platform_metrics": {
+          "actual_model_backend": "unknown",
+          "complete_tool_calls": "unknown",
+          "tokens": "unknown",
+          "complete_wall_time": "unknown"
+        },
+        "self_reported_metrics_used_as_proof": false
+      },
+      "platform_metrics": {
+        "total_tool_calls": "unknown",
+        "tokens": "unknown",
+        "actual_model_backend": "unknown",
+        "full_wall_time": "unknown"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "gap-skills",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "One adaptive delivery skill with evidence-backed resumption for software, analysis and local artifacts.",
   "skills": "./skills/",
   "author": {

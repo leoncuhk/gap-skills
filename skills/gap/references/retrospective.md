@@ -9,7 +9,7 @@ Read the actual session/task record, review findings, incidents, reverted change
 Look for repeated mechanisms across tasks:
 
 - navigation or missing context pointers;
-- absent automated checks;
+- missing or ineffective automated checks: trace the existing command through its callers and retained results before adding another; distinguish an absent check from one that is unwired, skipped, or whose failure is swallowed;
 - review standards that missed a real issue;
 - bloated or ineffective AGENTS.md/CLAUDE.md instructions;
 - expensive or unreliable tools;
@@ -30,6 +30,10 @@ State the observed pattern, evidence, proposed change, expected behavior, possib
 ## Validation
 
 Add or identify a regression task that would fail before the change and pass after it. Re-evaluate on the next retrospective. Record accepted and rejected proposals in the project's durable evolution log.
+
+For a check or its wiring, exercise the actual entry point with a known-bad case and a valid control. The bad case must fail for the intended reason and propagate failure to its caller; the valid case must still pass. Reuse the project's check before introducing a new rule or tool. Local execution does not prove remote CI ran or branch protection is active.
+
+For a suspected no-op instruction, compare otherwise identical skill variants with and without that instruction on the same task, model configuration and budget. Freeze success criteria first; retain failures, extra calls and user corrections (unknown if unmeasured). Test the branch the instruction governs and a small task that should stay light. Change one instruction at a time; a multi-change comparison cannot identify its individual effect. Remove it only within the tested scope when required behavior survives; one passing pair is provisional, not general equivalence. Keep authorization, user-purpose and evidence boundaries intact. If a needed reference was missed, test a clearer trigger before inlining its contents or adding another skill.
 
 Retrospection is complete when one change is accepted with a test and rollback, or explicitly rejected with a reason. More rules are not success; fewer repeated failures at acceptable cost are.
 

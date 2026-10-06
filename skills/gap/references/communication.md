@@ -6,7 +6,7 @@ Choose the lightest medium that makes the important relationship easy to inspect
 
 Use concise Markdown for linear reasoning, short plans, ordinary reports, and a few findings. Text, diagrams, HTML and video are alternative forms, not a ladder of complexity: choose for the reader’s actual question. A static relationship needs only a small source-backed diagram; navigation, comparison or criterion-specific feedback can justify HTML. Use video only when motion, timing or a real procedure is essential and production/verification tools are already available; do not install a media stack to complete an ordinary explanation. Use one self-contained HTML artifact when the reader must compare several alternatives, inspect a diagram or map, explore dense evidence, tune parameters, review a long plan, or understand a UI/prototype spatially.
 
-HTML earns its cost only when interaction or layout materially improves understanding. Do not turn a short answer into a web page.
+Do not turn a short answer into a web page.
 
 ## Exploration
 
@@ -27,6 +27,8 @@ Every visual claim must trace to the same source-of-truth evidence as the text. 
 ## Review, demo, and status
 
 Lead with the working behavior or failure evidence, then the problem and chosen bet, the hardest reviewer questions, deviations, residual risk, and explicit non-scope. Group changes by intent rather than file list. Link to durable artifacts and diffs rather than copying them into a second authority.
+
+For a substantive change, a compact before/after comparison can make the claim inspectable: the same input or observation, its source versions, and the actual failing/passing output. If no baseline was run, say so; a hypothetical example or pseudocode is not an execution receipt. Choose evidence for the claim: screenshots show visible state, execution checks show tested behavior, and neither alone proves user benefit. State what rollback reverses, any effects it cannot undo, and the affected users or consumers. Use this only where it helps the reader decide; a small edit needs no fixed report template or diagram.
 
 Match the venue: short Markdown for chat/PR, self-contained HTML for long or interactive review. Accessibility, readable contrast, keyboard navigation, and printable fallback are part of correctness for an HTML artifact.
 
