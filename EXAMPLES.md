@@ -16,6 +16,8 @@ Route: Standard. Inspect authentication, membership, email, and existing UI patt
 
 ### Full user-flow MVP
 
+Illustrative exchange for the current fixture; execution evidence and counts must come from the actual run.
+
 ```text
 User:
 $gap Implement the invitation lifecycle described in README.md. Use repository
@@ -25,15 +27,10 @@ Agent:
 Standard path: the behavior spans invitation creation and acceptance and contains
 material policy choices, but has no production or irreversible action.
 
-I found the repository verification command, case-insensitive identity convention,
-and existing membership rules. One material decision is still unspecified: should
-an accepted identity be invitable again? I recommend no, because membership is the
-terminal state and this preserves the existing invariant.
-
-User:
-Accepted identities cannot be invited again.
-
-Agent:
+I found the verification command and settled rules in AGENTS.md: identity is
+case-insensitive, expiry is seven days with an inclusive boundary, duplicates do
+not extend it, and accepted identities cannot be invited again. No clarification
+is needed for those rules.
 Intent: add a seven-day invitation lifecycle without changing existing membership
 identity rules. Plan: add red tests for creation, duplicate, expiry, acceptance, and
 accepted-identity rejection; implement the smallest state transition changes; run
@@ -43,7 +40,7 @@ the declared suite; reconcile the diff; review intent/spec and engineering axes.
 
 Agent final:
 Implemented the invitation lifecycle in the existing source and tests only.
-- Verification: project suite 9/9 passed; evaluator-held outcomes 4/4 passed.
+- Verification: report the actual project and evaluator-held command results.
 - Intent/spec review: pass; all accepted behaviors are represented.
 - Engineering review: pass; no blocking finding after final diff review.
 - Independence: self-review only; an independent reviewer was unavailable.
@@ -109,7 +106,9 @@ Propose one change: add an independent review check for verifier modifications, 
 
 For an actual cross-session checkpoint, ask gap to inspect current evidence first. Use text for a short status; select HTML only when expanding sources and returning per-criterion feedback helps.
 
-The [synthetic evidence-review MVP](examples/evidence-review/mvp/review.html) deliberately contains an old passing receipt, a changed source, and a pending owner decision. Compare its [text view](examples/evidence-review/mvp/review.txt). The page offers criterion-linked local JSON feedback; it does not authorize or apply changes. [Actual non-browser QA receipts](examples/evidence-review/mvp/qa-receipt.json) show valid intake and rejection after a subsequent source change. Browser rendering/interactions remain unverified because available browser tools could not open the local file under their policy.
+The current [source-bound delivery MVP](examples/evidence-review/gap07-mvp/review.html) shows an actual 21→17 correction, source excerpts/differences, and a pending owner's shipping choice. Its [compact text](examples/evidence-review/gap07-mvp/review.txt) and [full text](examples/evidence-review/gap07-mvp/review-details.txt) share the HTML observation. Feedback never authorizes or applies changes. Static semantic checks and simulated disclosure checks passed; browser interaction and human comprehension remain unverified.
+
+The earlier stale-receipt demonstration and its actual non-browser intake receipts are [archived with recovery instructions](examples/evidence-review/README.md). The builder below reproduces that smaller mechanism demonstration, not the current delivery brief.
 
 Rebuild into a **new** disposable directory (the script refuses overwrite):
 

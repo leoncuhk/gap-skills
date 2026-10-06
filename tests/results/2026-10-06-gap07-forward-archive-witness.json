@@ -1,0 +1,30 @@
+{
+  "archive": "/tmp/gap07-forward-20261006/gap07-forward-evidence-20261006.tar.gz",
+  "sha256": "b20b4b93d0bc053883ceb7ae6a2157568312ca7af515e1416b43a3d2fe9808f4",
+  "bytes": 117291,
+  "files": 114,
+  "all_extracted_hashes_match": true,
+  "relocated_replay_exit": 0,
+  "replay": {
+    "all_pass": true,
+    "root": "/private/tmp/gap07-forward-20261006/relocation/final/gap07-forward-20261006",
+    "results": [
+      {
+        "name": "qualification",
+        "returncode": 0
+      },
+      {
+        "name": "actual-mechanical",
+        "returncode": 0
+      },
+      {
+        "name": "actual-lifecycle",
+        "returncode": 0
+      }
+    ],
+    "scope": "Independent deterministic local replay; no model/browser; no causal or comparative estimate"
+  },
+  "receipt": "/tmp/gap07-forward-20261006/relocation/final/gap07-forward-20261006/reports/replay-summary.json",
+  "historical_paths_rewritten": false,
+  "contains_private_platform_reasoning": false
+}

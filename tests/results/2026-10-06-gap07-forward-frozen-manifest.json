@@ -1,0 +1,9 @@
+{
+  "frozen/criteria.md": "d3555cf4993786ff231864c730c93e33822cc13bf522ba44b8f288a11f95593e",
+  "frozen/expected.json": "ace83a58078837faed30a6c9a25e4c7b629b862a4e448b00da419f423fabe6b1",
+  "frozen/provenance.json": "55fadb2692ad79da2e53b2497a00a62a279b571c899e02b4f1d9ae2a0fac5128",
+  "frozen/workspace-manifest.json": "f184297a244a760c38b780777b7d9e47968921bf25d3661a977cf8dd2f5c5b79",
+  "evaluate.py": "e7db91d67af13fd0246d1d63291a4e3957112b78458128d1c0d8d78faabf4684",
+  "qualify.py": "f431ef150d3668e9692c2fda61fde2f748c358ee5a72a2c3be5e6bdd80497587",
+  "prompt.txt": "ce429c0c744941c591b206a1bf06c894b508b16369c2936eb2fa82fbaeff1d65"
+}

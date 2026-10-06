@@ -1,0 +1,99 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "check": "all_owner_options_costs_arrivals_deferral_and_limits_default_visible",
+      "pass": true
+    },
+    {
+      "check": "explicit_Mei_rush68_standard17_Monday_Tuesday",
+      "pass": true
+    },
+    {
+      "check": "explicit_1700_and_no_date_timezone",
+      "pass": true
+    },
+    {
+      "check": "explicit_no_authorization",
+      "pass": true
+    },
+    {
+      "check": "source_sha:input/previous_queue.json",
+      "pass": true
+    },
+    {
+      "check": "source_target:input/previous_queue.json",
+      "pass": true
+    },
+    {
+      "check": "source_original_in_full_modes:input/previous_queue.json",
+      "pass": true
+    },
+    {
+      "check": "source_sha:deliverables/results.json",
+      "pass": true
+    },
+    {
+      "check": "source_target:deliverables/results.json",
+      "pass": true
+    },
+    {
+      "check": "source_original_in_full_modes:deliverables/results.json",
+      "pass": true
+    },
+    {
+      "check": "source_sha:input/policy.txt",
+      "pass": true
+    },
+    {
+      "check": "source_target:input/policy.txt",
+      "pass": true
+    },
+    {
+      "check": "source_original_in_full_modes:input/policy.txt",
+      "pass": true
+    },
+    {
+      "check": "source_sha:input/requests.csv",
+      "pass": true
+    },
+    {
+      "check": "source_target:input/requests.csv",
+      "pass": true
+    },
+    {
+      "check": "source_original_in_full_modes:input/requests.csv",
+      "pass": true
+    },
+    {
+      "check": "source_sha:input/incident.txt",
+      "pass": true
+    },
+    {
+      "check": "source_target:input/incident.txt",
+      "pass": true
+    },
+    {
+      "check": "source_original_in_full_modes:input/incident.txt",
+      "pass": true
+    },
+    {
+      "check": "actual_source_diff_consistent",
+      "pass": true
+    },
+    {
+      "check": "same_original_observation_in_all_modes",
+      "pass": true
+    }
+  ],
+  "basis": "Actual current repository MVP, compared with original dev enhanced brief and bound source bytes; all checks read-only",
+  "html_default_proxy": "Static details-aware text parser, no browser/human understanding claim",
+  "mvp_files_sha256": {
+    "review.txt": "1e4e18edf95b46fc9e552773293dbb91618fe1e245af4b85021fbb644b7e5eda",
+    "review-details.txt": "f999182b3d5c2297eb6673f1a5de23a427ecf7d628aac5ab33477eb621bd43a8",
+    "review.html": "fcf4ea1b776b3f5bf5e410bcf88d758d385d309d86c58a02c61a011c549259ab",
+    "provenance.json": "21597d0594d2e64052a41af8fc16d5b9884036e48b49557338a03e01c1ff8a92",
+    "README.md": "efc4d96c18647dbdd2347c78922c47f1254323e14afcd72f5cbf6367d0070ca5"
+  },
+  "observation": "5de0c252180a1b74f40979f112587229cc1b71b486335b61d04eda1688d5007e"
+}

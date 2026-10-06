@@ -1,0 +1,62 @@
+{
+  "pass": true,
+  "new_instance": "15 new snapshot rows, new request identities, integer revisions 9/10/11, cancellation/reopening, same-team distinct requests and approved zero quantity",
+  "actual_result": {
+    "requests": [
+      {
+        "request_id": "B22",
+        "team": "West",
+        "quantity": 4
+      },
+      {
+        "request_id": "C33",
+        "team": "East",
+        "quantity": 7
+      },
+      {
+        "request_id": "D44",
+        "team": "South",
+        "quantity": 9
+      },
+      {
+        "request_id": "E55",
+        "team": "West",
+        "quantity": 6
+      },
+      {
+        "request_id": "F66",
+        "team": "South",
+        "quantity": 5
+      },
+      {
+        "request_id": "G77",
+        "team": "East",
+        "quantity": 0
+      }
+    ],
+    "total_badges": 31
+  },
+  "candidate_reused_byte_for_byte": true,
+  "historical_17_explicitly_not_current_target": true,
+  "actual_scope_trial": "pass",
+  "actual_new_result_bound_to_same_use": "pass",
+  "independent_solver_and_verifier_replay": "pass",
+  "independent_use_use_result_replay": "pass",
+  "promotion": "none; original candidate and validations=[] unchanged",
+  "solver_contexts": 1,
+  "requested_model": "gpt-6-astra/high/fork none",
+  "budget": "12 tool calls / 8 minutes",
+  "tool_calls_self_report": 8,
+  "actual_backend_tokens_elapsed_cost": "unknown",
+  "deliverable_files": 28,
+  "deliverable_bytes": 125381,
+  "comparative_or_causal_effect": "not measured; no baseline",
+  "human_comprehension": "not measured",
+  "mvp_static_semantics": "21 checks passed, no browser",
+  "limits": [
+    "The current policy explicitly states the same selection rule; success cannot establish that consulting the candidate caused correctness.",
+    "No validated apply or promotion case; this one positive forward task remains bounded candidate evidence.",
+    "Same-solver SQL/manual checks are distinct methods, not independent authors; this report separately uses frozen independent expected and replay.",
+    "No platform-complete trace, production result, human reader test or monetary cost inference."
+  ]
+}

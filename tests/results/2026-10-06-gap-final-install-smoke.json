@@ -1,0 +1,470 @@
+{
+  "head": "f62ba401eedaad65ed80afece8ebf1ab00f262ed",
+  "tracked_files": 170,
+  "categories": {
+    ".claude-plugin": 1,
+    ".claude": 1,
+    ".codex-plugin": 1,
+    ".github": 1,
+    ".gitignore": 1,
+    "AGENTS.md": 1,
+    "CHANGELOG.md": 1,
+    "EXAMPLES.md": 1,
+    "LICENSE": 1,
+    "NOTICE.md": 1,
+    "README.md": 1,
+    "examples": 46,
+    "scripts": 1,
+    "skills": 22,
+    "tests": 90
+  },
+  "installed_links": [
+    {
+      "file": "SKILL.md",
+      "target": "references/discovery.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "references/planning.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "references/problem-solving.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "references/delivery.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "references/reviewing-changes.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "references/communication.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "references/governance.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "references/retrospective.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "references/adoption.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "assets/state.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "assets/intent.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "assets/spec.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "assets/plan.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "assets/review.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "SKILL.md",
+      "target": "scripts/checkpoint.py",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "references/planning.md",
+      "target": "../assets/spec.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "references/planning.md",
+      "target": "delivery.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "references/discovery.md",
+      "target": "../assets/intent.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "references/delivery.md",
+      "target": "reviewing-changes.md",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "references/delivery.md",
+      "target": "../scripts/checkpoint.py",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "file": "references/delivery.md",
+      "target": "communication.md",
+      "inside": true,
+      "exists": true
+    }
+  ],
+  "commands": [
+    {
+      "cmd": [
+        "claude",
+        "plugin",
+        "validate",
+        "/private/tmp/gap-final-review-20261006/package"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "Validating plugin manifest: /private/tmp/gap-final-review-20261006/package/.claude-plugin/plugin.json\n\n\u2714 Validation passed\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/package/scripts/validate.py"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "OK \u2014 1 skill, 9 references, 7 assets, 2 manifests\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/package/examples/evidence-review/build_demo.py",
+        "/private/tmp/gap-final-review-20261006/demo"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "/private/tmp/gap-final-review-20261006/demo/review.html\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "init",
+        "--contract",
+        "/private/tmp/gap-final-review-20261006/task/contract.json"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\n  \"purpose\": \"Isolated installed skill test\",\n  \"run\": {\n    \"status\": \"active\"\n  },\n  \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n  \"artifact_ready\": false,\n  \"all_criteria_evidenced\": false,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [],\n  \"criteria\": [\n    {\n      \"id\": \"output\",\n      \"claim\": \"preserved bytes\",\n      \"kind\": \"artifact\",\n      \"status\": \"missing\",\n      \"reasons\": [],\n      \"by\": null\n    }\n  ],\n  \"experience_uses\": [],\n  \"next\": \"Inspect missing/stale actual artifacts; recheck affected criteria before resuming. Do not blindly rerun.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "check"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 1,
+      "stdout": "{\n  \"purpose\": \"Isolated installed skill test\",\n  \"run\": {\n    \"status\": \"active\"\n  },\n  \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n  \"artifact_ready\": false,\n  \"all_criteria_evidenced\": false,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [],\n  \"criteria\": [\n    {\n      \"id\": \"output\",\n      \"claim\": \"preserved bytes\",\n      \"kind\": \"artifact\",\n      \"status\": \"missing\",\n      \"reasons\": [],\n      \"by\": null\n    }\n  ],\n  \"experience_uses\": [],\n  \"next\": \"Inspect missing/stale actual artifacts; recheck affected criteria before resuming. Do not blindly rerun.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "record",
+        "--criterion",
+        "output",
+        "--kind",
+        "artifact",
+        "--result",
+        "pass",
+        "--by",
+        "independent-audit",
+        "--receipt",
+        "receipt.txt",
+        "--file",
+        "output.txt",
+        "--note",
+        "actual byte comparison executed locally"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\n  \"purpose\": \"Isolated installed skill test\",\n  \"run\": {\n    \"status\": \"active\"\n  },\n  \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n  \"artifact_ready\": true,\n  \"all_criteria_evidenced\": true,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [],\n  \"criteria\": [\n    {\n      \"id\": \"output\",\n      \"claim\": \"preserved bytes\",\n      \"kind\": \"artifact\",\n      \"status\": \"pass\",\n      \"reasons\": [],\n      \"by\": \"independent-audit\"\n    }\n  ],\n  \"experience_uses\": [],\n  \"next\": \"Inspect receipts and semantic fit before claiming completion.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "check"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\n  \"purpose\": \"Isolated installed skill test\",\n  \"run\": {\n    \"status\": \"active\"\n  },\n  \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n  \"artifact_ready\": true,\n  \"all_criteria_evidenced\": true,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [],\n  \"criteria\": [\n    {\n      \"id\": \"output\",\n      \"claim\": \"preserved bytes\",\n      \"kind\": \"artifact\",\n      \"status\": \"pass\",\n      \"reasons\": [],\n      \"by\": \"independent-audit\"\n    }\n  ],\n  \"experience_uses\": [],\n  \"next\": \"Inspect receipts and semantic fit before claiming completion.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "view",
+        "--format",
+        "html",
+        "--output",
+        "/private/tmp/gap-final-review-20261006/task/review.html"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\"output\": \"/private/tmp/gap-final-review-20261006/task/review.html\", \"observation_sha256\": \"b445fda4557b625506e32dc9d8685477f134e39be9b3d9deabe11a281c44cf6c\"}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "view",
+        "--details",
+        "--output",
+        "/private/tmp/gap-final-review-20261006/task/review.txt"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\"output\": \"/private/tmp/gap-final-review-20261006/task/review.txt\", \"observation_sha256\": \"b445fda4557b625506e32dc9d8685477f134e39be9b3d9deabe11a281c44cf6c\"}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "feedback",
+        "--file",
+        "feedback.json"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\n  \"feedback\": [\n    {\n      \"criterion\": \"output\",\n      \"decision\": \"agree\",\n      \"note\": \"synthetic intake smoke\"\n    }\n  ],\n  \"observation_sha256\": \"b445fda4557b625506e32dc9d8685477f134e39be9b3d9deabe11a281c44cf6c\",\n  \"applied\": false,\n  \"authorization\": false,\n  \"next\": \"Treat notes as review input. Verify provenance and meaning; continue only within existing authorization.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "use",
+        "--file",
+        "candidate.md",
+        "--status",
+        "candidate",
+        "--decision",
+        "trial",
+        "--reason",
+        "local smoke; not efficacy evidence"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\n  \"purpose\": \"Isolated installed skill test\",\n  \"run\": {\n    \"status\": \"active\"\n  },\n  \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n  \"artifact_ready\": true,\n  \"all_criteria_evidenced\": true,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [],\n  \"criteria\": [\n    {\n      \"id\": \"output\",\n      \"claim\": \"preserved bytes\",\n      \"kind\": \"artifact\",\n      \"status\": \"pass\",\n      \"reasons\": [],\n      \"by\": \"independent-audit\"\n    }\n  ],\n  \"experience_uses\": [\n    {\n      \"id\": \"019b16ade17b47b186fa812df36de471\",\n      \"path\": \"candidate.md\",\n      \"declared_status\": \"candidate\",\n      \"decision\": \"trial\",\n      \"format\": \"legacy\",\n      \"experience_id\": \"candidate.md\",\n      \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n      \"scope_file\": null,\n      \"scope\": null,\n      \"validation_status\": \"candidate\",\n      \"result_status\": \"unverified\",\n      \"files\": {\n        \"candidate.md\": {\n          \"sha256\": \"f9169418e12fb13b649a4b11b81d3206c5184a10e492e708c23ad05670c1f58b\",\n          \"target\": \"candidate.md\"\n        }\n      },\n      \"limits\": \"Integrity and freshness only; independent review identity, scope fit and causal improvement require semantic review.\",\n      \"reason\": \"local smoke; not efficacy evidence\",\n      \"revision\": 1,\n      \"contract_sha256\": \"4a04a2c578ac92b256a9c8c1874c4ad6f0d561ac0aaf90ea8b6835ebf8599c12\",\n      \"stale_files\": [],\n      \"stale_basis\": [],\n      \"stale_contract\": false,\n      \"current_result_status\": \"unverified\"\n    }\n  ],\n  \"next\": \"Inspect receipts and semantic fit before claiming completion.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "use-result",
+        "--use-id",
+        "019b16ade17b47b186fa812df36de471",
+        "--receipt",
+        "use-result.json",
+        "--outcome",
+        "pass"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\n  \"purpose\": \"Isolated installed skill test\",\n  \"run\": {\n    \"status\": \"active\"\n  },\n  \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n  \"artifact_ready\": true,\n  \"all_criteria_evidenced\": true,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [],\n  \"criteria\": [\n    {\n      \"id\": \"output\",\n      \"claim\": \"preserved bytes\",\n      \"kind\": \"artifact\",\n      \"status\": \"pass\",\n      \"reasons\": [],\n      \"by\": \"independent-audit\"\n    }\n  ],\n  \"experience_uses\": [\n    {\n      \"id\": \"019b16ade17b47b186fa812df36de471\",\n      \"path\": \"candidate.md\",\n      \"declared_status\": \"candidate\",\n      \"decision\": \"trial\",\n      \"format\": \"legacy\",\n      \"experience_id\": \"candidate.md\",\n      \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n      \"scope_file\": null,\n      \"scope\": null,\n      \"validation_status\": \"candidate\",\n      \"result_status\": \"recorded\",\n      \"files\": {\n        \"candidate.md\": {\n          \"sha256\": \"f9169418e12fb13b649a4b11b81d3206c5184a10e492e708c23ad05670c1f58b\",\n          \"target\": \"candidate.md\"\n        },\n        \"fresh-check.txt\": {\n          \"sha256\": \"5a6af28fd53b72800cdd06b864a62b1cb8dece99c3ef2827a506b52d8f70a177\",\n          \"target\": \"fresh-check.txt\"\n        },\n        \"use-result.json\": {\n          \"sha256\": \"b43b0c28786391090dc1ebf9245b3c178c313c0113617dc51bc835b6e4c8aada\",\n          \"target\": \"use-result.json\"\n        }\n      },\n      \"limits\": \"Integrity and freshness only; independent review identity, scope fit and causal improvement require semantic review.\",\n      \"reason\": \"local smoke; not efficacy evidence\",\n      \"revision\": 1,\n      \"contract_sha256\": \"4a04a2c578ac92b256a9c8c1874c4ad6f0d561ac0aaf90ea8b6835ebf8599c12\",\n      \"result\": {\n        \"receipt\": \"use-result.json\",\n        \"outcome\": \"pass\",\n        \"observed\": \"Actual byte comparison repeated\",\n        \"cost\": \"unknown\",\n        \"user_intervention\": \"unknown\"\n      },\n      \"results\": [\n        {\n          \"receipt\": \"use-result.json\",\n          \"outcome\": \"pass\",\n          \"observed\": \"Actual byte comparison repeated\",\n          \"cost\": \"unknown\",\n          \"user_intervention\": \"unknown\"\n        }\n      ],\n      \"stale_files\": [],\n      \"stale_basis\": [],\n      \"stale_contract\": false,\n      \"current_result_status\": \"recorded\"\n    }\n  ],\n  \"next\": \"Inspect receipts and semantic fit before claiming completion.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "check"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 1,
+      "stdout": "{\n  \"purpose\": \"Isolated installed skill test\",\n  \"run\": {\n    \"status\": \"active\"\n  },\n  \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n  \"artifact_ready\": false,\n  \"all_criteria_evidenced\": false,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [],\n  \"criteria\": [\n    {\n      \"id\": \"output\",\n      \"claim\": \"preserved bytes\",\n      \"kind\": \"artifact\",\n      \"status\": \"stale\",\n      \"reasons\": [\n        \"basis changed; revise after inspection: source.txt\",\n        \"file changed or missing: source.txt\"\n      ],\n      \"by\": \"independent-audit\"\n    }\n  ],\n  \"experience_uses\": [\n    {\n      \"id\": \"019b16ade17b47b186fa812df36de471\",\n      \"path\": \"candidate.md\",\n      \"declared_status\": \"candidate\",\n      \"decision\": \"trial\",\n      \"format\": \"legacy\",\n      \"experience_id\": \"candidate.md\",\n      \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n      \"scope_file\": null,\n      \"scope\": null,\n      \"validation_status\": \"candidate\",\n      \"result_status\": \"recorded\",\n      \"files\": {\n        \"candidate.md\": {\n          \"sha256\": \"f9169418e12fb13b649a4b11b81d3206c5184a10e492e708c23ad05670c1f58b\",\n          \"target\": \"candidate.md\"\n        },\n        \"fresh-check.txt\": {\n          \"sha256\": \"5a6af28fd53b72800cdd06b864a62b1cb8dece99c3ef2827a506b52d8f70a177\",\n          \"target\": \"fresh-check.txt\"\n        },\n        \"use-result.json\": {\n          \"sha256\": \"b43b0c28786391090dc1ebf9245b3c178c313c0113617dc51bc835b6e4c8aada\",\n          \"target\": \"use-result.json\"\n        }\n      },\n      \"limits\": \"Integrity and freshness only; independent review identity, scope fit and causal improvement require semantic review.\",\n      \"reason\": \"local smoke; not efficacy evidence\",\n      \"revision\": 1,\n      \"contract_sha256\": \"4a04a2c578ac92b256a9c8c1874c4ad6f0d561ac0aaf90ea8b6835ebf8599c12\",\n      \"result\": {\n        \"receipt\": \"use-result.json\",\n        \"outcome\": \"pass\",\n        \"observed\": \"Actual byte comparison repeated\",\n        \"cost\": \"unknown\",\n        \"user_intervention\": \"unknown\"\n      },\n      \"results\": [\n        {\n          \"receipt\": \"use-result.json\",\n          \"outcome\": \"pass\",\n          \"observed\": \"Actual byte comparison repeated\",\n          \"cost\": \"unknown\",\n          \"user_intervention\": \"unknown\"\n        }\n      ],\n      \"stale_files\": [],\n      \"stale_basis\": [\n        \"source.txt\"\n      ],\n      \"stale_contract\": false,\n      \"current_result_status\": \"stale\"\n    }\n  ],\n  \"next\": \"Inspect missing/stale actual artifacts; recheck affected criteria before resuming. Do not blindly rerun.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "feedback",
+        "--file",
+        "feedback.json"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 2,
+      "stdout": "{\"error\": \"stale feedback: re-open current evidence and recheck the proposed decision\"}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "revise",
+        "--contract",
+        "/private/tmp/gap-final-review-20261006/task/contract.json",
+        "--authority",
+        "audit local control",
+        "--reason",
+        "source changed deliberately"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\n  \"purpose\": \"Isolated installed skill test\",\n  \"run\": {\n    \"status\": \"active\"\n  },\n  \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n  \"artifact_ready\": false,\n  \"all_criteria_evidenced\": false,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [],\n  \"criteria\": [\n    {\n      \"id\": \"output\",\n      \"claim\": \"preserved bytes\",\n      \"kind\": \"artifact\",\n      \"status\": \"stale\",\n      \"reasons\": [\n        \"contract changed\",\n        \"file changed or missing: source.txt\"\n      ],\n      \"by\": \"independent-audit\"\n    }\n  ],\n  \"experience_uses\": [\n    {\n      \"id\": \"019b16ade17b47b186fa812df36de471\",\n      \"path\": \"candidate.md\",\n      \"declared_status\": \"candidate\",\n      \"decision\": \"trial\",\n      \"format\": \"legacy\",\n      \"experience_id\": \"candidate.md\",\n      \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n      \"scope_file\": null,\n      \"scope\": null,\n      \"validation_status\": \"candidate\",\n      \"result_status\": \"recorded\",\n      \"files\": {\n        \"candidate.md\": {\n          \"sha256\": \"f9169418e12fb13b649a4b11b81d3206c5184a10e492e708c23ad05670c1f58b\",\n          \"target\": \"candidate.md\"\n        },\n        \"fresh-check.txt\": {\n          \"sha256\": \"5a6af28fd53b72800cdd06b864a62b1cb8dece99c3ef2827a506b52d8f70a177\",\n          \"target\": \"fresh-check.txt\"\n        },\n        \"use-result.json\": {\n          \"sha256\": \"b43b0c28786391090dc1ebf9245b3c178c313c0113617dc51bc835b6e4c8aada\",\n          \"target\": \"use-result.json\"\n        }\n      },\n      \"limits\": \"Integrity and freshness only; independent review identity, scope fit and causal improvement require semantic review.\",\n      \"reason\": \"local smoke; not efficacy evidence\",\n      \"revision\": 1,\n      \"contract_sha256\": \"4a04a2c578ac92b256a9c8c1874c4ad6f0d561ac0aaf90ea8b6835ebf8599c12\",\n      \"result\": {\n        \"receipt\": \"use-result.json\",\n        \"outcome\": \"pass\",\n        \"observed\": \"Actual byte comparison repeated\",\n        \"cost\": \"unknown\",\n        \"user_intervention\": \"unknown\"\n      },\n      \"results\": [\n        {\n          \"receipt\": \"use-result.json\",\n          \"outcome\": \"pass\",\n          \"observed\": \"Actual byte comparison repeated\",\n          \"cost\": \"unknown\",\n          \"user_intervention\": \"unknown\"\n        }\n      ],\n      \"stale_files\": [],\n      \"stale_basis\": [],\n      \"stale_contract\": true,\n      \"current_result_status\": \"stale\"\n    }\n  ],\n  \"next\": \"Inspect missing/stale actual artifacts; recheck affected criteria before resuming. Do not blindly rerun.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/codex-project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/task/state.json",
+        "end",
+        "--reason",
+        "smoke complete; stale output deliberately retained"
+      ],
+      "cwd": "/private/tmp/gap-final-review-20261006",
+      "returncode": 0,
+      "stdout": "{\n  \"purpose\": \"Isolated installed skill test\",\n  \"run\": {\n    \"status\": \"ended\",\n    \"reason\": \"smoke complete; stale output deliberately retained\"\n  },\n  \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n  \"artifact_ready\": false,\n  \"all_criteria_evidenced\": false,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [],\n  \"criteria\": [\n    {\n      \"id\": \"output\",\n      \"claim\": \"preserved bytes\",\n      \"kind\": \"artifact\",\n      \"status\": \"stale\",\n      \"reasons\": [\n        \"contract changed\",\n        \"file changed or missing: source.txt\"\n      ],\n      \"by\": \"independent-audit\"\n    }\n  ],\n  \"experience_uses\": [\n    {\n      \"id\": \"019b16ade17b47b186fa812df36de471\",\n      \"path\": \"candidate.md\",\n      \"declared_status\": \"candidate\",\n      \"decision\": \"trial\",\n      \"format\": \"legacy\",\n      \"experience_id\": \"candidate.md\",\n      \"task_id\": \"79af511c9624489989ee2d4ee47b0478\",\n      \"scope_file\": null,\n      \"scope\": null,\n      \"validation_status\": \"candidate\",\n      \"result_status\": \"recorded\",\n      \"files\": {\n        \"candidate.md\": {\n          \"sha256\": \"f9169418e12fb13b649a4b11b81d3206c5184a10e492e708c23ad05670c1f58b\",\n          \"target\": \"candidate.md\"\n        },\n        \"fresh-check.txt\": {\n          \"sha256\": \"5a6af28fd53b72800cdd06b864a62b1cb8dece99c3ef2827a506b52d8f70a177\",\n          \"target\": \"fresh-check.txt\"\n        },\n        \"use-result.json\": {\n          \"sha256\": \"b43b0c28786391090dc1ebf9245b3c178c313c0113617dc51bc835b6e4c8aada\",\n          \"target\": \"use-result.json\"\n        }\n      },\n      \"limits\": \"Integrity and freshness only; independent review identity, scope fit and causal improvement require semantic review.\",\n      \"reason\": \"local smoke; not efficacy evidence\",\n      \"revision\": 1,\n      \"contract_sha256\": \"4a04a2c578ac92b256a9c8c1874c4ad6f0d561ac0aaf90ea8b6835ebf8599c12\",\n      \"result\": {\n        \"receipt\": \"use-result.json\",\n        \"outcome\": \"pass\",\n        \"observed\": \"Actual byte comparison repeated\",\n        \"cost\": \"unknown\",\n        \"user_intervention\": \"unknown\"\n      },\n      \"results\": [\n        {\n          \"receipt\": \"use-result.json\",\n          \"outcome\": \"pass\",\n          \"observed\": \"Actual byte comparison repeated\",\n          \"cost\": \"unknown\",\n          \"user_intervention\": \"unknown\"\n        }\n      ],\n      \"stale_files\": [],\n      \"stale_basis\": [],\n      \"stale_contract\": true,\n      \"current_result_status\": \"stale\"\n    }\n  ],\n  \"next\": \"Inspect missing/stale actual artifacts; recheck affected criteria before resuming. Do not blindly rerun.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "archives": [
+    {
+      "path": "tests/results/2026-10-06-batch2-evidence.tar.gz",
+      "bytes": 182056,
+      "sha256": "ae89283c7966c7ce7ce521fce922d8b9565ee56db14a977c711fe7a9b9452369",
+      "members": 366,
+      "regular_files": 299,
+      "links": 0
+    },
+    {
+      "path": "tests/results/2026-10-06-evidence.tar.gz",
+      "bytes": 56128,
+      "sha256": "ec0ec8cdfccf87a211e34250bf8359108c82b590b2bfb33348896e00f6e23bf3",
+      "members": 142,
+      "regular_files": 98,
+      "links": 0
+    },
+    {
+      "path": "tests/results/2026-10-06-gap07-evidence.tar.gz",
+      "bytes": 321627,
+      "sha256": "8123942cae5006a796d090857f1e8900d5b695486d2ac52c691b85a568205806",
+      "members": 344,
+      "regular_files": 344,
+      "links": 0
+    },
+    {
+      "path": "tests/results/2026-10-06-gap07-prune-evidence.tar.gz",
+      "bytes": 448911,
+      "sha256": "cf29abe663d1c3b1f0d6583ad669c780bf569a739fce849d62beb9a13cbdc3e3",
+      "members": 390,
+      "regular_files": 335,
+      "links": 0
+    },
+    {
+      "path": "tests/results/2026-10-06-matt-adoption-evidence.tar.gz",
+      "bytes": 317914,
+      "sha256": "d19c469d525eaa01f11e99c736fa632e07eeaf07139b9f3c46b239df4980537e",
+      "members": 246,
+      "regular_files": 246,
+      "links": 0
+    }
+  ]
+}

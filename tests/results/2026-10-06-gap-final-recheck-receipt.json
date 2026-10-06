@@ -1,0 +1,386 @@
+{
+  "skill_manifest_sha256": "e55efefe3118f5e83b9e5bd19d8dd79ce545ed8872692dfb955096cf97ada856",
+  "manifest_algorithm": "sha256(json.dumps(rows {path,sha256,bytes},sort_keys=True,separators=(comma,colon)))",
+  "checkpoint_sha256": "8755b729f5bc60137003ad98517b58326be49a6496716f6f674eb295cbcfeaeb",
+  "working_tree_files": 142,
+  "skill_files": 22,
+  "skill_links": 21,
+  "plugin_version": "0.7.1",
+  "commands_passed": 24,
+  "malformed_controls": [
+    "array",
+    "null",
+    "string",
+    "empty-revisions",
+    "null-revisions",
+    "bad-revision"
+  ],
+  "legacy_files_verified": 40,
+  "legacy_archive_sha256": "5c69c15ac74ed9f89ac21ef8202dbc76188db7977d6ccfed871c1270b0641886",
+  "legacy_source_bytes": 68043,
+  "historical_result_files_unchanged": [
+    "tests/results/2026-10-06-batch2-bundle.json",
+    "tests/results/2026-10-06-batch2-contract.json",
+    "tests/results/2026-10-06-batch2-metrics.json",
+    "tests/results/2026-10-06-batch2-protocol.json",
+    "tests/results/2026-10-06-batch2-regression.txt",
+    "tests/results/2026-10-06-batch2-scores.json",
+    "tests/results/2026-10-06-batch2-state.json",
+    "tests/results/2026-10-06-contract.json",
+    "tests/results/2026-10-06-final-regression.txt",
+    "tests/results/2026-10-06-gap07-archive-witness.json",
+    "tests/results/2026-10-06-gap07-bindings-replay.json",
+    "tests/results/2026-10-06-gap07-prune-metrics.json",
+    "tests/results/2026-10-06-gap07-prune-witness.json",
+    "tests/results/2026-10-06-gap07-scores.json",
+    "tests/results/2026-10-06-gap07-semantic-reviews.json",
+    "tests/results/2026-10-06-gap07-validation.json",
+    "tests/results/2026-10-06-independent-verification.json",
+    "tests/results/2026-10-06-matt-adoption-regression.txt",
+    "tests/results/2026-10-06-matt-adoption-scores.json",
+    "tests/results/2026-10-06-metrics.json",
+    "tests/results/2026-10-06-regression.txt",
+    "tests/results/2026-10-06-scores.json",
+    "tests/results/2026-10-06-state.json",
+    "tests/results/2026-10-06-usage-acceptance-regression.txt"
+  ],
+  "old_archives_unchanged": 5,
+  "quick_changed_files": [
+    "README.md"
+  ],
+  "quick_extra_files": 0,
+  "source_copy_still_matches": true,
+  "checks": [
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "scripts/validate.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "claude",
+        "plugin",
+        "validate",
+        "/private/tmp/gap-final-review-20261006/final/package"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/package/examples/evidence-review/build_demo.py",
+        "/private/tmp/gap-final-review-20261006/final/demo"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "init",
+        "--contract",
+        "/private/tmp/gap-final-review-20261006/final/task/contract.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "check"
+      ],
+      "returncode": 1
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "record",
+        "--criterion",
+        "output",
+        "--kind",
+        "artifact",
+        "--result",
+        "pass",
+        "--by",
+        "independent-final-review",
+        "--receipt",
+        "receipt.txt",
+        "--file",
+        "output.txt",
+        "--note",
+        "actual local byte comparison"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "check"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "view",
+        "--format",
+        "html",
+        "--output",
+        "/private/tmp/gap-final-review-20261006/final/task/review.html"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "view",
+        "--details",
+        "--output",
+        "/private/tmp/gap-final-review-20261006/final/task/review.txt"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "feedback",
+        "--file",
+        "feedback.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "use",
+        "--file",
+        "candidate.md",
+        "--status",
+        "candidate",
+        "--decision",
+        "trial",
+        "--reason",
+        "local smoke only"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "use-result",
+        "--use-id",
+        "da2cb878e0b24b4b93487a5f74945300",
+        "--receipt",
+        "result.json",
+        "--outcome",
+        "pass"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "check"
+      ],
+      "returncode": 1
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "feedback",
+        "--file",
+        "feedback.json"
+      ],
+      "returncode": 2
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "revise",
+        "--contract",
+        "/private/tmp/gap-final-review-20261006/final/task/contract.json",
+        "--authority",
+        "local reviewer control",
+        "--reason",
+        "deliberate changed input"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "end",
+        "--reason",
+        "final smoke complete, changed output remains stale"
+      ],
+      "returncode": 0
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "check"
+      ],
+      "returncode": 2
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "check"
+      ],
+      "returncode": 2
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "check"
+      ],
+      "returncode": 2
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "check"
+      ],
+      "returncode": 2
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "check"
+      ],
+      "returncode": 2
+    },
+    {
+      "cmd": [
+        "/Users/leon/.local/bin/python3",
+        "/private/tmp/gap-final-review-20261006/final/project/.agents/skills/gap/scripts/checkpoint.py",
+        "--root",
+        "/private/tmp/gap-final-review-20261006/final/task",
+        "--state",
+        "/private/tmp/gap-final-review-20261006/final/task/state.json",
+        "check"
+      ],
+      "returncode": 2
+    }
+  ],
+  "tests": "58/58 passed; 4.028 seconds",
+  "limitations": [
+    "No model or natural activation trial",
+    "No browser/headless/localhost/network/global install",
+    "New forward trial and reference clone assessed from retained reports, not independently rerun or externally fetched in this delta review"
+  ]
+}

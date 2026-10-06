@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "actual_verifier": {
+    "command": "python3 deliverables/check.py --exercise",
+    "returncode": 0,
+    "counterexamples": [
+      {
+        "interpretation": "last-physical-row",
+        "exit_code": 1
+      },
+      {
+        "interpretation": "lexical-revision",
+        "exit_code": 1
+      },
+      {
+        "interpretation": "approved-before-max",
+        "exit_code": 1
+      },
+      {
+        "interpretation": "team-collapse",
+        "exit_code": 1
+      }
+    ]
+  },
+  "independent_lifecycle": {
+    "init_executed": true,
+    "new_task_id": "cdf96646025142b3afcfa785ceb9bdca",
+    "use_id": "698a2caa93b14ac9a9b899942e85ad91",
+    "use_executed": true,
+    "use_result_executed": true,
+    "outcome": "pass",
+    "candidate_bytes_unchanged": true,
+    "validations": []
+  },
+  "evidence_level": "Commands in this replay actually executed locally; original solver command records remain declared history without a complete platform trace.",
+  "causal_or_comparative_benefit": "not measured",
+  "new_solver_contexts": 0
+}

@@ -96,9 +96,14 @@ def save(path, state):
 
 def load_state(path):
     state = read(path)
+    if not isinstance(state, dict):
+        raise ValueError('checkpoint must be an object')
     if type(state.get('version')) is not int or state['version'] != 1:
         raise ValueError('unsupported checkpoint version')
     contract_valid(state['contract'])
+    revisions = state.get('revisions')
+    if not isinstance(revisions, list) or not revisions or any(not isinstance(r, dict) for r in revisions):
+        raise ValueError('checkpoint needs a nonempty revision history of objects')
     if digest(state['contract']) != state['revisions'][-1]['contract_sha256']:
         raise ValueError('contract edited outside revise; restore it and use revise to preserve history')
     return state

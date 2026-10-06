@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.1 — 2026-10-06 (local, unpublished)
+
+- Return the documented JSON input error for malformed checkpoint containers/revision histories, preserving the invalid input for diagnosis.
+- Align Quick fixture prompts and the Standard example with actual repository policy; clarify scoped validation and installed capability limits.
+- Retain one current review example, archive 40 historical example files with verified hashes and recovery instructions, and preserve prior failed evidence.
+- Add a fresh same-scope candidate trial and independent review records; no claim of promotion, broader generalization or comparative user-effort savings.
+
 ## 0.7.0 — 2026-10-06 (local, unpublished)
 
 - Add optional source-bound delivery briefs with actual original excerpts, computed before/after differences, decision options, consequences and source navigation in the same text/HTML observation.

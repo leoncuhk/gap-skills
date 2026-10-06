@@ -1,0 +1,232 @@
+{
+  "source_commit": "f62ba401eedaad65ed80afece8ebf1ab00f262ed",
+  "archive": "tests/results/2026-10-06-legacy-examples-evidence.tar.gz",
+  "archive_bytes": 14755,
+  "archive_sha256": "5c69c15ac74ed9f89ac21ef8202dbc76188db7977d6ccfed871c1270b0641886",
+  "files": [
+    {
+      "path": "examples/evidence-review/mvp/contract.json",
+      "bytes": 619,
+      "sha256": "710f2101837622c8d0bf924dac48f4efcf1200e58fdafa3515c0c8036a2fd895"
+    },
+    {
+      "path": "examples/evidence-review/mvp/draft.txt",
+      "bytes": 49,
+      "sha256": "69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11"
+    },
+    {
+      "path": "examples/evidence-review/mvp/policy.txt",
+      "bytes": 58,
+      "sha256": "d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff"
+    },
+    {
+      "path": "examples/evidence-review/mvp/qa-receipt.json",
+      "bytes": 1172,
+      "sha256": "a60211a114771dbab03b6d9479f4796f2bb4659aa63fe6ac8959a4050ca98dc2"
+    },
+    {
+      "path": "examples/evidence-review/mvp/review.html",
+      "bytes": 8853,
+      "sha256": "bf72c9ccdbc3ed8d903c2e9ba7f7da95ef4a657ebceab7297d3e3b0bfee09c02"
+    },
+    {
+      "path": "examples/evidence-review/mvp/review.txt",
+      "bytes": 1580,
+      "sha256": "b04bfbd0c5acb3801027cada5e586b78d8f90f6d0d68370651eb3e0b21f27e51"
+    },
+    {
+      "path": "examples/evidence-review/mvp/state.json",
+      "bytes": 2891,
+      "sha256": "5f2afaf76518bb78f9c3e0cbfa6c3c86d343f31845df2bafe9f398635f2fdcdf"
+    },
+    {
+      "path": "examples/evidence-review/mvp/synthetic-feedback.json",
+      "bytes": 519,
+      "sha256": "a58954e8d7dffde09c143a8a2faecef389b41d10115bc353e40951961abaa012"
+    },
+    {
+      "path": "examples/evidence-review/mvp/verification.txt",
+      "bytes": 54,
+      "sha256": "028ae89894dbbe0839fbd3a2bab5b5668ea70734e12f6c97d79c32d29e851a9e"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/01-stale-check.json",
+      "bytes": 1986,
+      "sha256": "cc3a58d145d71e97f37fa8937753ebdae6a3b436793f0b26c7e3fec4ec563671"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/02-content-before.json",
+      "bytes": 522,
+      "sha256": "0583037a34cb43ff607ebee4819c8dea251ac69cf3bb1dcc7e8e3ea5cfd32581"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/03-false-pass-rejected.json",
+      "bytes": 1091,
+      "sha256": "407897c8303d317b36a2e195c53dfaa5afb8b78f35111a9afdeca6e70ccfce22"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/04-before-view.json",
+      "bytes": 944,
+      "sha256": "0e6dac9b61dbbc86c573d562953076e6e5932d8ce00522670cb46fca306f88a3"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/05-revise-basis.json",
+      "bytes": 2199,
+      "sha256": "3dea723e3e8fc71369081b093f24564379a13db602c773fd07b3b279580fa980"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/06-content-after.json",
+      "bytes": 566,
+      "sha256": "abc69dab6f0d796d9646d9a108569b83780c3688b13e3aca5b932dff140f99de"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/07-record-current.json",
+      "bytes": 2256,
+      "sha256": "05731a461e024b0a181e31288ccbc7902c50ecb91b82fdfe34880eba58a2a395"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/08-end-run.json",
+      "bytes": 2048,
+      "sha256": "7fc9c38196d29ca795e3d096b48336187bcba0b8a3804da128ea48e38d393629"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/09-stale-feedback.json",
+      "bytes": 815,
+      "sha256": "6991665840fc4a2320fe3d6cd0f8fa1ce7f0af3e6e9393347cd56c7a2779df8b"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/10-current-view.json",
+      "bytes": 947,
+      "sha256": "53b1157f74c1532d80c7b450f829de2e8ff5f737c690d268a642a1dc537a9015"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/11-current-feedback.json",
+      "bytes": 1225,
+      "sha256": "67e7a3391e7483bdda634fee12b4134da965ce1bd3c6431939f10a9c006dbbdf"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/12-final-check.json",
+      "bytes": 1925,
+      "sha256": "c2c3ffed784e0c4d491e6f52dd374de801fc31a180a314ff37e68347b07914a5"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/DELIVERY.md",
+      "bytes": 1707,
+      "sha256": "196287eba1a25a72b4bf88347d5d7330fee4af8b9c41192efb20e92f76bc3b51"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/acceptance.json",
+      "bytes": 1935,
+      "sha256": "4a50eea9a7f32c17645ee702f0cded208aef708993b9248f59b917b6ce14cc6a"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/before-view.txt",
+      "bytes": 1580,
+      "sha256": "b04bfbd0c5acb3801027cada5e586b78d8f90f6d0d68370651eb3e0b21f27e51"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/before/contract.json",
+      "bytes": 619,
+      "sha256": "710f2101837622c8d0bf924dac48f4efcf1200e58fdafa3515c0c8036a2fd895"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/before/draft.txt",
+      "bytes": 49,
+      "sha256": "69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/before/policy.txt",
+      "bytes": 58,
+      "sha256": "d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/before/state.json",
+      "bytes": 2891,
+      "sha256": "5f2afaf76518bb78f9c3e0cbfa6c3c86d343f31845df2bafe9f398635f2fdcdf"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/before/verification.txt",
+      "bytes": 54,
+      "sha256": "028ae89894dbbe0839fbd3a2bab5b5668ea70734e12f6c97d79c32d29e851a9e"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/contract.json",
+      "bytes": 619,
+      "sha256": "710f2101837622c8d0bf924dac48f4efcf1200e58fdafa3515c0c8036a2fd895"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/current-view.txt",
+      "bytes": 1864,
+      "sha256": "caedac09872413bdbf4959fb1284dabd0e570e5c253e77efce30260d900f0833"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/draft.txt",
+      "bytes": 58,
+      "sha256": "d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/execution.jsonl",
+      "bytes": 15804,
+      "sha256": "065fafe551ce4c67d657d0abda1b95720a1b72a1d67867fb478cd5299596696d"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/feedback-before.json",
+      "bytes": 327,
+      "sha256": "c2fd5006729d6defe74fb5795698aeca8f0d4b801ac0bb7b73d6430eacb54d2d"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/feedback-current.json",
+      "bytes": 313,
+      "sha256": "683c4ab632ff4323121f16dbd935483b5ded79939bacc3a1b054d7dc82f2d456"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/policy.txt",
+      "bytes": 58,
+      "sha256": "d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/result.json",
+      "bytes": 1927,
+      "sha256": "0a67f1bcc4fe6f47f1114daa69a0f56c568997192ff5aef5e7c4d8fcc1ba3328"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/state.json",
+      "bytes": 5435,
+      "sha256": "1b48e0b6ff015455565e75c4c348b235a30182a085b30d01663b1ae272920bf2"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/validate_explanation.py",
+      "bytes": 372,
+      "sha256": "39fdc3326bb9d46cf0350576c9fe9ec52139331be0f80e1f1c7a30bbec43216e"
+    },
+    {
+      "path": "examples/evidence-review/usage-acceptance-2026-10-06/verification.txt",
+      "bytes": 54,
+      "sha256": "028ae89894dbbe0839fbd3a2bab5b5668ea70734e12f6c97d79c32d29e851a9e"
+    }
+  ],
+  "restored_hashes_verified": 40,
+  "source_bytes": 68043,
+  "removed_rebuildable_caches": [
+    {
+      "path": "tests/__pycache__/test_contract.cpython-311.pyc",
+      "bytes": 13397
+    },
+    {
+      "path": "scripts/__pycache__/validate.cpython-311.pyc",
+      "bytes": 16514
+    },
+    {
+      "path": "skills/gap/scripts/__pycache__/brief.cpython-311.pyc",
+      "bytes": 18091
+    },
+    {
+      "path": "skills/gap/scripts/__pycache__/checkpoint.cpython-311.pyc",
+      "bytes": 22778
+    },
+    {
+      "path": "skills/gap/scripts/__pycache__/review_view.cpython-311.pyc",
+      "bytes": 21285
+    }
+  ]
+}

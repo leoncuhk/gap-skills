@@ -3,10 +3,10 @@
     "id": "quick-local-edit",
     "expected_path": "Quick",
     "required_references": [],
-    "prompt": "Change the CLI's invalid-port message to the approved wording and update its existing test.",
+    "prompt": "Fix the spelling 'seperate' to 'separate' in README.md, preserve all other content and run the declared project check.",
     "fixture": "tests/fixtures/quick-project",
     "observable_invariants": [
-      "Inspects the existing implementation and test",
+      "Inspects README.md and the declared verification command",
       "Runs the focused project check",
       "Creates no intent, spec, plan, ledger, or review artifact"
     ],

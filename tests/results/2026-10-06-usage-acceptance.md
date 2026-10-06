@@ -44,7 +44,7 @@
 
 ## 本次实际结果
 
-采用既有MVP输入，先冻结[目标和判据](../../examples/evidence-review/usage-acceptance-2026-10-06/acceptance.json)，再实际运行。没有重建检查点、降低判据或为了全绿清除人的判断。
+采用既有MVP输入，先冻结[目标和判据归档](../../examples/evidence-review/README.md)（`usage-acceptance-2026-10-06/acceptance.json`），再实际运行。没有重建检查点、降低判据或为了全绿清除人的判断。
 
 | 实际检查 | 结果 |
 |---|---|
@@ -57,7 +57,7 @@
 
 最终总check为1是该案例的预期验收结果：AI应完成已授权的事实修正，但不替人决定例外政策。所有冻结的本地**使用检查**通过，不等于虚拟业务的所有判据已完成。用户无需现在为这个合成场景作决定。
 
-查看[实际交付说明](../../examples/evidence-review/usage-acceptance-2026-10-06/DELIVERY.md)、[分项结果](../../examples/evidence-review/usage-acceptance-2026-10-06/result.json)和[逐命令实际回执](../../examples/evidence-review/usage-acceptance-2026-10-06/execution.jsonl)。反馈输入有明确合成标签，未冒称用户反馈或批准。
+按[归档恢复说明](../../examples/evidence-review/README.md)查看 `usage-acceptance-2026-10-06/` 内实际交付说明 `DELIVERY.md`、分项结果 `result.json` 和逐命令实际回执 `execution.jsonl`。反馈输入有明确合成标签，未冒称用户反馈或批准。
 
 ## 限制与后续
 

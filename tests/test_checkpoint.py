@@ -42,6 +42,18 @@ class CheckpointTests(unittest.TestCase):
                         '--by', 'test-context', '--receipt', 'receipt.txt', '--file', 'output.txt',
                         '--note', 'Synthetic local observation', **kw)
 
+    def test_malformed_checkpoint_is_input_error_and_not_modified(self):
+        original = json.loads(self.state.read_text())
+        malformed = [[], None, 'not a checkpoint', {**original, 'revisions': []},
+                     {**original, 'revisions': None}, {**original, 'revisions': [None]}]
+        for value in malformed:
+            with self.subTest(value=value):
+                self.state.write_text(json.dumps(value))
+                before = self.state.read_bytes()
+                result = self.cli('check', expected=2)
+                self.assertTrue(result['error'])
+                self.assertEqual(before, self.state.read_bytes())
+
     def test_run_ended_is_not_artifact_or_acceptance(self):
         result = self.cli('end', '--reason', 'interrupted')
         self.assertEqual(result['run']['status'], 'ended')

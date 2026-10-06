@@ -1,1 +1,0 @@
-Synthetic policy: cancellation window = 21 calendar days.
