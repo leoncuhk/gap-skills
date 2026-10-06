@@ -67,6 +67,9 @@ def validate_repository() -> list[str]:
     if not helper.is_file():
         errors.append("skills/gap/scripts/checkpoint.py: missing installed helper")
 
+    if not (SKILL / "scripts" / "review_view.py").is_file():
+        errors.append("skills/gap/scripts/review_view.py: missing installed view support")
+
     required_refs = {
         "discovery.md",
         "planning.md",

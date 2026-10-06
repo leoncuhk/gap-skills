@@ -91,7 +91,9 @@ See [EXAMPLES.md](EXAMPLES.md) for Quick, Standard, Governed, review, adoption, 
 $gap continue this task from the actual artifacts and latest evidence. Preserve the original goal and data definitions; recheck only invalidated claims, then report what is ready and what still needs a decision.
 ```
 
-Version 0.5.0 includes an optional Python 3.10+ checkpoint helper **inside** the installed skill folder. It binds actual receipts to the purpose, semantic contract and files, preserving revisions and distinguishing run termination from artifact readiness. See [delivery.md](skills/gap/references/delivery.md) for the short CLI procedure. It neither runs an agent nor certifies business truth, external actions or reviewer identity. Quick tasks still create no process files. No global installation is required to test the helper.
+Version 0.6.0 includes an optional Python 3.10+ checkpoint helper **inside** the installed skill folder. It binds actual receipts to the purpose, semantic contract and files, preserving revisions and distinguishing run termination from artifact readiness. See [delivery.md](skills/gap/references/delivery.md) for the short CLI procedure. It neither runs an agent nor certifies business truth, external actions or reviewer identity. Quick tasks still create no process files. No global installation is required to test the helper.
+
+Use `view` for a concise text checkpoint or `view --format html --output <new-file>` for an offline evidence/feedback surface. Returned feedback is bound to current file identity and is never an approval. See [communication.md](skills/gap/references/communication.md). Text is the default; diagrams show relationships, HTML supports inspection, and video needs a real motion/procedure requirement.
 
 Experience remains candidate or validated within a stated scope; later tasks record apply/trial/reject and observed results. No automatic self-promotion. Comparative human-effort savings are not established by the synthetic tests.
 

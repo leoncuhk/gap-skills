@@ -148,6 +148,32 @@ def inspect(state, root):
         'limits': 'Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.'}
 
 
+
+def review_data(state, root):
+    data = inspect(state, root)
+    names = set(state['contract']['inputs'])
+    for item in data['criteria']:
+        receipt = next((r for r in reversed(state['receipts']) if r['criterion'] == item['id']), None)
+        item['note'] = receipt.get('note', '') if receipt else ''
+        item['evidence'] = []
+        for path, fingerprint in (receipt['files'].items() if receipt else []):
+            names.add(path)
+            info = fingerprint if isinstance(fingerprint, dict) else {'sha256': fingerprint, 'target': path}
+            item['evidence'].append({'path': path, **info})
+    observed = {}
+    for name in sorted(names):
+        try:
+            observed.update(snapshot(root, [name]))
+        except (OSError, ValueError):
+            observed[name] = None
+    for item in data['criteria']:
+        for evidence in item['evidence']:
+            evidence['current'] = observed.get(evidence['path'])
+    data.update(source=state['contract']['source'], revision=len(state['revisions']),
+                observation_sha256=digest({'state': state, 'current_files': observed}))
+    return data
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', required=True, type=Path, help='actual task directory; all evidence stays inside it')
@@ -176,6 +202,11 @@ def main(argv=None):
     use.add_argument('--decision', choices=['trial', 'apply', 'reject'], required=True)
     use.add_argument('--reason', required=True, help='applicability, evidence, and expected effect in this task')
     commands.add_parser('check')
+    view = commands.add_parser('view', help='read-only text or offline HTML review of current evidence')
+    view.add_argument('--format', choices=['text', 'html'], default='text')
+    view.add_argument('--output', type=Path, help='new file inside root; never overwrite existing evidence')
+    feedback = commands.add_parser('feedback', help='validate returned feedback without applying or approving it')
+    feedback.add_argument('--file', required=True, help='root-relative exported JSON')
     args = parser.parse_args(argv)
     root = args.root.resolve()
     try:
@@ -239,6 +270,23 @@ def main(argv=None):
             state['experience_uses'].append({'path': args.file, 'declared_status': args.status,
                                             'decision': args.decision, 'reason': args.reason,
                                             'files': snapshot(root, [args.file])})
+        if args.command in ('view', 'feedback'):
+            from review_view import render_html, render_text, validate_feedback
+            data = review_data(state, root)
+            if args.command == 'feedback':
+                print(json.dumps(validate_feedback(read(file_path(root, args.file)), data), indent=2, ensure_ascii=False))
+                return 0
+            rendered = render_html(data) if args.format == 'html' else render_text(data)
+            if args.output:
+                output = args.output.resolve()
+                if not output.is_relative_to(root):
+                    raise ValueError('view output must be inside task root')
+                with output.open('x', encoding='utf-8') as stream:
+                    stream.write(rendered)
+                print(json.dumps({'output': str(output), 'observation_sha256': data['observation_sha256']}))
+            else:
+                print(rendered)
+            return 0
         if args.command != 'check':
             save(state_path, state)
         result = inspect(state, root)

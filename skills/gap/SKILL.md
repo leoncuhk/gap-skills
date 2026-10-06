@@ -51,6 +51,10 @@ The path controls rigor, not scope. A request to plan, diagnose, review, adopt, 
 
 Quick work needs no reference unless one of these branches actually applies.
 
+## Resume an existing task
+
+Before changing a resumed task, locate its existing handoff/checkpoint and actual outputs. If it has a gap checkpoint, load delivery.md and run the installed `scripts/checkpoint.py ... check` against the actual task root before deciding what to reuse or rerun. Do not replace it with a newly initialized checkpoint. A failed check calls for inspection and targeted revalidation, not automatic rerun. If there is no checkpoint, use the existing project record; create machine state only when real multi-session or stale-evidence risk justifies it.
+
 ## Artifact policy
 
 Use the project's existing issue tracker or documentation convention as the source of truth. When none exists:

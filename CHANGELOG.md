@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0 — 2026-10-06 (local, unpublished)
+
+- Discover and check existing gap checkpoints before resuming, without creating process files for ordinary small work.
+- Add optional text/HTML views of the same observed evidence and criterion-specific feedback bound to current source/state identity. Feedback never approves or applies changes.
+- Select text, diagram, HTML or video by the reader's operation; no bundled media tools, copied workbench or forced HTML.
+- Continue bounded feedback and paired validation; retain previous protocol failures separately.
+
 ## 0.5.0 — 2026-10-06 (local, unpublished)
 
 - Preserve purpose and semantic definitions across software, analysis and artifact-delivery work; source/goal changes invalidate affected evidence.
