@@ -1,0 +1,23 @@
+{
+  "purpose": "Review the current cancellation explanation and identify the remaining human decision",
+  "source": "Synthetic demo request; never real customer policy",
+  "semantics": [
+    "Use current source, preserve original draft for comparison",
+    "No external publishing authorized"
+  ],
+  "inputs": [
+    "policy.txt"
+  ],
+  "criteria": [
+    {
+      "id": "current-explanation",
+      "claim": "Draft matches the current policy",
+      "kind": "artifact"
+    },
+    {
+      "id": "exception-policy",
+      "claim": "Owner decides whether an exception route is appropriate",
+      "kind": "human"
+    }
+  ]
+}

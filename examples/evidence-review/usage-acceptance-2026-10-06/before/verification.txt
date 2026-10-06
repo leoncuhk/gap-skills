@@ -1,0 +1,1 @@
+PASS: synthetic draft matches source at time of check

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "observation_sha256": "7688138d0dbb30642c875fa7bfb361bb36a078f860f5c9cdb9ea04071b088013",
+  "feedback": [
+    {
+      "criterion": "current-explanation",
+      "decision": "correction",
+      "note": "Synthetic test note, not human feedback: recheck the current explanation against policy.txt."
+    }
+  ]
+}

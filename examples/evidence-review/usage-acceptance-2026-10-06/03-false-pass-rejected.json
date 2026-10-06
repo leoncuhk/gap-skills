@@ -1,0 +1,31 @@
+{
+  "label": "03-false-pass-rejected",
+  "observed_at_utc": "2026-10-06T10:07:42.946855+00:00",
+  "cwd": "/Users/leon/Documents/harness/workflow/gap-skills/examples/evidence-review/usage-acceptance-2026-10-06",
+  "command": [
+    "/Users/leon/.local/bin/python3",
+    "/Users/leon/Documents/harness/workflow/gap-skills/skills/gap/scripts/checkpoint.py",
+    "--root",
+    "/Users/leon/Documents/harness/workflow/gap-skills/examples/evidence-review/usage-acceptance-2026-10-06",
+    "--state",
+    "/Users/leon/Documents/harness/workflow/gap-skills/examples/evidence-review/usage-acceptance-2026-10-06/state.json",
+    "record",
+    "--criterion",
+    "current-explanation",
+    "--kind",
+    "artifact",
+    "--result",
+    "pass",
+    "--by",
+    "synthetic-negative-control",
+    "--receipt",
+    "verification.txt",
+    "--file",
+    "draft.txt",
+    "--note",
+    "Negative probe: an old pass must not be reused against changed policy."
+  ],
+  "exit_code": 2,
+  "stdout": "{\"error\": \"basis changed; inspect it and revise with reason/authority before recording\"}\n",
+  "stderr": ""
+}

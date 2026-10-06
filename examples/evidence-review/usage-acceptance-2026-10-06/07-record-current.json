@@ -1,0 +1,33 @@
+{
+  "label": "07-record-current",
+  "observed_at_utc": "2026-10-06T10:08:18.877991+00:00",
+  "cwd": "/Users/leon/Documents/harness/workflow/gap-skills/examples/evidence-review/usage-acceptance-2026-10-06",
+  "command": [
+    "/Users/leon/.local/bin/python3",
+    "/Users/leon/Documents/harness/workflow/gap-skills/skills/gap/scripts/checkpoint.py",
+    "--root",
+    "/Users/leon/Documents/harness/workflow/gap-skills/examples/evidence-review/usage-acceptance-2026-10-06",
+    "--state",
+    "/Users/leon/Documents/harness/workflow/gap-skills/examples/evidence-review/usage-acceptance-2026-10-06/state.json",
+    "record",
+    "--criterion",
+    "current-explanation",
+    "--kind",
+    "artifact",
+    "--result",
+    "pass",
+    "--by",
+    "current-usage-acceptance-session",
+    "--receipt",
+    "06-content-after.json",
+    "--file",
+    "draft.txt",
+    "--file",
+    "validate_explanation.py",
+    "--note",
+    "Actual local content check exit 0 after source revision; original draft and receipts preserved; no human exception decision or independent review claimed."
+  ],
+  "exit_code": 0,
+  "stdout": "{\n  \"purpose\": \"Review the current cancellation explanation and identify the remaining human decision\",\n  \"run\": {\n    \"status\": \"active\"\n  },\n  \"artifact_ready\": true,\n  \"all_criteria_evidenced\": false,\n  \"independent_acceptance\": \"not established\",\n  \"waiting_for_human\": [\n    \"exception-policy\"\n  ],\n  \"criteria\": [\n    {\n      \"id\": \"current-explanation\",\n      \"claim\": \"Draft matches the current policy\",\n      \"kind\": \"artifact\",\n      \"status\": \"pass\",\n      \"reasons\": [],\n      \"by\": \"current-usage-acceptance-session\"\n    },\n    {\n      \"id\": \"exception-policy\",\n      \"claim\": \"Owner decides whether an exception route is appropriate\",\n      \"kind\": \"human\",\n      \"status\": \"missing\",\n      \"reasons\": [],\n      \"by\": null\n    }\n  ],\n  \"experience_uses\": [],\n  \"next\": \"Inspect missing/stale actual artifacts; recheck affected criteria before resuming. Do not blindly rerun.\",\n  \"limits\": \"Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.\"\n}\n",
+  "stderr": ""
+}

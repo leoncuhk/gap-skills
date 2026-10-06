@@ -1,0 +1,19 @@
+# Review the current cancellation explanation and identify the remaining human decision
+Source: Synthetic demo request; never real customer policy
+Contract revision: 2 | Observation: bb1e3ec8dae5742553e4dfb7e51662d795a62bdaf502556d08f1b7297bb24eb4
+Run: ended | Artifact ready: True
+Independent acceptance: not established
+Human judgment pending: exception-policy
+
+## current-explanation — pass (artifact)
+Draft matches the current policy
+- Evidence: policy.txt | recorded: policy.txt d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff | current: {'sha256': 'd7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff', 'target': 'policy.txt'}
+- Evidence: 06-content-after.json | recorded: 06-content-after.json abc69dab6f0d796d9646d9a108569b83780c3688b13e3aca5b932dff140f99de | current: {'sha256': 'abc69dab6f0d796d9646d9a108569b83780c3688b13e3aca5b932dff140f99de', 'target': '06-content-after.json'}
+- Evidence: draft.txt | recorded: draft.txt d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff | current: {'sha256': 'd7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff', 'target': 'draft.txt'}
+- Evidence: validate_explanation.py | recorded: validate_explanation.py 39fdc3326bb9d46cf0350576c9fe9ec52139331be0f80e1f1c7a30bbec43216e | current: {'sha256': '39fdc3326bb9d46cf0350576c9fe9ec52139331be0f80e1f1c7a30bbec43216e', 'target': 'validate_explanation.py'}
+Observed: Actual local content check exit 0 after source revision; original draft and receipts preserved; no human exception decision or independent review claimed.
+## exception-policy — missing (human)
+Owner decides whether an exception route is appropriate
+
+Feedback must quote the observation and criterion ID. It does not authorize actions.
+Hashes prove file continuity, not truth, external delivery, authorization or independent reviewer identity.

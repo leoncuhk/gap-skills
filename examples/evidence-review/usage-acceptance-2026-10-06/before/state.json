@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "contract": {
+    "purpose": "Review the current cancellation explanation and identify the remaining human decision",
+    "source": "Synthetic demo request; never real customer policy",
+    "semantics": [
+      "Use current source, preserve original draft for comparison",
+      "No external publishing authorized"
+    ],
+    "inputs": [
+      "policy.txt"
+    ],
+    "criteria": [
+      {
+        "id": "current-explanation",
+        "claim": "Draft matches the current policy",
+        "kind": "artifact"
+      },
+      {
+        "id": "exception-policy",
+        "claim": "Owner decides whether an exception route is appropriate",
+        "kind": "human"
+      }
+    ]
+  },
+  "revisions": [
+    {
+      "contract": {
+        "purpose": "Review the current cancellation explanation and identify the remaining human decision",
+        "source": "Synthetic demo request; never real customer policy",
+        "semantics": [
+          "Use current source, preserve original draft for comparison",
+          "No external publishing authorized"
+        ],
+        "inputs": [
+          "policy.txt"
+        ],
+        "criteria": [
+          {
+            "id": "current-explanation",
+            "claim": "Draft matches the current policy",
+            "kind": "artifact"
+          },
+          {
+            "id": "exception-policy",
+            "claim": "Owner decides whether an exception route is appropriate",
+            "kind": "human"
+          }
+        ]
+      },
+      "contract_sha256": "886532617d5cdaaf356c11472757dd6b04274255be851c0699392c6554fc609a",
+      "authority": "Synthetic demo request; never real customer policy",
+      "reason": "initial",
+      "inputs": {
+        "policy.txt": {
+          "sha256": "69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11",
+          "target": "policy.txt"
+        }
+      }
+    }
+  ],
+  "receipts": [
+    {
+      "criterion": "current-explanation",
+      "kind": "artifact",
+      "result": "pass",
+      "by": "synthetic-local-check",
+      "note": "Actual byte comparison passed before the source changed.",
+      "independent": false,
+      "contract_sha256": "886532617d5cdaaf356c11472757dd6b04274255be851c0699392c6554fc609a",
+      "revision": 1,
+      "files": {
+        "policy.txt": {
+          "sha256": "69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11",
+          "target": "policy.txt"
+        },
+        "verification.txt": {
+          "sha256": "028ae89894dbbe0839fbd3a2bab5b5668ea70734e12f6c97d79c32d29e851a9e",
+          "target": "verification.txt"
+        },
+        "draft.txt": {
+          "sha256": "69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11",
+          "target": "draft.txt"
+        }
+      }
+    }
+  ],
+  "experience_uses": [],
+  "run": {
+    "status": "ended",
+    "reason": "Earlier process stopped; source subsequently updated."
+  }
+}

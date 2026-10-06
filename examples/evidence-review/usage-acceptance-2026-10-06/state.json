@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "contract": {
+    "purpose": "Review the current cancellation explanation and identify the remaining human decision",
+    "source": "Synthetic demo request; never real customer policy",
+    "semantics": [
+      "Use current source, preserve original draft for comparison",
+      "No external publishing authorized"
+    ],
+    "inputs": [
+      "policy.txt"
+    ],
+    "criteria": [
+      {
+        "id": "current-explanation",
+        "claim": "Draft matches the current policy",
+        "kind": "artifact"
+      },
+      {
+        "id": "exception-policy",
+        "claim": "Owner decides whether an exception route is appropriate",
+        "kind": "human"
+      }
+    ]
+  },
+  "revisions": [
+    {
+      "contract": {
+        "purpose": "Review the current cancellation explanation and identify the remaining human decision",
+        "source": "Synthetic demo request; never real customer policy",
+        "semantics": [
+          "Use current source, preserve original draft for comparison",
+          "No external publishing authorized"
+        ],
+        "inputs": [
+          "policy.txt"
+        ],
+        "criteria": [
+          {
+            "id": "current-explanation",
+            "claim": "Draft matches the current policy",
+            "kind": "artifact"
+          },
+          {
+            "id": "exception-policy",
+            "claim": "Owner decides whether an exception route is appropriate",
+            "kind": "human"
+          }
+        ]
+      },
+      "contract_sha256": "886532617d5cdaaf356c11472757dd6b04274255be851c0699392c6554fc609a",
+      "authority": "Synthetic demo request; never real customer policy",
+      "reason": "initial",
+      "inputs": {
+        "policy.txt": {
+          "sha256": "69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11",
+          "target": "policy.txt"
+        }
+      }
+    },
+    {
+      "contract": {
+        "purpose": "Review the current cancellation explanation and identify the remaining human decision",
+        "source": "Synthetic demo request; never real customer policy",
+        "semantics": [
+          "Use current source, preserve original draft for comparison",
+          "No external publishing authorized"
+        ],
+        "inputs": [
+          "policy.txt"
+        ],
+        "criteria": [
+          {
+            "id": "current-explanation",
+            "claim": "Draft matches the current policy",
+            "kind": "artifact"
+          },
+          {
+            "id": "exception-policy",
+            "claim": "Owner decides whether an exception route is appropriate",
+            "kind": "human"
+          }
+        ]
+      },
+      "contract_sha256": "886532617d5cdaaf356c11472757dd6b04274255be851c0699392c6554fc609a",
+      "authority": "Current synthetic policy.txt; factual source update, not a new human policy choice",
+      "reason": "Current policy specifies 21 calendar days. Preserve purpose, acceptance criteria and exception-policy decision; invalidate old explanation evidence.",
+      "inputs": {
+        "policy.txt": {
+          "sha256": "d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff",
+          "target": "policy.txt"
+        }
+      }
+    }
+  ],
+  "receipts": [
+    {
+      "criterion": "current-explanation",
+      "kind": "artifact",
+      "result": "pass",
+      "by": "synthetic-local-check",
+      "note": "Actual byte comparison passed before the source changed.",
+      "independent": false,
+      "contract_sha256": "886532617d5cdaaf356c11472757dd6b04274255be851c0699392c6554fc609a",
+      "revision": 1,
+      "files": {
+        "policy.txt": {
+          "sha256": "69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11",
+          "target": "policy.txt"
+        },
+        "verification.txt": {
+          "sha256": "028ae89894dbbe0839fbd3a2bab5b5668ea70734e12f6c97d79c32d29e851a9e",
+          "target": "verification.txt"
+        },
+        "draft.txt": {
+          "sha256": "69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11",
+          "target": "draft.txt"
+        }
+      }
+    },
+    {
+      "criterion": "current-explanation",
+      "kind": "artifact",
+      "result": "pass",
+      "by": "current-usage-acceptance-session",
+      "note": "Actual local content check exit 0 after source revision; original draft and receipts preserved; no human exception decision or independent review claimed.",
+      "independent": false,
+      "contract_sha256": "886532617d5cdaaf356c11472757dd6b04274255be851c0699392c6554fc609a",
+      "revision": 2,
+      "files": {
+        "policy.txt": {
+          "sha256": "d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff",
+          "target": "policy.txt"
+        },
+        "06-content-after.json": {
+          "sha256": "abc69dab6f0d796d9646d9a108569b83780c3688b13e3aca5b932dff140f99de",
+          "target": "06-content-after.json"
+        },
+        "draft.txt": {
+          "sha256": "d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff",
+          "target": "draft.txt"
+        },
+        "validate_explanation.py": {
+          "sha256": "39fdc3326bb9d46cf0350576c9fe9ec52139331be0f80e1f1c7a30bbec43216e",
+          "target": "validate_explanation.py"
+        }
+      }
+    }
+  ],
+  "experience_uses": [],
+  "run": {
+    "status": "ended",
+    "reason": "Current explanation repaired and locally verified; human exception decision remains intentionally unmade."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "purpose": "Resume the existing synthetic policy explanation using current source without erasing original work or deciding the human exception policy",
+  "request_scope": "Explicit path invocation of gap 0.6.1; local synthetic usage acceptance, no feature changes or external publishing",
+  "frozen_before_execution": true,
+  "baseline_commit": "0e04159",
+  "criteria": {
+    "stale_detected": "Initial checkpoint exits 1 and current-explanation is stale while policy is 21 calendar days and draft is 14 days",
+    "false_pass_rejected": "Recording a new pass against changed inputs before revising must exit 2",
+    "content_red_green": "Same content validator fails for old draft, passes for corrected current draft",
+    "continuity": "Keep prior revisions/receipts as an exact prefix and preserve original input files under before/",
+    "feedback_binding": "Pre-repair synthetic feedback rejected after revision; current synthetic feedback accepted without mutating state or authorizing action",
+    "human_control": "exception-policy remains pending, no independent-acceptance claim, final check stays 1 despite corrected artifact passing",
+    "source_preservation": "Original mvp files remain byte-identical"
+  },
+  "limits": [
+    "Single agent self-review; no new independent reviewer",
+    "No browser interaction or rendering verification",
+    "No real customer policy, no authentic human feedback",
+    "No cross-task benefit or time-saving claim"
+  ],
+  "input_sha256": {
+    "contract.json": "710f2101837622c8d0bf924dac48f4efcf1200e58fdafa3515c0c8036a2fd895",
+    "policy.txt": "d7d1f0a87f66ecd630816ec8c7b316e80f1526a00f23f250448a400b733fe6ff",
+    "draft.txt": "69e5b86d44212fec7646303afb3c98959fd7e7260dea767fb4efb27efbb7ef11",
+    "verification.txt": "028ae89894dbbe0839fbd3a2bab5b5668ea70734e12f6c97d79c32d29e851a9e",
+    "state.json": "5f2afaf76518bb78f9c3e0cbfa6c3c86d343f31845df2bafe9f398635f2fdcdf"
+  }
+}
