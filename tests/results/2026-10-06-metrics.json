@@ -1,0 +1,146 @@
+{
+  "original_four": [
+    {
+      "arm": "semantic-baseline",
+      "tool_invocations": 4,
+      "observed_first_tool_to_last_tool_seconds": 59.80259871482849,
+      "sum_command_execution_seconds": 0.09814190864562988,
+      "first_tool_utc": "2026-10-06T07:45:14.152654+00:00",
+      "final_generation_seconds": null,
+      "tokens": null,
+      "user_timing": null,
+      "monetary_cost": null,
+      "requested_model": "gpt-6-astra",
+      "requested_reasoning": "high",
+      "observed_backend_identity": null,
+      "observed_in_budget": true,
+      "changed_files": [
+        "report.json",
+        "report.py"
+      ],
+      "added_files": [],
+      "agent_process_files_added": 0,
+      "arm_user_questions_observed": 0,
+      "rework_after_first_completion_observed": 0,
+      "helper_used": false
+    },
+    {
+      "arm": "semantic-enhanced",
+      "tool_invocations": 4,
+      "observed_first_tool_to_last_tool_seconds": 49.82388687133789,
+      "sum_command_execution_seconds": 0.10206818580627441,
+      "first_tool_utc": "2026-10-06T07:45:49.960890+00:00",
+      "final_generation_seconds": null,
+      "tokens": null,
+      "user_timing": null,
+      "monetary_cost": null,
+      "requested_model": "gpt-6-astra",
+      "requested_reasoning": "high",
+      "observed_backend_identity": null,
+      "observed_in_budget": true,
+      "changed_files": [
+        "report.json",
+        "report.py"
+      ],
+      "added_files": [],
+      "agent_process_files_added": 0,
+      "arm_user_questions_observed": 0,
+      "rework_after_first_completion_observed": 0,
+      "helper_used": false
+    },
+    {
+      "arm": "artifact-baseline",
+      "tool_invocations": 5,
+      "observed_first_tool_to_last_tool_seconds": 39.8904709815979,
+      "sum_command_execution_seconds": 0.11390948295593262,
+      "first_tool_utc": "2026-10-06T07:46:03.274486+00:00",
+      "final_generation_seconds": null,
+      "tokens": null,
+      "user_timing": null,
+      "monetary_cost": null,
+      "requested_model": "gpt-6-astra",
+      "requested_reasoning": "high",
+      "observed_backend_identity": null,
+      "observed_in_budget": true,
+      "changed_files": [
+        "briefing.html"
+      ],
+      "added_files": [],
+      "agent_process_files_added": 0,
+      "arm_user_questions_observed": 0,
+      "rework_after_first_completion_observed": 0,
+      "helper_used": false
+    },
+    {
+      "arm": "artifact-enhanced",
+      "tool_invocations": 5,
+      "observed_first_tool_to_last_tool_seconds": 48.308279037475586,
+      "sum_command_execution_seconds": 0.1227881908416748,
+      "first_tool_utc": "2026-10-06T07:45:34.982036+00:00",
+      "final_generation_seconds": null,
+      "tokens": null,
+      "user_timing": null,
+      "monetary_cost": null,
+      "requested_model": "gpt-6-astra",
+      "requested_reasoning": "high",
+      "observed_backend_identity": null,
+      "observed_in_budget": true,
+      "changed_files": [
+        "briefing.html"
+      ],
+      "added_files": [],
+      "agent_process_files_added": 0,
+      "arm_user_questions_observed": 0,
+      "rework_after_first_completion_observed": 0,
+      "helper_used": false
+    }
+  ],
+  "protocol": {
+    "frozen_input_manifest_sha256": "c6477b841b11539d103af1dc9847800d2ef249f911852325783f19d794f34e98",
+    "prompt_equality": "fail: semantically equivalent but paraphrased task and common-agreement texts in initial spawn envelopes",
+    "global_trial_budget": "fail: 3 corrective contexts launched beyond the frozen 4; all stopped after parent instruction; fourth corrective arm was never launched",
+    "declared_per_arm_budget": "12 invocations or 600 seconds from first tool; original four within observed limits",
+    "model": "requested gpt-6-astra/high through spawn API; backend identity independently unavailable",
+    "network_and_paid_cli": "none observed in audited commands",
+    "criteria_changed": false,
+    "accepted_compliant_pair_count": 0,
+    "preliminary_complete_arm_count": 4,
+    "excess_launch_count": 3,
+    "excess_launches": [
+      {
+        "arm": "semantic-baseline",
+        "launched": true,
+        "status": "interrupted_by_coordinator_after_parent_stop",
+        "tool_invocations_observed": 3,
+        "observed_tool_span_seconds": 8.23563289642334,
+        "tokens": null,
+        "monetary_cost": null,
+        "backend_identity": null
+      },
+      {
+        "arm": "artifact-enhanced",
+        "launched": true,
+        "status": "interrupted_by_coordinator_after_parent_stop",
+        "tool_invocations_observed": 2,
+        "observed_tool_span_seconds": 4.7920918464660645,
+        "tokens": null,
+        "monetary_cost": null,
+        "backend_identity": null
+      },
+      {
+        "arm": "semantic-enhanced",
+        "launched": true,
+        "status": "interrupted_by_coordinator_after_parent_stop",
+        "tool_invocations_observed": 0,
+        "observed_tool_span_seconds": null,
+        "tokens": null,
+        "monetary_cost": null,
+        "backend_identity": null
+      }
+    ],
+    "comparative_efficiency_claim_allowed": false,
+    "true_user_effort_reduction": "unproven",
+    "real_user_intervention_count": null,
+    "coordinator_protocol_stop": 1
+  }
+}

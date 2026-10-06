@@ -1,2 +1,5 @@
 __pycache__/
 *.py[cod]
+
+# Local agent outcome bundle; curated summaries are retained separately.
+tests/results/*-evidence.tar.gz

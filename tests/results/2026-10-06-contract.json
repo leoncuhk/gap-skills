@@ -1,0 +1,38 @@
+{
+  "purpose": "Deliver a locally usable gap iteration with evidence, without claiming unproven human-effort savings",
+  "source": "delegated user request, 2026-10-06",
+  "semantics": [
+    "run ended is not artifact ready or independent acceptance",
+    "held-out synthetic passes are not real-world efficiency proof",
+    "no publication or global installation"
+  ],
+  "inputs": [
+    "tests/results/2026-10-06-plan.md",
+    "skills/gap/SKILL.md",
+    "skills/gap/scripts/checkpoint.py",
+    "tests/test_checkpoint.py"
+  ],
+  "criteria": [
+    {
+      "id": "package",
+      "kind": "artifact",
+      "claim": "single installed skill includes usable helper"
+    },
+    {
+      "id": "regression",
+      "kind": "check",
+      "claim": "existing and affected deterministic regressions pass"
+    },
+    {
+      "id": "acceptance",
+      "kind": "review",
+      "claim": "fresh code review against frozen intent and engineering criteria",
+      "independent": true
+    },
+    {
+      "id": "comparison",
+      "kind": "check",
+      "claim": "two held-out task pairs under identical frozen prompts and allowed budget"
+    }
+  ]
+}

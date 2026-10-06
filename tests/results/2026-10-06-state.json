@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "contract": {
+    "purpose": "Deliver a locally usable gap iteration with evidence, without claiming unproven human-effort savings",
+    "source": "delegated user request, 2026-10-06",
+    "semantics": [
+      "run ended is not artifact ready or independent acceptance",
+      "held-out synthetic passes are not real-world efficiency proof",
+      "no publication or global installation"
+    ],
+    "inputs": [
+      "tests/results/2026-10-06-plan.md",
+      "skills/gap/SKILL.md",
+      "skills/gap/scripts/checkpoint.py",
+      "tests/test_checkpoint.py"
+    ],
+    "criteria": [
+      {
+        "id": "package",
+        "kind": "artifact",
+        "claim": "single installed skill includes usable helper"
+      },
+      {
+        "id": "regression",
+        "kind": "check",
+        "claim": "existing and affected deterministic regressions pass"
+      },
+      {
+        "id": "acceptance",
+        "kind": "review",
+        "claim": "fresh code review against frozen intent and engineering criteria",
+        "independent": true
+      },
+      {
+        "id": "comparison",
+        "kind": "check",
+        "claim": "two held-out task pairs under identical frozen prompts and allowed budget"
+      }
+    ]
+  },
+  "revisions": [
+    {
+      "contract": {
+        "purpose": "Deliver a locally usable gap iteration with evidence, without claiming unproven human-effort savings",
+        "source": "delegated user request, 2026-10-06",
+        "semantics": [
+          "run ended is not artifact ready or independent acceptance",
+          "held-out synthetic passes are not real-world efficiency proof",
+          "no publication or global installation"
+        ],
+        "inputs": [
+          "tests/results/2026-10-06-plan.md",
+          "skills/gap/SKILL.md",
+          "skills/gap/scripts/checkpoint.py",
+          "tests/test_checkpoint.py"
+        ],
+        "criteria": [
+          {
+            "id": "package",
+            "kind": "artifact",
+            "claim": "single installed skill includes usable helper"
+          },
+          {
+            "id": "regression",
+            "kind": "check",
+            "claim": "existing and affected deterministic regressions pass"
+          },
+          {
+            "id": "acceptance",
+            "kind": "review",
+            "claim": "fresh review and frozen held-out acceptance recorded truthfully",
+            "independent": true
+          }
+        ]
+      },
+      "contract_sha256": "fd08ae35a772da553b5d4445db721d2141b4648761a0910397aee784bf7493a5",
+      "authority": "delegated user request, 2026-10-06",
+      "reason": "initial",
+      "inputs": {
+        "tests/results/2026-10-06-plan.md": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5",
+        "skills/gap/SKILL.md": "ec72e0c7ad23cdf976b274454c00e19216eaa738a8e7fbae53d05abd7cfe3a33",
+        "skills/gap/scripts/checkpoint.py": "ae71aa8cb43acf7f4e10126a12b461d15195e804e10fbfaa89573b93c1654630",
+        "tests/test_checkpoint.py": "4ac2bc4573a779415f4e962d228a0ddc1995bbfdf6cf65041385498ba212c117"
+      }
+    },
+    {
+      "contract": {
+        "purpose": "Deliver a locally usable gap iteration with evidence, without claiming unproven human-effort savings",
+        "source": "delegated user request, 2026-10-06",
+        "semantics": [
+          "run ended is not artifact ready or independent acceptance",
+          "held-out synthetic passes are not real-world efficiency proof",
+          "no publication or global installation"
+        ],
+        "inputs": [
+          "tests/results/2026-10-06-plan.md",
+          "skills/gap/SKILL.md",
+          "skills/gap/scripts/checkpoint.py",
+          "tests/test_checkpoint.py"
+        ],
+        "criteria": [
+          {
+            "id": "package",
+            "kind": "artifact",
+            "claim": "single installed skill includes usable helper"
+          },
+          {
+            "id": "regression",
+            "kind": "check",
+            "claim": "existing and affected deterministic regressions pass"
+          },
+          {
+            "id": "acceptance",
+            "kind": "review",
+            "claim": "fresh code review against frozen intent and engineering criteria",
+            "independent": true
+          },
+          {
+            "id": "comparison",
+            "kind": "check",
+            "claim": "two held-out task pairs under identical frozen prompts and allowed budget"
+          }
+        ]
+      },
+      "contract_sha256": "08aca14ef419d2a801868169a2bee9495585992e5d8a6abc4fb9b673577857c4",
+      "authority": "Frozen 2026-10-06 plan criteria 5 and 7; independent reviewer findings",
+      "reason": "Repair real freshness defects and make code review distinct from paired-protocol compliance; preserve original acceptance standard.",
+      "inputs": {
+        "tests/results/2026-10-06-plan.md": {
+          "sha256": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5",
+          "target": "tests/results/2026-10-06-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "ec72e0c7ad23cdf976b274454c00e19216eaa738a8e7fbae53d05abd7cfe3a33",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "ef1b643783a2f6f1fc46038b836965387c5971edd1203dc547ef61354923a6ad",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "tests/test_checkpoint.py": {
+          "sha256": "de5e72bb9e660f9ed6ed064b7c90ad97338261400d0781ab6b31dcc45a11de87",
+          "target": "tests/test_checkpoint.py"
+        }
+      }
+    }
+  ],
+  "receipts": [
+    {
+      "criterion": "package",
+      "kind": "artifact",
+      "result": "pass",
+      "by": "implementation-session",
+      "note": "19 tests include running the helper from a copied skill folder; actual backend model identity is unverified.",
+      "independent": false,
+      "contract_sha256": "fd08ae35a772da553b5d4445db721d2141b4648761a0910397aee784bf7493a5",
+      "revision": 1,
+      "files": {
+        "tests/results/2026-10-06-plan.md": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5",
+        "skills/gap/SKILL.md": "ec72e0c7ad23cdf976b274454c00e19216eaa738a8e7fbae53d05abd7cfe3a33",
+        "skills/gap/scripts/checkpoint.py": "ae71aa8cb43acf7f4e10126a12b461d15195e804e10fbfaa89573b93c1654630",
+        "tests/test_checkpoint.py": "4ac2bc4573a779415f4e962d228a0ddc1995bbfdf6cf65041385498ba212c117",
+        "tests/results/2026-10-06-regression.txt": "9a4de4dcc2c337f692afc6fa4d721061000fc67a7e622af8b8de8751cb2aef90"
+      }
+    },
+    {
+      "criterion": "regression",
+      "kind": "check",
+      "result": "pass",
+      "by": "implementation-session",
+      "note": "All 19 tests and repository validator passed at implementation freeze. No comparative efficiency claim.",
+      "independent": false,
+      "contract_sha256": "fd08ae35a772da553b5d4445db721d2141b4648761a0910397aee784bf7493a5",
+      "revision": 1,
+      "files": {
+        "tests/results/2026-10-06-plan.md": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5",
+        "skills/gap/SKILL.md": "ec72e0c7ad23cdf976b274454c00e19216eaa738a8e7fbae53d05abd7cfe3a33",
+        "skills/gap/scripts/checkpoint.py": "ae71aa8cb43acf7f4e10126a12b461d15195e804e10fbfaa89573b93c1654630",
+        "tests/test_checkpoint.py": "4ac2bc4573a779415f4e962d228a0ddc1995bbfdf6cf65041385498ba212c117",
+        "tests/results/2026-10-06-regression.txt": "9a4de4dcc2c337f692afc6fa4d721061000fc67a7e622af8b8de8751cb2aef90"
+      }
+    },
+    {
+      "criterion": "package",
+      "kind": "artifact",
+      "result": "pass",
+      "by": "implementation-session",
+      "note": "Copied skill helper and package tests pass after repair round 1.",
+      "independent": false,
+      "contract_sha256": "08aca14ef419d2a801868169a2bee9495585992e5d8a6abc4fb9b673577857c4",
+      "revision": 2,
+      "files": {
+        "tests/results/2026-10-06-plan.md": {
+          "sha256": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5",
+          "target": "tests/results/2026-10-06-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "ec72e0c7ad23cdf976b274454c00e19216eaa738a8e7fbae53d05abd7cfe3a33",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "ef1b643783a2f6f1fc46038b836965387c5971edd1203dc547ef61354923a6ad",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "tests/test_checkpoint.py": {
+          "sha256": "de5e72bb9e660f9ed6ed064b7c90ad97338261400d0781ab6b31dcc45a11de87",
+          "target": "tests/test_checkpoint.py"
+        },
+        "tests/results/2026-10-06-final-regression.txt": {
+          "sha256": "4a8c36754961436064659cf95ff8679697b091d81ea6dd4418965153f3c2b9d2",
+          "target": "tests/results/2026-10-06-final-regression.txt"
+        }
+      }
+    },
+    {
+      "criterion": "regression",
+      "kind": "check",
+      "result": "pass",
+      "by": "implementation-session",
+      "note": "All 21 tests pass, including independent symlink finding and obsolete-review dependency regression. Does not establish model effectiveness.",
+      "independent": false,
+      "contract_sha256": "08aca14ef419d2a801868169a2bee9495585992e5d8a6abc4fb9b673577857c4",
+      "revision": 2,
+      "files": {
+        "tests/results/2026-10-06-plan.md": {
+          "sha256": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5",
+          "target": "tests/results/2026-10-06-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "ec72e0c7ad23cdf976b274454c00e19216eaa738a8e7fbae53d05abd7cfe3a33",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "ef1b643783a2f6f1fc46038b836965387c5971edd1203dc547ef61354923a6ad",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "tests/test_checkpoint.py": {
+          "sha256": "de5e72bb9e660f9ed6ed064b7c90ad97338261400d0781ab6b31dcc45a11de87",
+          "target": "tests/test_checkpoint.py"
+        },
+        "tests/results/2026-10-06-final-regression.txt": {
+          "sha256": "4a8c36754961436064659cf95ff8679697b091d81ea6dd4418965153f3c2b9d2",
+          "target": "tests/results/2026-10-06-final-regression.txt"
+        }
+      }
+    },
+    {
+      "criterion": "comparison",
+      "kind": "check",
+      "result": "fail",
+      "by": "independent-acceptance-context",
+      "note": "Four task artifacts pass, but frozen paired protocol fails due to paraphrased prompts and three excess launches. Human-effort and comparative value unproven.",
+      "independent": false,
+      "contract_sha256": "08aca14ef419d2a801868169a2bee9495585992e5d8a6abc4fb9b673577857c4",
+      "revision": 2,
+      "files": {
+        "tests/results/2026-10-06-plan.md": {
+          "sha256": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5",
+          "target": "tests/results/2026-10-06-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "ec72e0c7ad23cdf976b274454c00e19216eaa738a8e7fbae53d05abd7cfe3a33",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "ef1b643783a2f6f1fc46038b836965387c5971edd1203dc547ef61354923a6ad",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "tests/test_checkpoint.py": {
+          "sha256": "de5e72bb9e660f9ed6ed064b7c90ad97338261400d0781ab6b31dcc45a11de87",
+          "target": "tests/test_checkpoint.py"
+        },
+        "tests/results/2026-10-06-independent-review.md": {
+          "sha256": "bbd20d04ecf9aa53e848efef904decd4e1f99493411245c0ea8fd79812d04465",
+          "target": "tests/results/2026-10-06-independent-review.md"
+        },
+        "tests/results/2026-10-06-metrics.json": {
+          "sha256": "bc831384ab698ef4b9134c7f6bd683ed1122bdde33de02df69d51d4b1703a9fb",
+          "target": "tests/results/2026-10-06-metrics.json"
+        }
+      }
+    },
+    {
+      "criterion": "acceptance",
+      "kind": "review",
+      "result": "pass",
+      "by": "/root/acceptance",
+      "note": "Fresh context reviewed fixed code 5bd5fe6 against intent and engineering axes, independently reproduced old defects and verified repairs. Paired-protocol criterion remains failed.",
+      "independent": true,
+      "contract_sha256": "08aca14ef419d2a801868169a2bee9495585992e5d8a6abc4fb9b673577857c4",
+      "revision": 2,
+      "files": {
+        "tests/results/2026-10-06-plan.md": {
+          "sha256": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5",
+          "target": "tests/results/2026-10-06-plan.md"
+        },
+        "skills/gap/SKILL.md": {
+          "sha256": "ec72e0c7ad23cdf976b274454c00e19216eaa738a8e7fbae53d05abd7cfe3a33",
+          "target": "skills/gap/SKILL.md"
+        },
+        "skills/gap/scripts/checkpoint.py": {
+          "sha256": "ef1b643783a2f6f1fc46038b836965387c5971edd1203dc547ef61354923a6ad",
+          "target": "skills/gap/scripts/checkpoint.py"
+        },
+        "tests/test_checkpoint.py": {
+          "sha256": "de5e72bb9e660f9ed6ed064b7c90ad97338261400d0781ab6b31dcc45a11de87",
+          "target": "tests/test_checkpoint.py"
+        },
+        "tests/results/2026-10-06-independent-review.md": {
+          "sha256": "bbd20d04ecf9aa53e848efef904decd4e1f99493411245c0ea8fd79812d04465",
+          "target": "tests/results/2026-10-06-independent-review.md"
+        },
+        "tests/results/2026-10-06-independent-verification.json": {
+          "sha256": "5e2a336fce1aa9849a1d3129f758e4886121e406e9fa12ff9ace868df067f525",
+          "target": "tests/results/2026-10-06-independent-verification.json"
+        },
+        "tests/results/2026-10-06-final-regression.txt": {
+          "sha256": "4a8c36754961436064659cf95ff8679697b091d81ea6dd4418965153f3c2b9d2",
+          "target": "tests/results/2026-10-06-final-regression.txt"
+        },
+        "tests/results/2026-10-06-metrics.json": {
+          "sha256": "bc831384ab698ef4b9134c7f6bd683ed1122bdde33de02df69d51d4b1703a9fb",
+          "target": "tests/results/2026-10-06-metrics.json"
+        }
+      },
+      "covers": "4284380015eb96347c43f2cfc1dccb0cc68cf6720634c0fb4f631ca0c802e2a3"
+    }
+  ],
+  "experience_uses": [
+    {
+      "path": "tests/results/2026-10-06-plan.md",
+      "declared_status": "candidate",
+      "decision": "trial",
+      "reason": "Trial the bounded evidence-checkpoint approach on its own development task; local regressions demonstrate mechanics, but user-effort savings remain unmeasured.",
+      "files": {
+        "tests/results/2026-10-06-plan.md": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5"
+      }
+    },
+    {
+      "path": "tests/results/2026-10-06-plan.md",
+      "declared_status": "candidate",
+      "decision": "trial",
+      "reason": "Re-inspected unchanged frozen plan with repaired fingerprint format. Actual local engineering checks pass; paired protocol failed and helper uptake/user-effort benefit remain unproven. Retain as candidate, not validated global experience.",
+      "files": {
+        "tests/results/2026-10-06-plan.md": {
+          "sha256": "1bdec53596bd0191e37abf2e9fd92ec3c778b11f95c7e0978580ba716aa05fe5",
+          "target": "tests/results/2026-10-06-plan.md"
+        }
+      }
+    }
+  ],
+  "run": {
+    "status": "ended",
+    "reason": "Engineering implementation and independent code review complete. Paired protocol failed; no further solver runs within frozen budget. Comparative and human-effort value remain unproven."
+  }
+}

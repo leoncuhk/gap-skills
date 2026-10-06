@@ -1,0 +1,35 @@
+$ python3 scripts/validate.py
+OK — 1 skill, 9 references, 7 assets, 2 manifests
+exit=0
+
+$ python3 -m unittest discover -s tests -v
+test_actual_files_checked_without_rerunning_or_overwriting (test_checkpoint.CheckpointTests.test_actual_files_checked_without_rerunning_or_overwriting) ... ok
+test_candidate_experience_is_not_promoted_and_use_is_traceable (test_checkpoint.CheckpointTests.test_candidate_experience_is_not_promoted_and_use_is_traceable) ... ok
+test_changed_basis_requires_inspection_and_revision (test_checkpoint.CheckpointTests.test_changed_basis_requires_inspection_and_revision) ... ok
+test_development_scenarios_red_and_known_green (test_checkpoint.CheckpointTests.test_development_scenarios_red_and_known_green) ... ok
+test_evidence_cannot_escape_root_or_reference_itself (test_checkpoint.CheckpointTests.test_evidence_cannot_escape_root_or_reference_itself) ... ok
+test_goal_revision_retains_old_promise_invalidates_evidence (test_checkpoint.CheckpointTests.test_goal_revision_retains_old_promise_invalidates_evidence) ... ok
+test_installed_folder_is_self_contained (test_checkpoint.CheckpointTests.test_installed_folder_is_self_contained) ... ok
+test_latest_failure_supersedes_pass_and_missing_receipt_is_stale (test_checkpoint.CheckpointTests.test_latest_failure_supersedes_pass_and_missing_receipt_is_stale) ... ok
+test_list_cannot_satisfy_external_receipt_kind_or_human_decision (test_checkpoint.CheckpointTests.test_list_cannot_satisfy_external_receipt_kind_or_human_decision) ... ok
+test_repointed_source_symlink_invalidates_even_equal_content (test_checkpoint.CheckpointTests.test_repointed_source_symlink_invalidates_even_equal_content) ... ok
+test_review_is_declared_and_invalidated_by_later_evidence (test_checkpoint.CheckpointTests.test_review_is_declared_and_invalidated_by_later_evidence) ... ok
+test_revised_review_does_not_require_retired_artifacts (test_checkpoint.CheckpointTests.test_revised_review_does_not_require_retired_artifacts) ... ok
+test_run_ended_is_not_artifact_or_acceptance (test_checkpoint.CheckpointTests.test_run_ended_is_not_artifact_or_acceptance) ... ok
+test_activation_matrix_is_balanced (test_contract.RepositoryContractTests.test_activation_matrix_is_balanced) ... ok
+test_baseline_fixtures_are_green (test_contract.RepositoryContractTests.test_baseline_fixtures_are_green) ... ok
+test_only_one_skill_entrypoint_exists (test_contract.RepositoryContractTests.test_only_one_skill_entrypoint_exists) ... ok
+test_repository_validator (test_contract.RepositoryContractTests.test_repository_validator) ... ok
+test_review_mvp_is_red_capable_and_known_good (test_contract.RepositoryContractTests.test_review_mvp_is_red_capable_and_known_good) ... ok
+test_standard_mvp_evaluator_is_red_capable_and_known_good (test_contract.RepositoryContractTests.test_standard_mvp_evaluator_is_red_capable_and_known_good) ... ok
+test_validator_cli (test_contract.RepositoryContractTests.test_validator_cli) ... ok
+test_workflow_matrix_covers_all_paths_and_boundaries (test_contract.RepositoryContractTests.test_workflow_matrix_covers_all_paths_and_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 1.705s
+
+OK
+exit=0
+
+$ git diff --check
+exit=0
