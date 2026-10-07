@@ -1,7 +1,7 @@
 {
   "name": "gap-skills",
-  "version": "0.7.2",
-  "description": "One adaptive delivery skill with evidence-backed resumption for software, analysis and local artifacts.",
+  "version": "0.7.3",
+  "description": "One adaptive skill for human-AI collaboration on software, analysis and artifacts: clear intent, verified delivery and scoped learning.",
   "skills": "./skills/",
   "author": {
     "name": "leoncuhk",
@@ -20,8 +20,8 @@
   ],
   "interface": {
     "displayName": "Gap",
-    "shortDescription": "One adaptive path from intent to verified delivery",
-    "longDescription": "Routes software, analysis and local-artifact work by ambiguity, scale, and risk, then applies only the needed discovery, planning, delivery, fixed-diff review, governance, and retrospective practices through one skill.",
+    "shortDescription": "Human-AI collaboration from intent to verified delivery",
+    "longDescription": "One skill combining discovery, interviewing, specification, work slicing, implementation, review, human decision gates, incident feedback and evidence-backed retrospectives. The agent carries execution while people own purpose, value tradeoffs and responsible judgments; references load only when needed.",
     "developerName": "leoncuhk",
     "category": "Productivity",
     "capabilities": [

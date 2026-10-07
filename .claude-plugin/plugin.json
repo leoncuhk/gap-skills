@@ -1,7 +1,7 @@
 {
   "name": "gap-skills",
-  "version": "0.7.2",
-  "description": "One adaptive delivery skill with evidence-backed resumption for software, analysis and local artifacts.",
+  "version": "0.7.3",
+  "description": "One adaptive skill for human-AI collaboration on software, analysis and artifacts: clear intent, verified delivery and scoped learning.",
   "author": {
     "name": "leoncuhk",
     "url": "https://github.com/leoncuhk"

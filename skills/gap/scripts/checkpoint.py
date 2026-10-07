@@ -43,6 +43,8 @@ def snapshot(root, names):
 
 
 def changed(root, files):
+    if not isinstance(files, dict):
+        raise ValueError('file fingerprints must be an object')
     stale = []
     for name, expected in files.items():
         try:
@@ -104,6 +106,15 @@ def load_state(path):
     revisions = state.get('revisions')
     if not isinstance(revisions, list) or not revisions or any(not isinstance(r, dict) for r in revisions):
         raise ValueError('checkpoint needs a nonempty revision history of objects')
+    if not isinstance(revisions[-1].get('inputs'), dict):
+        raise ValueError('revision inputs must be a file fingerprint object')
+    for key in ('receipts', 'experience_uses'):
+        items = state.get(key)
+        if not isinstance(items, list) or any(not isinstance(item, dict) for item in items):
+            raise ValueError(f'{key} must be a list of objects')
+    run = state.get('run')
+    if not isinstance(run, dict) or run.get('status') not in ('active', 'ended'):
+        raise ValueError('run must have an active or ended status')
     if digest(state['contract']) != state['revisions'][-1]['contract_sha256']:
         raise ValueError('contract edited outside revise; restore it and use revise to preserve history')
     return state
@@ -335,10 +346,11 @@ def main(argv=None):
             else:
                 print(rendered)
             return 0
+        result = inspect(state, root)
+        rendered = json.dumps(result, indent=2, ensure_ascii=False)
         if args.command != 'check':
             save(state_path, state)
-        result = inspect(state, root)
-        print(json.dumps(result, indent=2, ensure_ascii=False))
+        print(rendered)
         return 0 if args.command != 'check' or result['all_criteria_evidenced'] else 1
     except (OSError, ValueError, KeyError, TypeError) as exc:
         print(json.dumps({'error': str(exc)}, ensure_ascii=False))

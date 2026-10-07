@@ -106,9 +106,9 @@ Propose one change: add an independent review check for verifier modifications, 
 
 For an actual cross-session checkpoint, ask gap to inspect current evidence first. Use text for a short status; select HTML only when expanding sources and returning per-criterion feedback helps.
 
-The current [source-bound delivery MVP](examples/evidence-review/gap07-mvp/review.html) shows an actual 21→17 correction, source excerpts/differences, and a pending owner's shipping choice. Its [compact text](examples/evidence-review/gap07-mvp/review.txt) and [full text](examples/evidence-review/gap07-mvp/review-details.txt) share the HTML observation. Feedback never authorizes or applies changes. Static semantic checks and simulated disclosure checks passed; browser interaction and human comprehension remain unverified.
+The retained 0.7.0 [source-bound delivery snapshot](examples/evidence-review/gap07-mvp/review.html) shows an actual 21→17 correction, source excerpts/differences, and a pending owner's shipping choice. Its [compact text](examples/evidence-review/gap07-mvp/review.txt) and [full text](examples/evidence-review/gap07-mvp/review-details.txt) share the HTML observation. Feedback never authorizes or applies changes. Static semantic checks and simulated disclosure checks passed; browser interaction and human comprehension remain unverified.
 
-The earlier stale-receipt demonstration and its actual non-browser intake receipts are [archived with recovery instructions](examples/evidence-review/README.md). The builder below reproduces that smaller mechanism demonstration, not the current delivery brief.
+The earlier stale-receipt demonstration and its actual non-browser intake receipts are [archived with recovery instructions](examples/evidence-review/README.md). The builder below reproduces that smaller mechanism demonstration, not the historical four-arm task or its delivery brief.
 
 Rebuild into a **new** disposable directory (the script refuses overwrite):
 

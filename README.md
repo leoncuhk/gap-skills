@@ -2,11 +2,13 @@
 
 [![validate](https://github.com/leoncuhk/gap-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/leoncuhk/gap-skills/actions/workflows/validate.yml)
 
-**One skill, one adaptive path from intent to verified delivery.**
+**One skill for human–AI collaboration, from intent to verified delivery.**
 
-`gap` helps a coding agent carry work from a requested outcome to a checked result. You own the purpose, value tradeoffs and decisions that require human responsibility. The agent investigates the repository, implements, tests, resumes from actual state and closes the task with evidence. When your judgment is needed, it explains the options and their consequences.
+`gap` aims to help people and AI complete real work reliably, with less correction, repeated checking and handoff effort, and carry useful experience into later tasks. People own the purpose, value tradeoffs and judgments that require human responsibility. The agent does the investigation, implementation, testing, state resumption and closure, and explains the options and consequences when human judgment is needed.
 
-The aim is less correction, repeated checking and handoff work for you. Useful experience should inform later tasks only when its scope and results support it. These are design goals: installing a skill does not prove saved time or enable automatic self-improvement.
+`gap` combines the useful mechanisms behind unknown discovery, structured interviewing, specification, work slicing, plan-conditioned implementation, evidence-backed review, human approval gates, incident feedback, and agent-environment retrospectives. Developers use one skill; it loads only the branch the current task needs. Software development is a primary use; analysis and local-artifact work use the same purpose and evidence discipline.
+
+The goal is sustained improvement in real work. Experience is reused only after checking its scope and observed results; saved time and better outcomes require evidence from actual use.
 
 It does not force every task through a full lifecycle. It routes work by ambiguity, scale, and risk:
 
@@ -27,40 +29,9 @@ It does not force every task through a full lifecycle. It routes work by ambigui
 - **Govern consequential actions:** one source of truth, rule-to-enforcement mapping, named approvals, protected production boundaries, and incident-to-intent feedback.
 - **Improve the environment:** turn repeated observed failures into one tested, reversible change to guidance, checks, tools, or protected controls.
 
-## Capability boundaries
-
-| Capability | What the single installed folder supplies | What still depends on the host or task |
-|---|---|---|
-| Workflow | One entry, nine focused references, seven optional templates | An agent that reads the skill and has authorized project tools; this is no autonomous runtime |
-| Resumption and evidence | Four Python standard-library helpers; source-bound receipts, briefs and scoped experience use | Python 3.10+ for optional helpers; truthful external evidence and actual reviewer identity |
-| HTML feedback | Offline checkpoint HTML, source disclosures, local JSON export and freshness-checked intake | Browser behavior and human comprehension need real testing; no HTTP receiver or automatic conversation return |
-| Diagrams and other HTML | Guidance for choosing a source-backed form | Agent-authored SVG/Mermaid/HTML per task; no bundled generic diagram renderer, editor, hosting or visual QA |
-| Prior methods | Selected Matt and Thariq mechanisms with [lineage](NOTICE.md) | No claim to include their full suites; no identified Karpathy source mapping in this package |
-
-Normal skill use needs a compatible agent and its project tools. Python 3.10+ is needed only for optional helpers. A browser is needed to use generated HTML; JavaScript enables local feedback export. Node is not a gap runtime dependency. Diagrams need the chosen viewer or host rendering support; no additional skill is required.
-
-Isolated folder/manifest/helper checks establish package self-containment. They do not establish natural activation in Codex/Claude, and no global installation was performed. See the [final review and reference assessment](tests/results/2026-10-06-gap-final.md).
-
 ## Why one skill
 
 The user should not memorize or coordinate a collection of overlapping process skills. `gap` is the only entry point. Its `SKILL.md` holds routing and shared invariants; focused references are loaded only when their branch applies. This keeps the installed skill list small without forcing every task to carry the entire workflow in context.
-
-## Repository map
-
-| Path | Responsibility |
-|---|---|
-| [`skills/gap/SKILL.md`](skills/gap/SKILL.md) | The only user-facing skill and route selector. |
-| `skills/gap/references/` | Guidance loaded only for the selected discovery, planning, delivery, review, problem-solving, communication, governance, retrospective, or adoption branch. |
-| `skills/gap/assets/` | Optional templates copied into projects when durable artifacts are justified. |
-| [`tests/PROTOCOL.md`](tests/PROTOCOL.md) | Evaluation levels, pass criteria, independence rules, and known limits. |
-| `tests/cases/` | Versioned activation and workflow task definitions. |
-| `tests/fixtures/` | Clean disposable repositories visible to an agent under test. |
-| `tests/patches/` | Candidate changes applied after fixture initialization so review baselines stay reproducible. |
-| `tests/evaluators/` | Outcome checks withheld from implementation sessions. |
-| `tests/reference-solutions/` | Known-green implementations proving evaluators are solvable. |
-| `tests/results/` | Retained harness runs, measurements, and limitations. |
-| [`scripts/validate.py`](scripts/validate.py) | Deterministic package, documentation, and evaluation-contract validation. |
-| [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json), [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) | Platform-specific manifests for the same `gap` skill. |
 
 ## Start on another machine
 
@@ -96,9 +67,11 @@ Start the agent in that project and invoke `$gap` in Codex or `/gap` in Claude C
 Read and follow <absolute-path-to-gap-skills>/skills/gap/SKILL.md.
 Goal: <the task and observable success conditions>.
 Preserve: <existing behavior, data definitions and scope boundaries>.
-Investigate, implement, test, resume from actual state and finish the work.
-Bring me the purpose, value tradeoffs and judgments I must own, with options
-and consequences. Report the result, actual checks and any remaining boundary.
+Complete only the requested stages. For implementation, investigate, build
+and test; for review or diagnosis, report findings without changing files.
+When continuing, inspect existing state first. Bring me unresolved purpose,
+value tradeoffs and judgments I must own, with options and consequences.
+Report the result, actual checks and any remaining boundary.
 ```
 
 The agent must be able to read that checkout and the relevant project files in its execution environment. A path on your laptop is not automatically accessible to a remote agent. This route does not register `$gap` or `/gap` and does not require them.
@@ -109,7 +82,7 @@ The repository includes both plugin manifests. A Claude plugin installation uses
 
 ## Use for real development
 
-State the work and success conditions; you do not need to select internal references or operate the helper yourself. After installation, use the prompts below (`/gap` for a Claude skill-folder install). Without installation, prepend the direct-path instruction above and omit `$gap`.
+State the work and success conditions; you do not need to select internal references or operate the helper yourself. After installation, use the prompts below (`/gap` for a Claude skill-folder install). Without installation, prepend only `Read and follow <absolute-path-to-gap-skills>/skills/gap/SKILL.md.` to the chosen request and omit `$gap`.
 
 | Situation | Short request | What to expect |
 |---|---|---|
@@ -124,13 +97,26 @@ On completion, expect usable output and evidence tied to the requested outcome, 
 
 See [EXAMPLES.md](EXAMPLES.md) for executable feature/review fixtures and the [evidence review example](examples/evidence-review/README.md) for a source-backed handoff. Adopting gap does not require rewriting project configuration; ask for a read-only adoption proposal first if configuration changes are wanted.
 
+## Capability boundaries
+
+| Capability | What the single installed folder supplies | What still depends on the host or task |
+|---|---|---|
+| Workflow | One entry, nine focused references, seven optional templates | An agent that reads the skill and has authorized project tools; this is no autonomous runtime |
+| Resumption and evidence | Four Python standard-library helpers; source-bound receipts, briefs and scoped experience use | Python 3.10+ for optional helpers; truthful external evidence and actual reviewer identity |
+| HTML feedback | Offline checkpoint HTML, source disclosures, local JSON export and freshness-checked intake | Browser behavior and human comprehension need real testing; no HTTP receiver or automatic conversation return |
+| Diagrams and other HTML | Guidance for choosing a source-backed form | Agent-authored SVG/Mermaid/HTML per task; no bundled generic diagram renderer, editor, hosting or visual QA |
+
+Normal skill use needs a compatible agent and its project tools. Python 3.10+ is needed only for optional helpers. A browser is needed to use generated HTML; JavaScript enables local feedback export. Node is not a gap runtime dependency. Diagrams need the chosen viewer or host rendering support; no additional skill is required.
+
+Isolated folder/manifest/helper checks establish package self-containment, not natural activation or real-world benefit. See [NOTICE.md](NOTICE.md) for the methods and sources adapted into gap, and [Evidence and limits](#evidence-and-limits) for what has been checked.
+
 ## Resume or close a multi-session task
 
 ```text
 $gap continue this task from the actual artifacts and latest evidence. Preserve the original goal and data definitions; recheck only invalidated claims, then report what is ready and what still needs a decision.
 ```
 
-Version 0.7.2 includes an optional Python 3.10+ checkpoint helper **inside** the installed skill folder. It binds actual receipts to the purpose, semantic contract and files, preserving revisions and distinguishing run termination from artifact readiness. See [delivery.md](skills/gap/references/delivery.md) for the short CLI procedure. It neither runs an agent nor certifies business truth, external actions or reviewer identity. Quick tasks still create no process files. No global installation is required to test the helper.
+Version 0.7.3 includes an optional Python 3.10+ checkpoint helper **inside** the installed skill folder. It binds actual receipts to the purpose, semantic contract and files, preserving revisions and distinguishing run termination from artifact readiness. See [delivery.md](skills/gap/references/delivery.md) for the short CLI procedure. It neither runs an agent nor certifies business truth, external actions or reviewer identity. Quick tasks still create no process files. No global installation is required to test the helper.
 
 Use `view` for a concise text checkpoint or `view --format html --output <new-file>` for an offline evidence/feedback surface. Returned feedback is bound to current file identity and is never an approval. See [communication.md](skills/gap/references/communication.md). Text is the default; diagrams show relationships, HTML supports inspection, and video needs a real motion/procedure requirement.
 
@@ -154,6 +140,8 @@ Temporary state is removed only after unresolved environment problems, meaningfu
 
 ## Evidence and limits
 
+The [0.7.3 purpose audit](tests/results/2026-10-07-purpose-audit.md) reviews all twelve recent commits, distinguishes necessary corrections from useful optional mechanisms, and records the resulting fixes. Public checkouts include regression fixtures, reports and presentation snapshots; original agent-run bundles are retained locally and are not distributed, so a checkout alone cannot replay every historical experiment.
+
 The [0.7.2 portability check](tests/results/2026-10-07-portable-use.md) covers English guidance, isolated folder installs and actual local usage checks. Historical task inputs, quotations and reports retain their original language and identities.
 
 Repository validation checks packaging, documentation links, references, manifests, invocation metadata, templates, and workflow invariants. Behavioral evaluation includes positive and negative activation cases, executable Quick, Standard-delivery, and standalone-review fixtures, plus declared Governed/adoption/retrospective scenarios. These checks show that the implementation is coherent and that planted review defects are detectable; the Governed scenario and comparative effectiveness still require retained harness and real-work results.
@@ -165,6 +153,23 @@ The [0.7.1 final review](tests/results/2026-10-06-gap-final.md) adds one fresh s
 Earlier [0.6.1 Matt adoption and three-arm results](tests/results/2026-10-06-matt-adoption.md). All three repaired artifacts pass independent local controls; complete original execution traces and comparative benefit remain unverified. Earlier [0.6.0 feedback-loop results](tests/results/2026-10-06-batch2.md) and [archived synthetic MVP](examples/evidence-review/README.md) retain their browser-QA and human-effort limits.
 
 See [tests/PROTOCOL.md](tests/PROTOCOL.md) for the evaluation contract, [tests/results/2026-08-27.md](tests/results/2026-08-27.md) for the historical baseline, and [NOTICE.md](NOTICE.md) for lineage.
+
+## Repository map
+
+| Path | Responsibility |
+|---|---|
+| [`skills/gap/SKILL.md`](skills/gap/SKILL.md) | The only user-facing skill and route selector. |
+| `skills/gap/references/` | Guidance loaded only for the selected discovery, planning, delivery, review, problem-solving, communication, governance, retrospective, or adoption branch. |
+| `skills/gap/assets/` | Optional templates copied into projects when durable artifacts are justified. |
+| [`tests/PROTOCOL.md`](tests/PROTOCOL.md) | Evaluation levels, pass criteria, independence rules, and known limits. |
+| `tests/cases/` | Versioned activation and workflow task definitions. |
+| `tests/fixtures/` | Clean disposable repositories visible to an agent under test. |
+| `tests/patches/` | Candidate changes applied after fixture initialization so review baselines stay reproducible. |
+| `tests/evaluators/` | Outcome checks withheld from implementation sessions. |
+| `tests/reference-solutions/` | Known-green implementations proving evaluators are solvable. |
+| `tests/results/` | Retained harness runs, measurements, and limitations. |
+| [`scripts/validate.py`](scripts/validate.py) | Deterministic package, documentation, and evaluation-contract validation. |
+| [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json), [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) | Platform-specific manifests for the same `gap` skill. |
 
 ## License
 

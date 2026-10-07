@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.3 — 2026-10-07
+
+- Restore the full integrated-method summary alongside the human-AI purpose; align public metadata and distinguish public checks from locally retained experiment bundles.
+- Preserve review-only scope in direct-path prompts, route already-relevant experience before implementation, and make instruction-deletion experiments proportional to uncertainty and cost.
+- Validate checkpoint collection shapes and inspect proposed state before saving, so a failed operation preserves the original checkpoint.
+- Keep optional helpers and historical evidence; correct historical example labels without replacing source snapshots.
+
 ## 0.7.2 — 2026-10-07
 
 - Turn the collaboration principle into practical task ownership, completion expectations and portable installation/direct-path instructions.

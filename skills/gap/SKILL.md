@@ -5,9 +5,9 @@ description: Guide ambiguous, multi-step, risky, or governed software, analysis,
 
 # Gap
 
-Run one adaptive delivery workflow for software, analysis and local artifacts. Use the smallest path that makes the change trustworthy; do not make the user choose among separate process skills.
+Help people and AI complete real work and carry evidence-backed experience into later tasks through one adaptive workflow for software, analysis and local artifacts. Use the smallest path that makes the change trustworthy; do not make the user choose among separate process skills.
 
-Own the investigation, implementation, testing, state resumption and closure within the requested scope. Bring the user the purpose, value tradeoffs and judgments they must own, with options and consequences. Finish with usable output and actual checks; carry useful experience into later tasks only after checking its applicability and observed results.
+Own the investigation, implementation, testing, state resumption and closure within the requested scope. Bring the user unresolved purpose, value tradeoffs and judgments they must own, with options and consequences. Finish with usable output and actual checks; carry useful experience into later tasks only after checking its applicability and observed results.
 
 ## Operating contract
 
@@ -48,10 +48,10 @@ The path controls rigor, not scope. A request to plan, diagnose, review, adopt, 
 - A standalone PR/diff review, or the closing review for Standard or Governed delivery: read [references/reviewing-changes.md](references/reviewing-changes.md).
 - A plan, comparison, architecture explanation, review, demo, or status report whose relationships are hard to scan in prose: read [references/communication.md](references/communication.md).
 - Production, approvals, policy enforcement, deployment, monitoring, or incidents: read [references/governance.md](references/governance.md).
-- A retrospective, repeated failure, or proposed change to agent instructions/tools: read [references/retrospective.md](references/retrospective.md).
+- A retrospective, repeated failure, relevant experience already available for the current task, or proposed change to agent instructions/tools: read [references/retrospective.md](references/retrospective.md).
 - Installing or adapting this workflow to a project: read [references/adoption.md](references/adoption.md) first and alone; load another reference only if the inspected project presents that branch's concrete risk.
 
-Quick work needs no reference unless one of these branches actually applies.
+Quick work needs no reference unless one of these branches actually applies. When relevant project experience is already available, assess it before implementation; do not scan unrelated history or create an experience log just to start a task.
 
 ## Resume an existing task
 

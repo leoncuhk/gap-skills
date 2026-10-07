@@ -62,6 +62,28 @@ class CheckpointTests(unittest.TestCase):
         self.assertEqual(result['independent_acceptance'], 'not established')
         self.cli('check', expected=1)
 
+    def test_invalid_state_does_not_change_on_failed_mutation(self):
+        self.record()
+        original = json.loads(self.state.read_text())
+        malformed = [
+            {k: v for k, v in original.items() if k != 'receipts'},
+            {**original, 'receipts': [None]},
+            {**original, 'receipts': [{'criterion': 'output'}]},
+            {**original, 'receipts': [{**original['receipts'][0], 'files': []}]},
+            {**original, 'revisions': [{**original['revisions'][0], 'inputs': []}]},
+            {**original, 'experience_uses': [None]},
+            {**original, 'experience_uses': [{'files': []}]},
+            {**original, 'run': None},
+        ]
+        for index, value in enumerate(malformed):
+            for command in [('check',), ('end', '--reason', 'interrupted')]:
+                with self.subTest(case=index, command=command):
+                    self.state.write_text(json.dumps(value))
+                    before = self.state.read_bytes()
+                    result = self.cli(*command, expected=2)
+                    self.assertTrue(result['error'])
+                    self.assertEqual(before, self.state.read_bytes())
+
     def test_actual_files_checked_without_rerunning_or_overwriting(self):
         self.record()
         self.record('tests', 'check')
