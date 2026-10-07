@@ -1,9 +1,9 @@
-# 原文可核查的合成MVP
+# Inspectable synthetic delivery snapshot
 
-打开 [HTML审阅](review.html)，或读 [默认摘要](review.txt)；[完整文本证据](review-details.txt)与两者绑定同一Observation。
+Open the [HTML review](review.html), read the [compact text](review.txt), or inspect the [full text evidence](review-details.txt). All three bind the same observation.
 
-核查操作：先看总量21→17及哪些请求改变/不变，再点击依据展开并定位原文，查看实际行差异，最后看Mei的两种运送选择、成本、到达时间与延期结果。无JavaScript时可以手动展开原文目录。页面只导出本地反馈，不批准或运送；真人理解与浏览器交互未验收。
+Check the correction from 21 to 17 and which requests changed or stayed the same. Follow source links to original excerpts and actual line differences, then inspect Mei's two shipping choices, cost, arrival timing and consequence of deferral. With JavaScript disabled, expand the native source disclosures manually. Feedback is local review input; it neither authorizes nor performs shipping. Browser interaction and human comprehension remain unverified.
 
-这三份在四臂运行完成后，按用户授权的最小删减重新渲染，未改原始brief、state或业务产物；来源与renderer指纹见 [provenance.json](provenance.json)。原始未删减视图和完整状态保留在本地忽略的 `tests/results/2026-10-06-gap07-evidence.tar.gz`。不要把展示快照当作新的任务事实源。
+These are retained 0.7.0 presentation snapshots, including their original Chinese narrative and labels, not examples of the current English UI. They were rendered after the four solver runs without changing the original brief, checkpoint or business output. See [provenance.json](provenance.json) for source and renderer identities. The unabridged original views and task state remain in the local ignored `tests/results/2026-10-06-gap07-evidence.tar.gz`; that bundle is not distributed through GitHub. Do not substitute a display snapshot for the task's source of truth.
 
-解包后在 `runs/dev/enhanced` 用当前仓内helper核查，默认：`view --brief deliverables/brief.json`；完整文本：同命令加入 `--details`。摘要与详情Observation必须一致，不同则重查。因Mei未决定，`check`退出1是正确的待决状态。
+If you have the original bundle, extract into a new directory and use the helper against `runs/dev/enhanced`: `view --brief deliverables/brief.json`; add `--details` for full text. Summary and details must share the observation; if they differ, recheck. `check` exits 1 while Mei's decision remains pending. For a reproducible example from a public checkout alone, use the [repository demo builder](../README.md); it exercises stale evidence and feedback, not the original four-arm experiment.

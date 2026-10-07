@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.2 — 2026-10-07
+
+- Turn the collaboration principle into practical task ownership, completion expectations and portable installation/direct-path instructions.
+- Use English for built-in delivery-view labels and current example guidance; preserve original source text, Unicode fixtures and historical evidence.
+- Verify isolated folder use and existing task checks without claiming natural activation, browser QA or comparative time savings.
+
 ## 0.7.1 — 2026-10-06 (local, unpublished)
 
 - Return the documented JSON input error for malformed checkpoint containers/revision histories, preserving the invalid input for diagnosis.

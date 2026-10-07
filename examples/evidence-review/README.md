@@ -1,8 +1,14 @@
 # Evidence review examples
 
-Current entry: [gap07 HTML](gap07-mvp/review.html), [compact text](gap07-mvp/review.txt), [full evidence text](gap07-mvp/review-details.txt), and [provenance](gap07-mvp/README.md). These are synthetic snapshots, not live task state or real user approval.
+To generate the current English review interface from a public checkout, run from the repository root with a new output directory:
 
-`build_demo.py` remains a repository-only generator for a smaller stale-receipt mechanism demonstration. Run it with a new output directory; it does not rebuild the current gap07 delivery example.
+```sh
+python3 examples/evidence-review/build_demo.py /tmp/my-gap-review-demo
+```
+
+The builder refuses to overwrite an existing directory. Open its `review.html` in a browser, or inspect `review.txt`. It creates a synthetic stale receipt and a pending owner decision using actual local helper calls; no external action is performed. This is a reproducible mechanism demonstration, not a browser or human-comprehension test.
+
+The retained [gap07 HTML](gap07-mvp/review.html), [compact text](gap07-mvp/review.txt), [full text](gap07-mvp/review-details.txt) and [provenance guide](gap07-mvp/README.md) are historical 0.7.0 snapshots with original Chinese text and labels. They preserve the earlier experiment; the builder does not recreate that experiment.
 
 ## Historical examples and recovery
 

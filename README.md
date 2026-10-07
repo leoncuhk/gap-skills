@@ -4,13 +4,9 @@
 
 **One skill, one adaptive path from intent to verified delivery.**
 
-项目愿景：
+`gap` helps a coding agent carry work from a requested outcome to a checked result. You own the purpose, value tradeoffs and decisions that require human responsibility. The agent investigates the repository, implements, tests, resumes from actual state and closes the task with evidence. When your judgment is needed, it explains the options and their consequences.
 
-> 人主要负责目的、价值取舍和必须由人承担的判断。AI应该承担查证、实施、测试、状态接续和收尾的大部分劳动，并把需要人介入的部分讲清楚。真正实现人机协作方式：让人与AI组成一个能把真实工作持续做得更好的协作系统，并把有效经验留下来，让下一次更好。
-
-这是设计目标；持续改善真实工作及减少人力负担仍需实际任务证据验证。
-
-`gap` combines the useful mechanisms behind unknown discovery, structured interviewing, specification, work slicing, plan-conditioned implementation, evidence-backed review, human approval gates, incident feedback, and agent-environment retrospectives. Developers install and invoke one skill; the skill loads only the branch the current task needs.
+The aim is less correction, repeated checking and handoff work for you. Useful experience should inform later tasks only when its scope and results support it. These are design goals: installing a skill does not prove saved time or enable automatic self-improvement.
 
 It does not force every task through a full lifecycle. It routes work by ambiguity, scale, and risk:
 
@@ -41,6 +37,8 @@ It does not force every task through a full lifecycle. It routes work by ambigui
 | Diagrams and other HTML | Guidance for choosing a source-backed form | Agent-authored SVG/Mermaid/HTML per task; no bundled generic diagram renderer, editor, hosting or visual QA |
 | Prior methods | Selected Matt and Thariq mechanisms with [lineage](NOTICE.md) | No claim to include their full suites; no identified Karpathy source mapping in this package |
 
+Normal skill use needs a compatible agent and its project tools. Python 3.10+ is needed only for optional helpers. A browser is needed to use generated HTML; JavaScript enables local feedback export. Node is not a gap runtime dependency. Diagrams need the chosen viewer or host rendering support; no additional skill is required.
+
 Isolated folder/manifest/helper checks establish package self-containment. They do not establish natural activation in Codex/Claude, and no global installation was performed. See the [final review and reference assessment](tests/results/2026-10-06-gap-final.md).
 
 ## Why one skill
@@ -64,48 +62,67 @@ The user should not memorize or coordinate a collection of overlapping process s
 | [`scripts/validate.py`](scripts/validate.py) | Deterministic package, documentation, and evaluation-contract validation. |
 | [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json), [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) | Platform-specific manifests for the same `gap` skill. |
 
-## Install
+## Start on another machine
 
-The verified 0.7.1 changes are local and unpublished. To use this exact version, copy the local `skills/gap` folder or ask the agent to read its `SKILL.md`. The remote installer below uses the published repository, which may differ.
+Clone once into a directory you choose. These are POSIX shell commands (macOS/Linux, or a compatible shell):
 
-Install from the repository with a compatible skill installer:
-
-```bash
-npx skills add leoncuhk/gap-skills
+```sh
+git clone https://github.com/leoncuhk/gap-skills.git
+cd gap-skills
+gap_source="$(pwd)/skills/gap"
+printf '%s\n' "$gap_source/SKILL.md"
 ```
 
-Or install the single folder directly:
+Choose one of these routes. The whole `skills/gap` folder is self-contained; copying only `SKILL.md` loses its references and helpers.
 
-- Claude Code: place `skills/gap` in the supported project or user skill location.
-- Codex repository scope: copy or symlink `skills/gap` to `.agents/skills/gap`.
-- Codex user scope: copy or symlink `skills/gap` to `$HOME/.agents/skills/gap`.
+**Install for a project.** From the same shell, set your project's absolute path and choose its host:
 
-The repository also includes Claude and Codex plugin manifests. Platform-specific settings and enforcement remain platform-specific; the shared workflow does not pretend one harness's hooks control another.
+```sh
+project_dir="/absolute/path/to/your/project"
+skill_parent="$project_dir/.agents/skills"   # Codex
+# For Claude Code instead: skill_parent="$project_dir/.claude/skills"
+if [ -d "$project_dir" ] && [ ! -e "$skill_parent/gap" ] && [ ! -L "$skill_parent/gap" ]; then
+  mkdir -p "$skill_parent" && cp -R "$gap_source" "$skill_parent/gap"
+else
+  printf '%s\n' 'Check the project path and existing gap installation before copying.'
+fi
+```
 
-## Use
+Start the agent in that project and invoke `$gap` in Codex or `/gap` in Claude Code. If it is not listed, check the location and your host's skill settings; restart the session if needed. Implicit activation is host/model-dependent. See the official [Codex skill locations](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills) and [Claude Code skill locations](https://code.claude.com/docs/en/skills#where-skills-live).
 
-State the development task normally. `gap` may activate for ambiguous, multi-step, risky, governed, review, incident, or environment-improvement work. It deliberately skips simple well-scoped edits and one-lookup questions.
-
-Invoke it explicitly when desired. Codex uses `$gap`; Claude Code uses `/gap`:
+**Use without installing.** Copy the absolute path printed above into a normal message in your project's agent session:
 
 ```text
-Codex:       $gap assess and deliver this change using the smallest trustworthy path
-Claude Code: /gap assess and deliver this change using the smallest trustworthy path
+Read and follow <absolute-path-to-gap-skills>/skills/gap/SKILL.md.
+Goal: <the task and observable success conditions>.
+Preserve: <existing behavior, data definitions and scope boundaries>.
+Investigate, implement, test, resume from actual state and finish the work.
+Bring me the purpose, value tradeoffs and judgments I must own, with options
+and consequences. Report the result, actual checks and any remaining boundary.
 ```
 
-Without installation, ask the agent to read this repository’s `skills/gap/SKILL.md` and complete the task using it. `$gap` and `/gap` require the corresponding installation; local package validation does not establish installation or automatic activation.
+The agent must be able to read that checkout and the relevant project files in its execution environment. A path on your laptop is not automatically accessible to a remote agent. This route does not register `$gap` or `/gap` and does not require them.
 
-Ordinary natural-language requests can also activate the skill when the harness supports implicit discovery. You never call separate planning, debugging, implementation, or review skills; `gap` loads those internal references only when the task needs them.
+To update a clean clone, run `git pull --ff-only` inside it. Direct-path use then reads the updated source; a copied installation stays at its old version until you deliberately replace it after checking for local changes. Use `git rev-parse HEAD` to record or match a version across machines. Existing compatible installers may also use `npx skills add leoncuhk/gap-skills`; that optional route needs Node/npm and was not exercised by our isolated folder checks.
 
-To adopt it in an existing project:
+The repository includes both plugin manifests. A Claude plugin installation uses the namespaced command `/gap-skills:gap`; the plain `/gap` examples here assume a skill-folder installation. Host-specific controls remain host-specific.
 
-```text
-$gap inspect this repository and propose a minimal adoption plan; do not change configuration yet
-```
+## Use for real development
 
-The adoption pass is read-only until the user approves exact project changes.
+State the work and success conditions; you do not need to select internal references or operate the helper yourself. After installation, use the prompts below (`/gap` for a Claude skill-folder install). Without installation, prepend the direct-path instruction above and omit `$gap`.
 
-See [EXAMPLES.md](EXAMPLES.md) for Quick, Standard, Governed, review, adoption, and retrospective examples, including executable Standard and review MVPs.
+| Situation | Short request | What to expect |
+|---|---|---|
+| New feature | `$gap Add team invitations following README.md; preserve existing identity rules and verify the lifecycle.` | Inspect the existing contract, ask only unresolved material choices, implement and test the requested behavior. |
+| Fix an existing project | `$gap Fix this reproducible bug: <steps and expected result>. Preserve unrelated behavior and show the failing and passing check.` | Investigate the cause, make a focused repair, verify through the real entry point. |
+| Resume another session | `$gap Continue <task> from its existing records and outputs. Preserve the goal; recheck stale claims and avoid repeating completed actions.` | Inspect actual state before continuing; report evidence gaps instead of blindly restarting. |
+| Review and hand off | `$gap Review this change against <requirements>. Report actual checks, deviations and decisions still needed. Do not publish.` | Separate correctness from intent fit, identify review independence, and distinguish ready output from pending judgment or external action. |
+
+For a clear, local, reversible fix, Quick means inspect → edit → run the relevant checks → report; no plan, ledger or checkpoint files. Simple edits also need no explicit skill invocation. A checkpoint becomes useful when work spans sessions or a changed input could make a prior passing result misleading. Use the project's existing records first; add a brief only when sources, differences or a real choice need explanation.
+
+On completion, expect usable output and evidence tied to the requested outcome, not just a finished process. The agent should name a real blocker, decision or authorization boundary when one remains, and retain only scoped experience supported by observed results. Check actual correction and review effort over subsequent work before concluding that gap helps more than your existing agent setup.
+
+See [EXAMPLES.md](EXAMPLES.md) for executable feature/review fixtures and the [evidence review example](examples/evidence-review/README.md) for a source-backed handoff. Adopting gap does not require rewriting project configuration; ask for a read-only adoption proposal first if configuration changes are wanted.
 
 ## Resume or close a multi-session task
 
@@ -113,7 +130,7 @@ See [EXAMPLES.md](EXAMPLES.md) for Quick, Standard, Governed, review, adoption, 
 $gap continue this task from the actual artifacts and latest evidence. Preserve the original goal and data definitions; recheck only invalidated claims, then report what is ready and what still needs a decision.
 ```
 
-Version 0.7.1 includes an optional Python 3.10+ checkpoint helper **inside** the installed skill folder. It binds actual receipts to the purpose, semantic contract and files, preserving revisions and distinguishing run termination from artifact readiness. See [delivery.md](skills/gap/references/delivery.md) for the short CLI procedure. It neither runs an agent nor certifies business truth, external actions or reviewer identity. Quick tasks still create no process files. No global installation is required to test the helper.
+Version 0.7.2 includes an optional Python 3.10+ checkpoint helper **inside** the installed skill folder. It binds actual receipts to the purpose, semantic contract and files, preserving revisions and distinguishing run termination from artifact readiness. See [delivery.md](skills/gap/references/delivery.md) for the short CLI procedure. It neither runs an agent nor certifies business truth, external actions or reviewer identity. Quick tasks still create no process files. No global installation is required to test the helper.
 
 Use `view` for a concise text checkpoint or `view --format html --output <new-file>` for an offline evidence/feedback surface. Returned feedback is bound to current file identity and is never an approval. See [communication.md](skills/gap/references/communication.md). Text is the default; diagrams show relationships, HTML supports inspection, and video needs a real motion/procedure requirement.
 
@@ -136,6 +153,8 @@ Existing trackers and documentation conventions win. Defaults are provided only 
 Temporary state is removed only after unresolved environment problems, meaningful deviations, and durable decisions have been promoted. Accepted plans and approvals needed for review or audit are retained.
 
 ## Evidence and limits
+
+The [0.7.2 portability check](tests/results/2026-10-07-portable-use.md) covers English guidance, isolated folder installs and actual local usage checks. Historical task inputs, quotations and reports retain their original language and identities.
 
 Repository validation checks packaging, documentation links, references, manifests, invocation metadata, templates, and workflow invariants. Behavioral evaluation includes positive and negative activation cases, executable Quick, Standard-delivery, and standalone-review fixtures, plus declared Governed/adoption/retrospective scenarios. These checks show that the implementation is coherent and that planted review defects are detectable; the Governed scenario and comparative effectiveness still require retained harness and real-work results.
 

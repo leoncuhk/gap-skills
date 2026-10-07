@@ -39,13 +39,13 @@ def render_text(data, details=False):
         if details:
             lines += ['Historical use result: ' + json.dumps(experience.get('result', {'outcome': 'unverified'}), ensure_ascii=False)]
     if details:
-        lines += ['', '## 证据目录（同一回执只保留一次）']
+        lines += ['', '## Evidence directory — each receipt once']
         lines += [f"[{file['anchor']}] {file['path']} | recorded: {file['target']} {file['sha256']} | current: {file['current']}" for file in evidence]
         lines += [f"Source: {data['source']} | Contract revision: {data['revision']}",
                   f"Observation: {data['observation_sha256']}"]
     else:
         lines += ['', f"Observation: {data['observation_sha256']} | Brief: {data.get('brief', {}).get('path', 'none')}",
-                  '完整原文、差异与回执：在同一条 view 命令加入 --details（保留相同 --brief；输出到新文件）。详情必须与本摘要Observation一致，否则先重新核查。反馈须引用observation和判据ID。']
+                  'For full sources, differences and receipts, add --details to the same view command (keep the same --brief; write a new file). Details must share this summary’s observation; otherwise recheck first. Feedback must reference the observation and criterion ID.']
     lines += ['', 'Feedback is review input, not authorization.', data['limits']]
     return '\n'.join(lines) + '\n'
 

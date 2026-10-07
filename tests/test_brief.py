@@ -69,7 +69,7 @@ class BriefCLITests(unittest.TestCase):
         self.brief();obs,_=self.render('review.html');self.payload(obs)
         self.write('before.txt','错误：21张\n来源新修订')
         self.cli('feedback','--brief','brief.json','--file','feedback.json',expected=2)
-        fresh,html=self.render('stale.html');self.assertIn('说明已过期',html)
+        fresh,html=self.render('stale.html');self.assertIn('Brief is stale; recheck sources:',html)
         self.payload(fresh)
         self.cli('feedback','--brief','brief.json','--file','feedback.json',expected=2)
         data=self.brief();obs,_=self.render('fresh.html');self.payload(obs)
